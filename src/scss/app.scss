@@ -13,21 +13,33 @@
     --html-font-size: #{$html-font-size-xl};
     --html-line-height: #{$html-line-height-xl};
   
-    --caption-font-size: #{$caption-font-size};
-  
     --font-heading: #{$fontHeading};
     --font-body: #{$fontBody};
+
+    --background: #{$color-brand-white};
+    --background-light: #{$color-default-white};
+    --background-dark: #{$color-gray};
+
+    --background-primary-element: #{$color-default-white};
+    --header-height: #{$header-height};
 
     --color-brand-orange: #{$color-brand-orange};
     --color-brand-purple: #{$color-brand-purple};
     --color-brand-white: #{$color-brand-white};
     --color-brand-black: #{$color-brand-black};
+    --color-default-white: #{$color-default-white};
+    --color-dark-gray: #{$color-dark-gray};
+    --color-gray: #{$color-gray};
+    --color-light-gray: #{$color-light-gray};
+    --color-default-shadow: #{$color-default-shadow};
 
     --breakpoint-xs-width: #{$breakpoint-xs-width};
     --breakpoint-s-width: #{$breakpoint-s-width};
     --breakpoint-m-width: #{$breakpoint-m-width};
     --breakpoint-l-width: #{$breakpoint-l-width};
     --breakpoint-xl-width: #{$breakpoint-xl-width};
+
+    --font-color: #{$color-brand-black};
 
     --col-gap: 2rem;
 
@@ -37,15 +49,23 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   html {
-    color: $color-dark-gray;
+    background-color: var(--background);
+    color: $color-brand-black;
     font-family: $fontBody;
     font-size: calc(#{var(--html-font-size)} * 1px);
     line-height: calc(#{var(--html-line-height)} * 1px);
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+
+    ::selection {
+      color: white;
+      background: var(--color-brand-orange);
+    }
   
     @include large-break {
       @at-root {
@@ -144,3 +164,26 @@ body {
     }
   }
   
+  .dark {
+    --font-color: #{$color-brand-white};
+
+    --background-primary-element: #{$color-dark-gray};
+
+    --background: #{$color-brand-black};
+
+    --color-dark-gray: #{$dark-color-dark-gray};
+    --color-gray: #{$dark-color-gray};
+    --color-light-gray: #{$dark-color-light-gray};
+    --color-default-shadow: #{$dark-color-default-shadow};
+
+    body {
+      background-color: var(--background);
+      color: var(--font-color);
+      font-family: var(--font-body);
+      
+    ::selection {
+      color: white;
+      background: var(--color-brand-purple);
+    }
+    }
+  }

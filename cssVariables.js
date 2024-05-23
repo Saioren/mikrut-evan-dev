@@ -1,4 +1,4 @@
-module.exports = {
+const cssVariables = {
   breakpoints: {
     s: 768,
     m: 1024,
@@ -6,4 +6,6 @@ module.exports = {
     l: 1679,
     xl: 1920
   }
-}
+};
+
+export default cssVariables;

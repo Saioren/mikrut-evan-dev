@@ -1,0 +1,5 @@
+@use '../../../scss/common.scss' as *;
+
+.hero {
+    padding-top: var(--header-height);
+}

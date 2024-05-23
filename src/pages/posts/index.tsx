@@ -1,12 +1,7 @@
-import PostsComponent from '@/components/Posts'
 import React from 'react'
 
 const PostsPage = () => {
-  return (
-    <div>
-      <PostsComponent />
-    </div>
-  )
+  return <div>test</div>
 }
 
 export default PostsPage

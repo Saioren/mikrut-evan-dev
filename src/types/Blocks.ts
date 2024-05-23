@@ -1,4 +1,4 @@
-import { TestBlock } from "./TestBlock"
+import { TestBlock } from "./Page/TestBlock"
 
 type Block = TestBlock
   
