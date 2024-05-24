@@ -1,10 +1,25 @@
-import Page from './[...slug]'
-import { getStaticProps as sharedGetStaticProps } from './[...slug]'
 import { GetStaticProps } from 'next'
+import { fetchPageData } from '@/requests'
+import { Hero } from '@/layout/Hero'
+import Blocks from '@/layout/Blocks'
+import Meta from '@/components/Meta'
+import { PageType } from '@/types/Page/types'
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const func = sharedGetStaticProps.bind(this)
-  return func(ctx)
+const HomePage: React.FC<PageType> = ({ layout, hero, meta }) => {
+  return (
+    <main>
+      <Meta {...meta} />
+      <div id="page-content">
+        <Hero {...hero} />
+        <Blocks blocks={layout} />
+      </div>
+    </main>
+  )
 }
 
-export default Page
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await fetchPageData('home')
+  return { props: data }
+}
+
+export default HomePage

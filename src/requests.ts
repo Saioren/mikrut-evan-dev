@@ -11,13 +11,21 @@ export const getByID = async ({
   let doc = null;  // must use null, undefined cannot be serialized as JSON from getStaticProps
 
   if (typeof id === 'string') {
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}/${id}?depth=1`);
-    const data = await req.json();
-    doc = data;
+    try {
+      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}/${id}?depth=1`);
+      if (req.ok) {
+        doc = await req.json();
+      } else {
+        console.error(`Failed to fetch by ID: ${req.statusText} (status ${req.status})`);
+      }
+    } catch (error) {
+      console.error('Error fetching by ID:', error);
+    }
   }
 
   return doc;
 }
+
 
 export const getBySlug = async ({
   collection,
@@ -30,28 +38,46 @@ export const getBySlug = async ({
 
   if (typeof slug === 'string') {
     const lowerCaseSlug = slug.toLowerCase(); // NOTE: let the url be case insensitive
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}?where[slug][equals]=${lowerCaseSlug}&limit=1&depth=0`);
-    const data = await req.json();
-    const {
-      docs: [firstDoc]
-    } = data;
-    doc = firstDoc;
+    try {
+      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}?where[slug][equals]=${lowerCaseSlug}&limit=1&depth=0`);
+      if (req.ok) {
+        const data = await req.json();
+        const { docs: [firstDoc] } = data;
+        doc = firstDoc;
+      } else {
+        console.error(`Failed to fetch by slug: ${req.statusText} (status ${req.status})`);
+      }
+    } catch (error) {
+      console.error('Error fetching by slug:', error);
+    }
   }
 
   return doc;
 }
 
+
 export const getAllGlobals = async (): Promise<{
   footer: Footer
 }> => {
-  const [
-    footer,
-  ] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=1`).then((res) => res.json()),
-  ]);
+  try {
+    const [footer] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=1`).then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch footer: ${res.statusText} (status ${res.status})`);
+        }
+        return res.json();
+      }),
+    ]);
 
-  return {
-    footer,
+    return { footer };
+  } catch (error) {
+    console.error('Error fetching globals:', error);
+    return { footer: null }; // Return a default or null value if fetching fails
   }
 }
 
+export async function fetchPageData(slug: string) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`);
+  const data = await res.json();
+  return data.docs[0];
+}

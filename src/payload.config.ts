@@ -10,6 +10,7 @@ import Users from './app/(payload)/collections/Users/index'
 import Media from './app/(payload)/collections/Media/index'
 import Pages from './app/(payload)/collections/Pages'
 import SkillsCollection from './app/(payload)/collections/Skills'
+import Footer from './app/(payload)/globals/Footer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -19,6 +20,9 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Users, Media, Pages, SkillsCollection],
+  globals: [
+    Footer,
+  ],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',

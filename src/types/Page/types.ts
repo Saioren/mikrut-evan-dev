@@ -1,22 +1,22 @@
-import { Media } from '@/types/Media/types';
-import { Meta } from '@/types/Meta/types';
 import { HeroType as Hero } from '@/types/Hero/types';
 import { Blocks } from '@/types/Blocks/types'
-import { User } from '@/types/User/types';
+import { Meta } from '../Meta/types';
 
-export type Page = {
-  id: string
-  title: string
-  hero: Hero
-  showBreadcrumbs?: boolean,
-  slug: string
-  image?: Media
-  layout: Blocks
-  meta: Meta
-  excerpt?: string
-  parent?: Page | string
-  author: User
-  updatedAt?: string
-  appUrl?: string
-  isPasswordProtected?: boolean
+export type PageType = {
+  meta: Meta;
+  id: string;
+  title: string;
+  hero: Hero;
+  layout: Blocks;
+  slug: string;
+  author: {
+    id: string;
+    email: string;
+    createdAt: string;
+    updatedAt: string;
+    loginAttempts: number;
+  };
+  _status: string;
+  createdAt: string;
+  updatedAt: string;
 }

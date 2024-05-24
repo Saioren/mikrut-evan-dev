@@ -1,4 +1,4 @@
-import { Page } from "../Page/types";
+import { PageType } from "../Page/types"
 
 export type LinkAppearances = 'primary' | 'secondary' | 'tertiary'
 
@@ -8,8 +8,12 @@ export type Link = {
   label?: string
   reference?: {
     relationTo: 'pages'
-    value: Page| 'null'
+    value: PageType| 'null'
   }
   url?: string
   newTab?: boolean
 }
+
+export type LinkGroup = {
+  link: Link
+}[]
