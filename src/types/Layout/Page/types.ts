@@ -1,6 +1,6 @@
-import { HeroType as Hero } from '@/types/Hero/types';
+import { Hero } from '@/types/Layout/Hero/types';
 import { Blocks } from '@/types/Blocks/types'
-import { Meta } from '../Meta/types';
+import { Meta } from '../../Fields/Meta/types';
 
 export type PageType = {
   meta: Meta;

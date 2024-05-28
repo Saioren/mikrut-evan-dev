@@ -20,16 +20,19 @@
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "cross-env": "^7.0.3",
+    "escape-html": "^1.0.3",
     "graphql": "^16.8.1",
     "next": "^14.3.0-canary.7",
     "payload": "beta",
     "react": "beta",
     "react-dom": "beta",
-    "sharp": "0.32.6"
+    "sharp": "0.32.6",
+    "slate": "^0.103.0"
   },
   "devDependencies": {
+    "@types/escape-html": "^1.0.4",
     "@types/node": "^20.11.25",
-    "@types/react": "beta",
+    "@types/react": "18.3.3",
     "@types/react-dom": "beta",
     "dotenv": "^16.4.5",
     "tsx": "^4.7.1",

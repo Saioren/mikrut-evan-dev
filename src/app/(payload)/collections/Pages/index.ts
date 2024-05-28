@@ -1,10 +1,10 @@
-import StandardHero from "../../fields/Hero";
 import CarouselBlock from "../../blocks/Carousel";
 import EmailBlock from "../../blocks/Email";
 import SkillsBlock from "../../blocks/Skills";
 import TimelineBlock from "../../blocks/Timeline";
 import { CollectionConfig } from "payload/types";
 import { slugField } from "../../fields/Slug";
+import { Hero } from "../../fields/Heroes";
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -34,7 +34,7 @@ const Pages: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    StandardHero,
+    Hero,
     {
       name: 'layout',
       label: 'Page Layout',

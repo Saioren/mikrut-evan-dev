@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { blocks as allBlocks } from '../../blocks'
 import kebabCase from 'lodash/kebabCase'
 import Margin from '../../components/Margin'
-import { BlocksType } from '@/types/Blocks'
+import { Blocks as BlocksType } from '@/types/Blocks/types'
 
 const Blocks: React.FC<{
   blocks: BlocksType

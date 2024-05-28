@@ -1,6 +1,6 @@
 import React from 'react'
 import heroes from '@/components/Heroes'
-import { HeroType } from '@/types/Hero/types'
+import { Hero as HeroType } from '@/types/Layout/Hero/types'
 
 type Props = HeroType
 

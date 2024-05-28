@@ -1,4 +1,4 @@
-import { Footer } from "@/types/Footer/types";
+import { Footer } from "@/types/Layout/Footer/types";
 
 // TODO: if in preview mode, add payload token and ?draft=true to the request
 export const getByID = async ({

@@ -1,9 +1,9 @@
 import { Field } from "payload/types";
-import Content from "../../fields/Content";
-import Padding from "../Padding";
+import Content from "../../Content";
+import Padding from "../../Padding";
 
 const StandardHero: Field = {
-    name: 'standardHero',
+    name: '',
     type: 'group',
     fields: [
         Padding,

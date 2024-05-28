@@ -1,4 +1,4 @@
-import { Media } from '@/types/Media/types';
+import { Media } from '@/types/Fields/Media/types';
 
 export type Meta = {
   title?: string

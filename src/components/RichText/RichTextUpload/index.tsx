@@ -1,10 +1,10 @@
 import React from 'react'
 //import { Media } from '@components/Media';
-import { Media as MediaType } from '@/types/Media/types'
+import { Media as MediaType } from '@/types/Fields/Media/types'
 import classes from './index.module.scss'
-import { Link as LinkType } from '@/types/Link/types'
-import { RichTextNode } from '@/types/RichText/types'
-import { RichText as RichTextType } from '@/types/RichText/types'
+import { Link as LinkType } from '@/types/Fields/Link/types'
+import { RichTextNode } from '@/types/Fields/RichText/types'
+import { RichText as RichTextType } from '@/types/Fields/RichText/types'
 import { RichText } from '..'
 import { Hyperlink, HyperlinkProps } from '@/components/Hyperlink'
 

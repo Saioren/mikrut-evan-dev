@@ -3,7 +3,7 @@ import { fetchPageData } from '@/requests'
 import { Hero } from '@/layout/Hero'
 import Blocks from '@/layout/Blocks'
 import Meta from '@/components/Meta'
-import { PageType } from '@/types/Page/types'
+import { PageType } from '@/types/Layout/Page/types'
 
 const HomePage: React.FC<PageType> = ({ layout, hero, meta }) => {
   return (

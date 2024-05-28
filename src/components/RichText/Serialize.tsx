@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import escapeHTML from 'escape-html'
 import { Text } from 'slate'
-import { RichTextNode } from '@/types/RichText/types'
+import { RichTextNode } from '@/types/Fields/RichText/types'
 import classes from './index.module.scss'
 //import { Media } from '@components/Media';
 import { Hyperlink, HyperlinkProps } from '../Hyperlink'
-import { Media as MediaType } from '@/types/Media/types'
+import { Media as MediaType } from '@/types/Fields/Media/types'
 import { RichTextUpload, RichTextUploadNodeType } from './RichTextUpload'
 
 export type RichTextRenderers = {

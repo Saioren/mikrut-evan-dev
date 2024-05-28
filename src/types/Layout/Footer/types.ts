@@ -1,4 +1,4 @@
-import { Link } from '@/types/Link/types';
+import { Link } from '@/types/Fields/Link/types';
 
 export type FooterMenuLink = {
   appearance?: 'primary' | 'secondary' | 'tertiary'

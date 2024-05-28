@@ -1,9 +1,12 @@
-import { TestBlock } from "../Page/TestBlock"
+import { Carousel } from "./Carousel/types"
+import { Skills } from "./Skills/types"
 
-export type BlockTypes = 'testBlock'
+
+export type BlockTypes = 'skillsBlock' | 'carouselBlock'
 
 export type Block = (
-    TestBlock
+    Skills |
+    Carousel
 )
 
 export type Blocks = Block[]

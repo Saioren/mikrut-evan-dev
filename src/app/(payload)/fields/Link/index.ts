@@ -1,6 +1,6 @@
 import { Field } from "payload/types";
 import { deepMerge } from "payload/utilities";
-import { LinkAppearances } from "@/types/Link/types";
+import { LinkAppearances } from "@/types/Fields/Link/types";
 
 export const appearanceOptions = {
   primary: {

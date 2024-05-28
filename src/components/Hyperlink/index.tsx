@@ -1,4 +1,4 @@
-import { Link as LinkType } from '@/types/Link/types'
+import { Link as LinkType } from '@/types/Fields/Link/types'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { CSSProperties } from 'react'

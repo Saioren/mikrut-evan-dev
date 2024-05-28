@@ -1,0 +1,1 @@
+export type Padding = 'small' | 'medium' | 'large'
