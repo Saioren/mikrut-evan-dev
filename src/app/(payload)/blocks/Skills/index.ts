@@ -10,6 +10,10 @@ const SkillsBlock: Block = {
         singular: 'Skill Block',
     },
     fields: [
+        {
+            name: 'header',
+            type: 'text',
+        },
         Padding,
         Position,
         Content,

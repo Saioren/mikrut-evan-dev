@@ -6,6 +6,7 @@ import ThemeContextProvider from '@/providers/ThemeContext'
 
 import '../scss/app.scss'
 import Header from '@/layout/Header'
+import Gutter from '@/components/Gutter'
 
 const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
   const { Component, pageProps } = appProps
@@ -49,7 +50,9 @@ const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
           }}
         >
           <Header />
-          <Component {...pageProps} />
+          <Gutter>
+            <Component {...pageProps} />
+          </Gutter>
           {/*<Footer />*/}
         </GridProvider>
       </ThemeContextProvider>

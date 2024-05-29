@@ -1,0 +1,14 @@
+@use '../../scss/common.scss' as *;
+
+.gutter {
+    padding: 0 base(4);
+    @include large-break {
+        padding: 0 base(3);
+    }
+    @include mid-break {
+        padding: 0 base(2);
+    }
+    @include small-break {
+        padding: base();
+    }
+}

@@ -9,11 +9,11 @@ export const appearanceOptions = {
   },
   secondary: {
     label: 'Secondary',
-    value: 'secondaryButton',
+    value: 'secondary',
   },
   tertiary: {
     label: 'Tertiary',
-    value: 'tertiaryButton',
+    value: 'tertiary',
   },
 };
 

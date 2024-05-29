@@ -1,13 +1,18 @@
-import { Link } from '@/types/Fields/Link/types';
-
-export type FooterMenuLink = {
-  appearance?: 'primary' | 'secondary' | 'tertiary'
-  label?: string
-  useLink?: boolean
-  link?: Link
-}
+import { ImageLinkGroup } from "@/types/Fields/ImageLink/types";
 
 export type Footer = {
-  column1?: FooterMenuLink[]
-  column2?: FooterMenuLink[]
+  linkBlock: LinkBlock;
+  copyrightBlock: CopyrightBlock;
+}
+
+type LinkBlock = {
+  linkBlockLabel: string;
+  links?: ImageLinkGroup;
+}
+
+type CopyrightBlock = {
+  copyrightLabel: string;
+  copyrightBody: string;
+  linkText: string;
+  copyrightLinks?: ImageLinkGroup;
 }

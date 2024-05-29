@@ -3,7 +3,7 @@ import Content from "../../Content";
 import Padding from "../../Padding";
 
 const StandardHero: Field = {
-    name: '',
+    name: 'standardHero',
     type: 'group',
     fields: [
         Padding,

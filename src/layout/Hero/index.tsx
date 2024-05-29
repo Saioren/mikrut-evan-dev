@@ -6,17 +6,16 @@ type Props = HeroType
 
 export const Hero: React.FC<Props> = (props) => {
   const { type } = props
-  console.log('Hero component props:', props) // Debugging line
 
   if (type && type in heroes) {
     const SelectedHero = heroes[type]
-    const heroProps = props[type]
-    console.log('SelectedHero:', SelectedHero, 'heroProps:', heroProps) // Debugging line
+    const heroProps = props[type] // heroProps will be the content of the specific hero type
 
     return (
       // @ts-ignore because of the 'type' key not aligning across hero types
       <SelectedHero {...heroProps} />
     )
   }
+
   return null
 }

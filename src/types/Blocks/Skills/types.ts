@@ -6,8 +6,11 @@ import { RichText } from "../../Fields/RichText/types";
 export type Skills = {
     blockType?: 'skillsBlock';
     blockName?: string;
+    header: string;
     padding: Padding;
     position: Position;
-    richText?: RichText;
-    links?: LinkGroup;
+    content: {
+        richText?: RichText;
+        links?: LinkGroup;
+      }
 }

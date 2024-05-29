@@ -1,5 +1,5 @@
 import { GlobalConfig } from 'payload/types';
-import link from '../../fields/Link';
+import { ImageLink } from '../../fields/ImageLink';
 
 const Footer: GlobalConfig = {
   slug: 'footer',
@@ -9,90 +9,55 @@ const Footer: GlobalConfig = {
   fields: [
     {
       name: 'linkBlock',
+      type: 'group',
       label: 'Link Block',
-      labels: {
-        singular: 'Footer Item',
-        plural: 'Footer Items',
-      },
-      type: 'array',
       fields: [
         {
-          name: 'appearance',
-          type: 'radio',
-          defaultValue: 'secondary',
-          options: [
-            {
-              label: 'Primary',
-              value: 'primary',
-            },
-            {
-              label: 'Secondary',
-              value: 'secondary',
-            },
-            {
-              label: 'Tertiary',
-              value: 'tertiary',
-            },
-          ],
-          admin: {
-            layout: 'horizontal',
-          },
-        },
-        {
+          name: 'linkBlockLabel',
           type: 'text',
-          name: 'label',
-          label: 'Label',
         },
         {
-          type: 'checkbox',
-          name: 'useLink',
-          label: 'Use Link',
+          name: 'links',
+          type: 'array',
+          labels: {
+            singular: 'Link',
+            plural: 'Links',
+          },
+          fields: [
+            ImageLink,
+          ]
         },
-        link({
-          appearances: false,
-        }),
       ],
     },
     {
       name: 'copyrightBlock',
+      type: 'group',
       label: 'Copyright Block',
-      type: 'array',
-      labels: {
-        singular: 'Footer Item',
-        plural: 'Footer Items',
-      },
       fields: [
         {
-          name: 'appearance',
-          type: 'radio',
-          defaultValue: 'secondary',
-          options: [
-            {
-              label: 'Secondary',
-              value: 'secondary',
-            },
-            {
-              label: 'Tertiary',
-              value: 'tertiary',
-            },
-          ],
-          admin: {
-            layout: 'horizontal',
-          },
-        },
-        {
+          name: 'copyrightLabel',
           type: 'text',
-          name: 'label',
-          label: 'Label',
         },
         {
-          type: 'checkbox',
-          name: 'useLink',
-          label: 'Use Link',
+          name: 'copyrightBody',
+          type: 'textarea',
         },
-        link({
-          appearances: false,
-        }),
+        {
+          name: 'linkText',
+          type: 'text',
+        },
+        {
+          name: 'copyrightLinks',
+          type: 'array',
+          labels: {
+            plural: 'Copyright Links',
+            singular: 'Copyright Link',
+          },
+          fields: [
+            ImageLink,
+          ],
+        },
+        
       ],
     },
   ],

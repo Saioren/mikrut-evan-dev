@@ -1,20 +1,23 @@
-  export type RichTextNode = {
-    text?: string
-    type?: string
-    bold?: boolean
-    code?: boolean
-    italic?: boolean
-    underline?: boolean
-    strikethrough?: boolean
-    small?: boolean
-    indent?: boolean
-    url?: string
-    newTab?: boolean
-    children?: RichTextNode[]
-    relationTo?: 'locations' | string
-    value?: Location | unknown
-    source?: 'vimeo' | 'youtube' | string
-    id?: string
-  }
-  
-  export type RichText = RichTextNode[];
+// types/Fields/RichText/types.ts
+export type RichTextNode = {
+  type: string;
+  children: RichTextNode[];
+  text?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  small?: boolean;
+  code?: boolean;
+  format?: string;
+  direction?: string;
+  indent?: number;
+  version?: number;
+  url?: string;
+  relationTo?: string;
+  newTab?: boolean;
+};
+
+export type RichText = {
+  root: RichTextNode;
+};

@@ -11,9 +11,12 @@ export type SlideGroup = {
 export type Carousel = {
     blockType?: 'carouselBlock';
     blockName: string;
+    header: string;
     padding: Padding;
     position: Position;
-    richText?: RichText;
-    links?: LinkGroup;
+    content: {
+      richText?: RichText;
+      links?: LinkGroup;
+    }
     slides: SlideGroup;
 }

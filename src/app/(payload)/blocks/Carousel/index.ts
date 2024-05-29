@@ -9,6 +9,10 @@ const CarouselBlock: Block = {
         singular: 'Carousel',
     },
     fields: [
+        {
+            name: 'header',
+            type: 'text',
+        },
         Padding,
         Content,
         {

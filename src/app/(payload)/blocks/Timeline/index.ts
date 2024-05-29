@@ -1,31 +1,35 @@
 import { Block } from "payload/types";
 
 const TimelineBlock: Block = {
-    slug: 'timeline',
+    slug: 'timelineBlock',
     labels: {
         plural: 'Timelines',
         singular: 'Timeline',
     },
     fields: [
         {
-            name: 'timelineElement',
+            name: 'header',
+            type: 'text',
+        },
+        {
+            name: 'timelineElements',
             type: 'array',
-            label: 'Timeline Element',
+            label: 'Timeline Elements',
             fields: [
                 {
                     type: 'row',
                     fields: [
                         {
-                            name: 'timelineElementTitle',
+                            name: 'title',
                             type: 'text',
-                            label: "Timeline Element Title",
+                            label: "Title",
                             admin: {
                                 width: "50%",
                             },
                         },
                             {
-                                name: 'timelineElementDescription',
-                                label: 'Timeline Element Description',
+                                name: 'description',
+                                label: 'Description',
                                 type: 'textarea',
                                 admin: {
                                     width: "50%",
@@ -37,7 +41,7 @@ const TimelineBlock: Block = {
                     type: 'row',
                     fields: [
                         {
-                            name: 'timelineElementDate',
+                            name: 'date',
                             type: 'date',
                             admin: {
                                 width: "50%",
@@ -45,7 +49,7 @@ const TimelineBlock: Block = {
                         },
                         
                         {
-                            name: 'timelineElementIcon',
+                            name: 'icon',
                             type: 'upload',
                             relationTo: 'media',
                             admin: {

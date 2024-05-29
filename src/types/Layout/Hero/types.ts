@@ -6,14 +6,16 @@ type HeroTypes = 'standard'
 
 export type Hero = {
     type?: HeroTypes;
-    standard?: StandardHero;
-  }
-  
-  export type StandardHero = {
+    standardHero?: StandardHero; 
+}
+
+export type StandardHero = {
     type?: 'standard';
     padding: string;
     heading: string;
-    richText?: RichText;
-    links?: LinkGroup;
+    content: {
+        richText: RichText;
+        links: LinkGroup;
+    }
     heroImage: Media;
-  }
+}
