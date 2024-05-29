@@ -1,4 +1,5 @@
 import { Block } from "payload/types";
+import Padding from "../../fields/Padding";
 
 const TimelineBlock: Block = {
     slug: 'timelineBlock',
@@ -11,6 +12,7 @@ const TimelineBlock: Block = {
             name: 'header',
             type: 'text',
         },
+        Padding,
         {
             name: 'timelineElements',
             type: 'array',
@@ -52,6 +54,7 @@ const TimelineBlock: Block = {
                             name: 'icon',
                             type: 'upload',
                             relationTo: 'media',
+                            required: true,
                             admin: {
                                 width: "50%",
                             },

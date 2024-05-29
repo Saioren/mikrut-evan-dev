@@ -1,6 +1,7 @@
 import { Block } from "payload/types";
 import Content from "../../fields/Content";
 import Padding from "../../fields/Padding";
+import Position from "../../fields/Position";
 
 const CarouselBlock: Block = {
     slug: 'carouselBlock',
@@ -14,6 +15,7 @@ const CarouselBlock: Block = {
             type: 'text',
         },
         Padding,
+        Position,
         Content,
         {
             name: 'slides',
@@ -22,9 +24,15 @@ const CarouselBlock: Block = {
             minRows: 2,
             fields: [
                 {
-                    name: 'media',
+                    name: 'slide',
                     type: 'upload',
                     relationTo: 'media',
+                    required: true,
+                },
+                {
+                    name: 'alt',
+                    label: 'Alt Text',
+                    type: 'text',
                     required: true,
                 },
             ],

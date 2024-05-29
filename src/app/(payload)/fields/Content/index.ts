@@ -1,5 +1,6 @@
 import { Field } from "payload/types";
 import link from '../Link'
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 type Args = {
     name?: string,
@@ -20,10 +21,10 @@ const Content: Field = {
     fields: [
         {   
             name: 'richText',
-            label: 'Rich Text',
             type: 'richText',
+            editor: lexicalEditor({}),
         },
-                {
+        {
             name: 'links',
             label: 'Links',
             type: 'array',

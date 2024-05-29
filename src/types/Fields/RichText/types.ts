@@ -1,4 +1,3 @@
-// types/Fields/RichText/types.ts
 export type RichTextNode = {
   type: string;
   children: RichTextNode[];

@@ -1,5 +1,5 @@
 import { RichText } from "@/types/Fields/RichText/types";
-import { LinkGroup } from "@/types/Fields/Link/types";
+import { Link } from "@/types/Fields/Link/types";
 import { Media } from "@/types/Fields/Media/types";
 
 type HeroTypes = 'standard'
@@ -14,8 +14,8 @@ export type StandardHero = {
     padding: string;
     heading: string;
     content: {
-        richText: RichText;
-        links: LinkGroup;
+        richText?: RichText;
+        links?: Link[];
     }
     heroImage: Media;
 }

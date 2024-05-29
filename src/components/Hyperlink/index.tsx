@@ -1,11 +1,9 @@
+import { formatPermalink } from '@/utilities/formatPermalink' // Make sure this utility exists and works as expected
 import { Link as LinkType } from '@/types/Fields/Link/types'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { CSSProperties } from 'react'
 import classes from './index.module.scss'
-
-// NOTE: this component exists so that any element can be linked with a sanitized url, and conditionally passed through local routing
-// this adds consistency and safety to any links rendered through the app, in or outside a traditional button component
 
 export type HyperlinkProps = {
   href?: string
@@ -31,7 +29,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     className,
     href: hrefFromProps,
     children,
-    linkFromCMS, // send raw cms link data though this prop to have its href extracted
+    linkFromCMS,
     onMouseEnter,
     onMouseLeave,
     onClick,
@@ -44,21 +42,21 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     newTab: newTabFromProps,
   } = props
 
+  const { asPath } = useRouter()
+
   let href = hrefFromProps
   let openInNewTab = newTabFromProps
 
-  const { asPath, query: { category: currentCategory } = {} } = useRouter()
-
-  // links from the cms need to be extracted
   if (linkFromCMS) {
-    const { type, url, reference, newTab: newTabFromLink } = linkFromCMS
+    const { type, url, reference, newTab: newTabFromLink } = linkFromCMS.link
 
     if (type === 'reference' && reference) {
-      href = url
+      href = formatPermalink(reference) // Assume formatPermalink handles the formatting correctly
     }
 
-    if (type === 'custom') {
-      href = url
+    if (type === 'custom' && url) {
+      // Ensure the URL includes a protocol
+      href = url.match(/^https?:\/\//) ? url : `http://${url}`
     }
 
     if (newTabFromLink) {
@@ -75,7 +73,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
       classes.hyperlink,
       underline && classes.underline,
       underline !== true && underlineOnHover && classes.underlineOnHover,
-      dimOnHover && href && classes.dimOnHover, // only do when href is actually set
+      dimOnHover && href && classes.dimOnHover,
       display && classes[`display-${display}`],
       !href || (isOnPage && classes.disableCursor),
     ]
@@ -93,14 +91,20 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     return <span {...sharedProps}>{children}</span>
   }
 
-  const sanitizedHref = href // todo: sanitize the href as necessary (strip top-level domains, etc)
-  let isLocal = true // todo: check isLocalPath (to conditionally render a link or raw html anchor and open in new tab)
+  const sanitizedHref = href
 
-  if (sanitizedHref.startsWith('tel:') || sanitizedHref.startsWith('mailto:')) isLocal = false
+  let isLocal = true
+  if (
+    sanitizedHref.startsWith('tel:') ||
+    sanitizedHref.startsWith('mailto:') ||
+    sanitizedHref.match(/^https?:\/\//)
+  ) {
+    isLocal = false
+  }
 
   if (isLocal) {
     return (
-      <Link href={sanitizedHref} prefetch={false} scroll={false}>
+      <Link href={sanitizedHref} prefetch={false} scroll={false} legacyBehavior>
         <a {...sharedProps}>{children}</a>
       </Link>
     )

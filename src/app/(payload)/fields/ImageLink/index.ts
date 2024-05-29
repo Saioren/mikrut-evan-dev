@@ -1,5 +1,4 @@
 import { Field } from "payload/types";
-import { Image } from "../Image";
 
 export const ImageLink: Field = {
     name: 'imageLink',
@@ -57,6 +56,16 @@ export const ImageLink: Field = {
                 },
               ],
             },
-          Image,
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+          },
+          {
+              name: 'alt',
+              label: 'Alt Text',
+              type: 'text',
+              required: true,
+          },
     ]
 }

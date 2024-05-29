@@ -96,6 +96,26 @@ const Link: LinkType = ({
           },
         ],
       },
+      {
+        name: 'appearance',
+        label: 'Appearance',
+        type: 'select',
+        defaultValue: 'primary',
+        options: [
+         {
+            label: 'Primary',
+            value: 'primary',
+          },
+          {
+            label: 'Secondary',
+            value: 'secondary',
+          },
+          {
+            label: 'Tertiary',
+            value: 'tertiary',
+          },
+        ]
+      }
     ],
   };
 

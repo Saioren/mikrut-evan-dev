@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './index.module.scss'
 import Serialize, { RichTextOverrides, RichTextRenderers } from './Serialize'
-import { RichText as RichTextType } from '@/types/Fields/RichText/types'
+import { RichText as RichTextType } from '../../types/Fields/RichText/types'
 
 export const RichText: React.FC<{
   className?: string

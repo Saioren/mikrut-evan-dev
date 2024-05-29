@@ -3,10 +3,11 @@ import React from 'react'
 import { Media as MediaType } from '@/types/Fields/Media/types'
 import classes from './index.module.scss'
 import { Link as LinkType } from '@/types/Fields/Link/types'
-import { RichTextNode } from '@/types/Fields/RichText/types'
-import { RichText as RichTextType } from '@/types/Fields/RichText/types'
+import { RichTextNode } from '../../../types/Fields/RichText/types'
+import { RichText as RichTextType } from '../../../types/Fields/RichText/types'
 import { RichText } from '..'
 import { Hyperlink, HyperlinkProps } from '@/components/Hyperlink'
+import Media from '@/components/Media'
 
 export type RichTextUploadNodeType = {
   fields: {
@@ -61,7 +62,7 @@ export const RichTextUpload: React.FC<Props> = (props) => {
       className={[className, classes[`alignment-${fields?.alignment}`]].filter(Boolean).join(' ')}
     >
       <Wrap {...wrapProps}>
-        <Media layout="intrinsic" quality={75} mediaFromCMS={value as MediaType} />
+        <Media quality={75} mediaFromCMS={value as MediaType} />
         {fields?.caption && <RichText content={fields?.caption} className={classes.caption} />}
       </Wrap>
     </div>
