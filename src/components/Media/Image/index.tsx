@@ -8,21 +8,12 @@ export const ImageComponent: React.FC<Props> = (props) => {
 
   const [isLoading, setIsLoading] = React.useState(true)
 
-  console.log(mediaFromCMS)
-
   if (mediaFromCMS) {
-    const { width, height, absolutePath, filename, alt } = mediaFromCMS
-
-    let imageWidth = width
-    let imageHeight = height
-    let imageToUse = filename
+    const { width, height, url, alt } = mediaFromCMS
 
     const baseProps = {
       className: [classes.image].filter(Boolean).join(' '),
-      src:
-        absolutePath && imageToUse
-          ? imageToUse
-          : `${process.env.NEXT_PUBLIC_API_URL}/media/${imageToUse}`,
+      src: `${process.env.NEXT_PUBLIC_API_URL}${url}`, // Assuming `url` from API is a relative path
       alt,
       onClick,
       onLoad: () => {
@@ -39,11 +30,12 @@ export const ImageComponent: React.FC<Props> = (props) => {
         {useNextImage && (
           <Fragment>
             {/*<Image
-              src={`${process.env.NEXT_PUBLIC_API_URL}${mediaFromCMS.url}`}
-              width={imageWidth}
-              height={imageHeight}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
+              width={width}
+              height={height}
               quality={quality}
-              alt={mediaFromCMS.alt}
+              alt={alt}
+              onLoadingComplete={() => setIsLoading(false)}
         />*/}
           </Fragment>
         )}

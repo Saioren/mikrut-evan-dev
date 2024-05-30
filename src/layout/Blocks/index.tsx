@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { blocks as allBlocks } from '../../blocks'
 import kebabCase from 'lodash/kebabCase'
-import Margin from '../../components/Margin'
 import { Blocks as BlocksType } from '@/types/Blocks/types'
+import Padding from '../Padding'
 
 const Blocks: React.FC<{
   blocks: BlocksType
@@ -22,10 +22,13 @@ const Blocks: React.FC<{
 
             if (Block) {
               return (
-                <Margin top={index > 0 ? 'large' : undefined} bottom="large" key={index}>
+                <Padding
+                  paddingBottom={index === blocks.length - 1 ? 'large' : undefined}
+                  key={index}
+                >
                   {/* @ts-ignore */}
                   <Block id={kebabCase(blockName)} {...block} />
-                </Margin>
+                </Padding>
               )
             }
           }

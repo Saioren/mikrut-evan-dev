@@ -4,7 +4,35 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: transparent;
+    background-color: var(--background-primary-element);
     padding: base(0.5);
     position: fixed;
+    align-items: center;
+}
+
+.rightSide {
+    display: flex;
+    gap: base();
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    gap: base();
+    align-items: center;
+}
+
+.anchorButton {
+    background-color: var(--background-primary-element);
+    display: flex;
+    padding: base(0.25);
+    border-radius: 50%;
+    color: var(--font-color);
+}
+
+.contactButton {
+    background-color: var(--background-primary-element);
+    display: flex;
+    padding: base(0.25) base(0.5);
+    color: var(--font-color);
 }

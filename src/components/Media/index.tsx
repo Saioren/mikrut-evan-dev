@@ -8,14 +8,14 @@ export type Props = {
   onClick?: () => void
   onLoad?: () => void
   quality?: number
-  mediaFromCMS?: MediaType & {
-    absolutePath?: boolean
-  }
+  mediaFromCMS?: MediaType
   useNextImage?: boolean
 }
 
 export const Media: React.FC<Props> = (props) => {
   const { className, mediaFromCMS, htmlElement = 'div' } = props
+
+  console.log(mediaFromCMS)
 
   const Tag = (htmlElement as ElementType) || Fragment
   return (

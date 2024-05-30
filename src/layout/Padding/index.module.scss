@@ -1,0 +1,13 @@
+@use '@/scss/common' as *;
+
+.small {
+    padding: base(2) 0;
+}
+
+.medium {
+    padding: base() 0;
+}
+
+.large {
+    padding: base(2) 0;
+}

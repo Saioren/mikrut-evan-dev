@@ -167,9 +167,9 @@ body {
   .dark {
     --font-color: #{$color-brand-white};
 
-    --background-primary-element: #{$color-dark-gray};
+    --background-primary-element: #{$color-brand-black};
 
-    --background: #{$color-brand-black};
+    --background: #{$color-dark-gray};
 
     --color-dark-gray: #{$dark-color-dark-gray};
     --color-gray: #{$dark-color-gray};

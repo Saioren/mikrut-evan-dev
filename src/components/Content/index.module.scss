@@ -1,0 +1,10 @@
+@use '@/scss/common' as *;
+
+.heading {
+    font-family: 'Mosk', 'Montserrat', 'sans-serif';
+}
+
+.headingWrap {
+    background-color: var(--background-primary-element);
+    display: flex;
+}

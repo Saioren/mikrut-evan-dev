@@ -12,7 +12,7 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
       {slides.map((slide, i) => {
         return (
           <div key={i}>
-            <Media mediaFromCMS={slide} />
+            <Media mediaFromCMS={slide.slide} />
           </div>
         )
       })}

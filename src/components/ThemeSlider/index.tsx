@@ -1,23 +1,31 @@
 import React from 'react'
 import { useTheme } from '@/providers/ThemeContext'
+import { FaMoon } from 'react-icons/fa'
+import { BsSunFill } from 'react-icons/bs'
+import classes from './index.module.scss'
 
 const ThemeSlider = () => {
   const { theme, toggleTheme } = useTheme()
+
+  const dark = theme === 'dark'
 
   const handleToggleTheme = () => {
     toggleTheme()
   }
 
   return (
-    <div>
-      <label htmlFor="theme-slider">Toggle Theme</label>
-      <input
-        id="theme-slider"
-        type="checkbox"
-        checked={theme === 'dark'}
-        onChange={handleToggleTheme}
-      />
-    </div>
+    <button onClick={handleToggleTheme} className={classes.themeSlider}>
+      <div className={classes.themeContainer}>
+        <BsSunFill
+          style={{ transform: dark ? 'translateX(27px)' : 'translateX(0)' }}
+          className={`${classes.sun} ${classes.icon} ${dark ? classes.hidden : classes.visible}`}
+        />
+        <FaMoon
+          style={{ transform: dark ? 'translateX(27px)' : 'translateX(0)' }}
+          className={`${classes.moon} ${classes.icon} ${!dark ? classes.hidden : classes.visible}`}
+        />
+      </div>
+    </button>
   )
 }
 
