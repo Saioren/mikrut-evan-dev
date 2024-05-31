@@ -14,28 +14,32 @@ $breakpoint-xxl-width: 1920px;
 
 $color-brand-orange: #FA5F55;
 $color-brand-purple: #6961FA;
-$color-brand-white: #FBF9F7;
-$color-brand-black: #090808;
+$color-brand-white: #f4f4f5;
+$color-brand-black: #0a090b;
 
-$color-default-white: #ffff;
-$color-default-black: #0000;
+$color-white: #ffff;
+$color-black: #0000;
 
-$color-dark-gray: #0b0b0a;
+$color-dark-gray: #e9e9f6;
 $color-gray: #4e4949;
-$color-light-gray: #dad3d3;
+$color-light-gray: rgba(232, 230, 238, 0.8);
 
-$color-default-shadow: #EAEAEA;
+$color-default-shadow: rgba($color: #3a2d2b, $alpha: 0.7);
+
+$background-primary-element: #ffffff;
+
+$dark-background-primary-element: #211e25;
 
 $dark-color-brand-orange: #FA5F55;
 $dark-color-brand-purple: #6961FA;
 
-$dark-color-dark-gray: #1e1c1c;
+$dark-color-dark-gray: #0f0f11;
 $dark-color-gray: #8f8989;
-$dark-color-light-gray: #dad3d3;
+$dark-color-light-gray: #1b1a1f;
 
-$dark-color-default-shadow: #EAEAEA;
+$dark-color-default-shadow: rgba($color: #565263, $alpha: 0.7);
 
-$fontHeading: "Gayathri", serif;
+$fontHeading: "Mosk", serif;
 $fontBody: "Gayathri", serif;
 
 $header-height: 75px;

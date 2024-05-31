@@ -1,0 +1,15 @@
+@use '@/scss/common' as *;
+
+.button {
+    background-color: var(--background-primary-element);
+    width: max-content;
+    display: flex;
+}
+
+.text {
+    padding: base(0.25) base(0.5);
+}
+
+.image {
+    padding: base(0.25);
+}

@@ -4,46 +4,46 @@ const Padding: Field = {
     name: 'padding',
     label: 'Padding',
     type: 'group',
-   fields: [
-    {
-        name: 'paddingTop',
-        label: 'Padding Above',
-        type: 'select',
-        options: [
-            {
-                label: 'Small',
-                value: 'small',
-            },
-            {
-                label: 'Medium',
-                value: 'medium',
-            },
-            {
-                label: 'Large',
-                value: 'medium',
-            },
-        ]
-    },
-    {
-        name: 'paddingBottom',
-        label: 'Padding Below',
-        type: 'select',
-        options: [
-            {
-                label: 'Small',
-                value: 'small',
-            },
-            {
-                label: 'Medium',
-                value: 'medium',
-            },
-            {
-                label: 'Large',
-                value: 'medium',
-            },
-        ]
-    },
-]   
+    fields: [
+        {
+            name: 'paddingTop',
+            label: 'Padding Above',
+            type: 'select',
+            options: [
+                {
+                    label: 'Small',
+                    value: 'small',
+                },
+                {
+                    label: 'Medium',
+                    value: 'medium',
+                },
+                {
+                    label: 'Large',
+                    value: 'large',
+                },
+            ]
+        },
+        {
+            name: 'paddingBottom',
+            label: 'Padding Below',
+            type: 'select',
+            options: [
+                {
+                    label: 'Small',
+                    value: 'small',
+                },
+                {
+                    label: 'Medium',
+                    value: 'medium',
+                },
+                {
+                    label: 'Large',
+                    value: 'large',
+                },
+            ]
+        },
+    ]
 }
 
 export default Padding;

@@ -1,10 +1,28 @@
 @use '@/scss/common' as *;
 
-.heading {
-    font-family: 'Mosk', 'Montserrat', 'sans-serif';
+.headingDiv {
+
 }
 
-.headingWrap {
-    background-color: var(--background-primary-element);
+.richTextDiv {
+    margin-bottom: base(1.5);
+    @include mid-break {
+        margin-bottom: base();
+    }
+}
+
+.linksDiv {
     display: flex;
+    gap: base(0.5);
+    align-items: center;
+}
+
+.anchorButton {
+    color: var(--color-brand-black);
+    display: flex;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }

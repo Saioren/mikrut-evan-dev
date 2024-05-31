@@ -5,6 +5,10 @@ import { RichText as RichTextType } from '@/types/Fields/RichText/types'
 import { Link } from '@/types/Fields/Link/types'
 import { Cell, Grid } from '@faceless-ui/css-grid'
 import classes from './index.module.scss'
+import Heading from './Heading'
+import { motion } from 'framer-motion'
+import { BsGithub, BsTwitterX } from 'react-icons/bs'
+import PopOut from '../PopOut'
 
 type ContentType = {
   content: {
@@ -17,13 +21,27 @@ type ContentType = {
 const Content: React.FC<ContentType> = ({ content, heading }) => {
   return (
     <Grid>
-      <Cell cols={7} colsM={5}>
-        {' '}
-        <div className={classes.headingWrap}>
-          <h1 className={classes.heading}>{heading}</h1>
+      {' '}
+      <Cell cols={6} colsM={4} start={2} startL={1}>
+        <div className={classes.headingDiv}>
+          <Heading heading={heading} />
         </div>
-        <RichText content={content.richText} />
-        <LinkGroup links={content?.links} />
+        <div className={classes.richTextDiv}>
+          <RichText content={content.richText} />
+        </div>
+        <div className={classes.linksDiv}>
+          <LinkGroup links={content?.links} />
+          <PopOut hover={true}>
+            <a className={classes.anchorButton} href="https://github.com/Saioren" target="__blank">
+              <BsGithub className={classes.icon} />
+            </a>
+          </PopOut>
+          <PopOut hover={true}>
+            <a className={classes.anchorButton} href="https://x.com/mikrutevan1" target="__blank">
+              <BsTwitterX className={classes.icon} />
+            </a>
+          </PopOut>
+        </div>
       </Cell>
     </Grid>
   )

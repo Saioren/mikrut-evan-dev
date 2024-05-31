@@ -1,13 +1,30 @@
 @use '@/scss/common' as *;
 
-.small {
-    padding: base(2) 0;
+.padding-bottom-small {
+    padding-bottom: base();
 }
 
-.medium {
-    padding: base() 0;
+.padding-bottom-medium {
+    padding-bottom: base(2);
 }
 
-.large {
-    padding: base(2) 0;
+.padding-bottom-large {
+    padding-bottom: base(3);
+}
+
+.padding-top-small {
+    padding-top: base();
+}
+
+.padding-top-medium {
+    padding-top: base(2);
+}
+
+.padding-top-large {
+    padding-top: base(3);
+}
+
+.padding {
+    width: 100%;
+    height: 100%;
 }

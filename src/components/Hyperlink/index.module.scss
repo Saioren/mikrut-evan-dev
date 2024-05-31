@@ -3,6 +3,9 @@
 .hyperlink {
   color: currentColor;
   text-decoration: none;
+  display: flex;
+  height: auto;
+  align-items: center;
 }
 
 .underlineOnHover {

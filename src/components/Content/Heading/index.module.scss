@@ -1,0 +1,21 @@
+@use '@/scss/common' as *;
+
+.container {
+    position: relative;
+    width: 100%;
+    min-width: max-content
+}
+
+.heading {
+    @include h1;
+    font-family: 'Mosk', 'Montserrat', 'sans-serif';
+    margin: 0;
+}
+
+.headingWrap {
+    background-color: var(--background-primary-element);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: base(0.5) base(0.5) base(0.5) 0;
+}

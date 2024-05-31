@@ -17,17 +17,20 @@
     --font-body: #{$fontBody};
 
     --background: #{$color-brand-white};
-    --background-light: #{$color-default-white};
-    --background-dark: #{$color-gray};
+    --background-light: #{$color-white};
+    --background-dark: #{$color-dark-gray};
 
-    --background-primary-element: #{$color-default-white};
+    --background-primary-element: #{$background-primary-element};
     --header-height: #{$header-height};
+
+    --header-color: #{$color-brand-orange};
+    --header-background: #{$background-primary-element};
 
     --color-brand-orange: #{$color-brand-orange};
     --color-brand-purple: #{$color-brand-purple};
     --color-brand-white: #{$color-brand-white};
     --color-brand-black: #{$color-brand-black};
-    --color-default-white: #{$color-default-white};
+    --color-white: #{$color-white};
     --color-dark-gray: #{$color-dark-gray};
     --color-gray: #{$color-gray};
     --color-light-gray: #{$color-light-gray};
@@ -84,6 +87,27 @@
         }
       }
     }
+    
+@mixin customScrollbar {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand-black);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
   }
 
 html,
@@ -167,9 +191,12 @@ body {
   .dark {
     --font-color: #{$color-brand-white};
 
-    --background-primary-element: #{$color-brand-black};
+    --background-primary-element: #{$dark-background-primary-element};
 
-    --background: #{$color-dark-gray};
+    --header-color: #{$color-brand-purple};
+    --header-background: #{$dark-background-primary-element};
+
+    --background: #{$color-brand-black};
 
     --color-dark-gray: #{$dark-color-dark-gray};
     --color-gray: #{$dark-color-gray};

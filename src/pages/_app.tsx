@@ -6,7 +6,8 @@ import ThemeContextProvider from '@/providers/ThemeContext'
 
 import '../scss/app.scss'
 import Header from '@/layout/Header'
-import Gutter from '@/components/Gutter'
+import Gutter from '@/layout/Gutter'
+import { WindowInfoProvider } from '@faceless-ui/window-info'
 
 const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
   const { Component, pageProps } = appProps
@@ -23,39 +24,49 @@ const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
 
   return (
     <React.Fragment>
-      <ThemeContextProvider>
-        <GridProvider
-          breakpoints={{
-            s: cssVariables.breakpoints.s,
-            m: cssVariables.breakpoints.m,
-            l: cssVariables.breakpoints.l,
-          }}
-          rowGap={{
-            s: '1rem',
-            m: '1rem',
-            l: '4rem',
-            xl: '4rem',
-          }}
-          colGap={{
-            s: '10px',
-            m: '10px',
-            l: '4rem',
-            xl: '4rem',
-          }}
-          cols={{
-            s: 8,
-            m: 8,
-            l: 14,
-            xl: 14,
-          }}
-        >
-          <Header />
-          <Gutter>
-            <Component {...pageProps} />
-          </Gutter>
-          {/*<Footer />*/}
-        </GridProvider>
-      </ThemeContextProvider>
+      <WindowInfoProvider
+        breakpoints={{
+          s: '(max-width: 768px)',
+          m: '(max-width: 1024px)',
+          l: '(max-width: 1279px)',
+          xl: '(max-width: 1679px)',
+          xxl: '(max-width: 1920px)',
+        }}
+      >
+        <ThemeContextProvider>
+          <GridProvider
+            breakpoints={{
+              s: cssVariables.breakpoints.s,
+              m: cssVariables.breakpoints.m,
+              l: cssVariables.breakpoints.l,
+            }}
+            rowGap={{
+              s: '1rem',
+              m: '1rem',
+              l: '4rem',
+              xl: '4rem',
+            }}
+            colGap={{
+              s: '10px',
+              m: '10px',
+              l: '4rem',
+              xl: '4rem',
+            }}
+            cols={{
+              s: 9,
+              m: 9,
+              l: 14,
+              xl: 14,
+            }}
+          >
+            <Header />
+            <Gutter>
+              <Component {...pageProps} />
+            </Gutter>
+            {/*<Footer />*/}
+          </GridProvider>
+        </ThemeContextProvider>
+      </WindowInfoProvider>
     </React.Fragment>
   )
 }

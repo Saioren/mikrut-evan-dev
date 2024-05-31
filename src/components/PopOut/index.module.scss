@@ -1,0 +1,108 @@
+@use '@/scss/common' as *;
+
+.popOut {
+    position: relative;
+    height: auto;
+}
+
+.children {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.animateChildren {
+    margin-bottom: calc(base(1.5) + 20px);
+    @include extra-large-break {
+        margin-bottom: calc(base(1.5) + 15px);
+    }
+    @include large-break {
+        margin-bottom: calc(base() + 12px);
+    }
+    @include mid-break {
+        margin-bottom: calc(base() + 10px);
+    }
+}
+
+.animateChildren {
+    transition: 100ms linear transform;
+}
+
+.initialChildren {
+    transform: translateX(20px)  translateY(20px);
+    @include extra-large-break {
+        transform: translateX(15px)  translateY(15px);
+    }
+    @include large-break {
+        transform: translateX(12px)  translateY(12px);
+    }
+    @include mid-break {
+        transform: translateX(10px)  translateY(10px);
+    }
+}
+
+.animateChildren {
+    transform: translateX(0) translateY(0);
+}
+
+.hoverChildren {
+    transition: 50ms linear transform;
+    background-color: var(--background-primary-element);
+    padding: base(0.2) base(0.6);
+    cursor: pointer;
+}
+
+.hover {
+    cursor: pointer;
+}
+
+.hover:hover {
+    .hoverChildren {
+        transform: translateX(-10px)  translateY(-10px);
+        @include extra-large-break {
+            transform: translateX(-7px)  translateY(-7px);
+        }
+        @include large-break {
+            transform: translateX(-6px)  translateY(-6px);
+        }
+        @include mid-break {
+            transform: translateX(-5px)  translateY(-5px);
+        }
+    }
+}
+
+.hoverHeadingShadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-default-shadow);
+    z-index: 0;
+}
+
+.default {
+    
+}
+
+.headingShadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-default-shadow);
+    z-index: 0;
+    transform: translateX(20px)  translateY(20px);
+    @include extra-large-break {
+        transform: translateX(15px)  translateY(15px);
+    }
+    @include large-break {
+        transform: translateX(12px)  translateY(12px);
+    }
+    @include mid-break {
+        transform: translateX(10px)  translateY(10px);
+    }
+}

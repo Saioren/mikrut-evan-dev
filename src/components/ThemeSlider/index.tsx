@@ -17,11 +17,17 @@ const ThemeSlider = () => {
     <button onClick={handleToggleTheme} className={classes.themeSlider}>
       <div className={classes.themeContainer}>
         <BsSunFill
-          style={{ transform: dark ? 'translateX(27px)' : 'translateX(0)' }}
+          style={{
+            transform: dark ? 'translateX(27px)' : 'translateX(0)',
+            transition: '0.1s linear all',
+          }}
           className={`${classes.sun} ${classes.icon} ${dark ? classes.hidden : classes.visible}`}
         />
         <FaMoon
-          style={{ transform: dark ? 'translateX(27px)' : 'translateX(0)' }}
+          style={{
+            transform: dark ? 'translateX(27px)' : 'translateX(0)',
+            transition: '0.1s linear all',
+          }}
           className={`${classes.moon} ${classes.icon} ${!dark ? classes.hidden : classes.visible}`}
         />
       </div>

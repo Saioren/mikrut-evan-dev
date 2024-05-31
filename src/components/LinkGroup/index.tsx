@@ -1,15 +1,19 @@
 import React from 'react'
 import { Link, LinkGroup as LinkGroupType } from '@/types/Fields/Link/types'
 import { Button } from '../Button'
+import PopOut from '../PopOut'
+import classes from './index.module.scss'
 
 const LinkGroup: React.FC<{ links?: Link[] }> = (props) => {
   const { links } = props
   return (
-    <div>
+    <React.Fragment>
       {links?.map((link: Link, index: number) => (
-        <Button key={index} linkFromCMS={link} />
+        <PopOut hover={true}>
+          <Button key={index} linkFromCMS={link} />
+        </PopOut>
       ))}
-    </div>
+    </React.Fragment>
   )
 }
 

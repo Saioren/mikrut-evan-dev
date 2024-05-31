@@ -4,27 +4,19 @@ import { PaddingOption, Padding as PaddingType } from '@/types/Layout/Padding/ty
 
 type Props = {
   children?: React.ReactNode
-  padding: PaddingOption | PaddingType
+  padding: PaddingOption
 }
 
 const Padding: React.FC<Props> = (props) => {
   const { padding, children } = props
+  const { paddingTop, paddingBottom } = padding
 
-  if (typeof padding === 'string') {
-    if (padding === 'small') {
-      return <div className={classes.small}>{children}</div>
-    } else if (padding === 'medium') {
-      return <div className={classes.medium}>{children}</div>
-    } else if (padding === 'large') {
-      return <div className={classes.large}>{children}</div>
-    }
-  } else {
-    const { paddingTop, paddingBottom } = padding
-    const paddingClasses = `${classes[paddingTop]} ${classes[paddingBottom]}`
-    return <div className={paddingClasses}>{children}</div>
-  }
+  const paddingTopClass = `padding-top-${paddingTop}`
+  const paddingBottomClass = `padding-bottom-${paddingBottom}`
 
-  return null
+  const paddingClasses = `${classes.padding} ${classes[paddingTopClass]} ${classes[paddingBottomClass]}`
+
+  return <div className={paddingClasses}>{children}</div>
 }
 
 export default Padding

@@ -36,6 +36,10 @@
   }
 
   @include mid-break {
+    font-size: base(2);
+  }
+
+  @include small-break {
     font-size: base(1.55);
   }
 }

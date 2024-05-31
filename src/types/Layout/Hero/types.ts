@@ -1,18 +1,18 @@
 import { RichText } from "@/types/Fields/RichText/types";
 import { Link } from "@/types/Fields/Link/types";
 import { Media } from "@/types/Fields/Media/types";
-import { Padding } from "../Padding/types";
+import { PaddingOption } from "../Padding/types";
 
 type HeroTypes = 'standard'
 
 export type Hero = {
     type?: HeroTypes;
-    standardHero?: StandardHero; 
+    standardHero?: StandardHero;
 }
 
 export type StandardHero = {
     type?: 'standard';
-    padding: Padding;
+    padding: PaddingOption;
     heading: string;
     content: {
         richText?: RichText;

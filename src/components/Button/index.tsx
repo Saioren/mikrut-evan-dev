@@ -42,19 +42,17 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }
 
   return (
-    <div className={classList}>
-      <Hyperlink
-        href={href}
-        linkFromCMS={linkFromCMS}
-        className={classes.contents}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        newTab={newTab}
-      >
-        <ButtonContents {...props} />
-      </Hyperlink>
-    </div>
+    <Hyperlink
+      href={href}
+      linkFromCMS={linkFromCMS}
+      className={classes.contents}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+      newTab={newTab}
+    >
+      <ButtonContents {...props} />
+    </Hyperlink>
   )
 }
 
