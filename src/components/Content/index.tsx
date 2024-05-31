@@ -9,6 +9,7 @@ import Heading from './Heading'
 import { motion } from 'framer-motion'
 import { BsGithub, BsTwitterX } from 'react-icons/bs'
 import PopOut from '../PopOut'
+import FadeIn from '../FadeIn'
 
 type ContentType = {
   content: {
@@ -16,32 +17,52 @@ type ContentType = {
     links?: Link[]
   }
   heading?: string
+  hero?: boolean
+  gradient?: boolean
 }
 
-const Content: React.FC<ContentType> = ({ content, heading }) => {
+const Content: React.FC<ContentType> = ({ content, heading, hero, gradient }) => {
   return (
     <Grid>
       {' '}
       <Cell cols={6} colsM={4} start={2} startL={1}>
-        <div className={classes.headingDiv}>
-          <Heading heading={heading} />
-        </div>
-        <div className={classes.richTextDiv}>
-          <RichText content={content.richText} />
-        </div>
-        <div className={classes.linksDiv}>
-          <LinkGroup links={content?.links} />
-          <PopOut hover={true}>
-            <a className={classes.anchorButton} href="https://github.com/Saioren" target="__blank">
-              <BsGithub className={classes.icon} />
-            </a>
-          </PopOut>
-          <PopOut hover={true}>
-            <a className={classes.anchorButton} href="https://x.com/mikrutevan1" target="__blank">
-              <BsTwitterX className={classes.icon} />
-            </a>
-          </PopOut>
-        </div>
+        <FadeIn order={1}>
+          <div className={classes.headingDiv}>
+            <Heading heading={heading} />
+          </div>
+        </FadeIn>
+        <FadeIn order={2}>
+          <div className={classes.richTextDiv}>
+            <RichText content={content.richText} />
+          </div>
+        </FadeIn>
+        <FadeIn order={3}>
+          <div className={classes.linksDiv}>
+            <LinkGroup gradient={gradient} links={content?.links} />
+            {hero && (
+              <React.Fragment>
+                <PopOut icon gradient hover>
+                  <a
+                    className={classes.anchorButton}
+                    href="https://github.com/Saioren"
+                    target="__blank"
+                  >
+                    <BsGithub className={classes.icon} />
+                  </a>
+                </PopOut>
+                <PopOut icon gradient hover={true}>
+                  <a
+                    className={classes.anchorButton}
+                    href="https://x.com/mikrutevan1"
+                    target="__blank"
+                  >
+                    <BsTwitterX className={classes.icon} />
+                  </a>
+                </PopOut>
+              </React.Fragment>
+            )}
+          </div>
+        </FadeIn>
       </Cell>
     </Grid>
   )

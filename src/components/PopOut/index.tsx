@@ -7,6 +7,8 @@ type Props = {
   wait?: number
   animate?: boolean
   hover?: boolean
+  gradient?: boolean
+  icon?: boolean
 }
 
 const PopOut: React.FC<Props> = (props) => {
@@ -16,7 +18,7 @@ const PopOut: React.FC<Props> = (props) => {
   const height = windowInfo.height
   const width = windowInfo.width
 
-  const { children, wait, animate, hover } = props
+  const { children, wait, animate, hover, gradient, icon } = props
 
   const delayTime = wait && wait * 300
 
@@ -29,7 +31,7 @@ const PopOut: React.FC<Props> = (props) => {
   return animate ? (
     <div style={{ width: '100%' }} className={`${classes.popOut} ${classes.animate}`}>
       <div
-        className={`${classes.children} ${
+        className={`${classes.children} ${classes.animateMargin} ${
           hasAnimated ? classes.animateChildren : classes.initialChildren
         }`}
       >
@@ -40,7 +42,13 @@ const PopOut: React.FC<Props> = (props) => {
     </div>
   ) : hover ? (
     <div style={{ width: 'max-content' }} className={`${classes.popOut} ${classes.hover}`}>
-      <div className={`${classes.children} ${classes.hoverChildren}`}>{children}</div>
+      <div
+        className={`${classes.children} ${
+          gradient ? classes.hoverChildrenGradient : classes.hoverChildren
+        } ${icon ? classes.icon : classes.label}`}
+      >
+        {children}
+      </div>
       <div className={`${classes.hoverHeadingBackground}`} />
       <div className={`${classes.hoverHeadingShadow}`} />
     </div>

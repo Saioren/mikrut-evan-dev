@@ -23,6 +23,15 @@
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    @include large-break {
+        width: 28px;
+        height: 28px;
+    }
+    @include large-break {
+        width: 24px;
+        height: 24px;
+    }
 }

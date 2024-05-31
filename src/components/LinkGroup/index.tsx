@@ -4,12 +4,12 @@ import { Button } from '../Button'
 import PopOut from '../PopOut'
 import classes from './index.module.scss'
 
-const LinkGroup: React.FC<{ links?: Link[] }> = (props) => {
-  const { links } = props
+const LinkGroup: React.FC<{ links?: Link[]; gradient?: boolean }> = (props) => {
+  const { links, gradient } = props
   return (
     <React.Fragment>
       {links?.map((link: Link, index: number) => (
-        <PopOut hover={true}>
+        <PopOut gradient hover={true}>
           <Button key={index} linkFromCMS={link} />
         </PopOut>
       ))}

@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: transparent;
-    padding: base(0.5);
+    background-color: var(--header-color);
+    padding: base(0.75);
     position: fixed;
     align-items: center;
     z-index: 999;
@@ -19,21 +19,30 @@
 
 .links {
     display: flex;
-    gap: base();
+    gap: base(0.5);
     align-items: center;
 }
 
-.anchorButton {
-    background-color: var(--background-primary-element);
-    display: flex;
-    padding: base(0.25);
-    border-radius: 50%;
+.logo {
+    height: 30px;
+    width: 30px;
     color: var(--font-color);
 }
 
 .contactButton {
-    background-color: var(--background-primary-element);
-    display: flex;
-    padding: base(0.25) base(0.5);
+    margin: 0;
     color: var(--font-color);
+    text-decoration: none;
+}
+
+.anchorButton {
+    margin: 0;
+    line-height: normal;
+    display: flex;
+    color: var(--font-color);
+}
+
+.icon {
+        width: 24px;
+        height: 24px;
 }

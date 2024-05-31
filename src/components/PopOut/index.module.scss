@@ -11,9 +11,10 @@
     height: auto;
     position: relative;
     z-index: 1;
+    line-height: normal;
 }
 
-.animateChildren {
+.animateMargin {
     margin-bottom: calc(base(1.5) + 20px);
     @include extra-large-break {
         margin-bottom: calc(base(1.5) + 15px);
@@ -27,7 +28,7 @@
 }
 
 .animateChildren {
-    transition: 100ms linear transform;
+    transition: 200ms ease-in-out transform;
 }
 
 .initialChildren {
@@ -47,11 +48,34 @@
     transform: translateX(0) translateY(0);
 }
 
+.hoverChildrenGradient {
+    transition: 50ms linear transform;
+    background: var(--gradient-1);
+    background: var(--gradient-2);
+    background: var(--gradient-3);
+    background: var(--gradient-4);
+    cursor: pointer;
+    color: white;
+}
+
 .hoverChildren {
     transition: 50ms linear transform;
-    background-color: var(--background-primary-element);
-    padding: base(0.2) base(0.6);
+    background: var(--background-primary-element);
     cursor: pointer;
+}
+
+.label {
+    padding: base(.6) base();
+    @include large-break {
+        padding: base(0.4) base(0.6);
+    }
+}
+
+.icon {
+    @include large-break {
+        padding: base(0.4);
+    }
+    padding: base(0.5);
 }
 
 .hover {
@@ -59,7 +83,7 @@
 }
 
 .hover:hover {
-    .hoverChildren {
+    .hoverChildren, .hoverChildrenGradient {
         transform: translateX(-10px)  translateY(-10px);
         @include extra-large-break {
             transform: translateX(-7px)  translateY(-7px);
@@ -84,7 +108,16 @@
 }
 
 .default {
-    
+    margin-bottom: calc(base(1.5) + 20px);
+    @include extra-large-break {
+        margin-bottom: calc(base(1.5) + 15px);
+    }
+    @include large-break {
+        margin-bottom: calc(base() + 12px);
+    }
+    @include mid-break {
+        margin-bottom: calc(base() + 10px);
+    }
 }
 
 .headingShadow {

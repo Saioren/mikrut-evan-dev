@@ -16,6 +16,8 @@
     --font-heading: #{$fontHeading};
     --font-body: #{$fontBody};
 
+    --blur-color: #{$color-brand-orange};
+
     --background: #{$color-brand-white};
     --background-light: #{$color-white};
     --background-dark: #{$color-dark-gray};
@@ -23,7 +25,7 @@
     --background-primary-element: #{$background-primary-element};
     --header-height: #{$header-height};
 
-    --header-color: #{$color-brand-orange};
+    --header-color: #{$header-color};
     --header-background: #{$background-primary-element};
 
     --color-brand-orange: #{$color-brand-orange};
@@ -43,6 +45,11 @@
     --breakpoint-xl-width: #{$breakpoint-xl-width};
 
     --font-color: #{$color-brand-black};
+
+    --gradient-1: #{$orange-gradient-1};
+    --gradient-2: #{$orange-gradient-2};
+    --gradient-3: #{$orange-gradient-3};
+    --gradient-4: #{$orange-gradient-4};
 
     --col-gap: 2rem;
 
@@ -105,7 +112,7 @@
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #141414;
   }
 }
   }
@@ -198,10 +205,19 @@ body {
 
     --background: #{$color-brand-black};
 
+    --blur-color: #{$color-brand-purple};
+
+    --header-color: #{$dark-header-color};
+
     --color-dark-gray: #{$dark-color-dark-gray};
     --color-gray: #{$dark-color-gray};
     --color-light-gray: #{$dark-color-light-gray};
     --color-default-shadow: #{$dark-color-default-shadow};
+
+    --gradient-1: #{$purple-gradient-1};
+    --gradient-2: #{$purple-gradient-2};
+    --gradient-3: #{$purple-gradient-3};
+    --gradient-4: #{$purple-gradient-4};
 
     body {
       background-color: var(--background);

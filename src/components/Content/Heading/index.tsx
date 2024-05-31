@@ -10,7 +10,7 @@ const Heading: React.FC<Props> = (props) => {
   const { heading } = props
   return (
     <div className={classes.container}>
-      <PopOut animate wait={3}>
+      <PopOut wait={3}>
         <div className={classes.headingWrap}>
           <h1 className={classes.heading}>{heading}</h1>
         </div>
