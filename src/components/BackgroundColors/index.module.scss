@@ -9,7 +9,7 @@
     top: base();
     width: 40rem;
     height: 30rem;
-    opacity: 60%;
+    opacity: 15%;
     border-radius: 50%;
     filter: blur(10rem);
     @include large-break {
@@ -23,10 +23,10 @@
     background-color: var(--blur-color);
     position: absolute;
     z-index: -1;
-    right: 0;
+    right: base(10);
     width: 60rem;
     height: 30rem;
-    opacity: 40%;
+    opacity: 15%;
     border-radius: 50%;
     filter: blur(10rem);
     @include large-break {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { blocks as allBlocks } from '../../blocks'
 import kebabCase from 'lodash/kebabCase'
 import { Blocks as BlocksType } from '@/types/Blocks/types'
@@ -13,7 +13,7 @@ const Blocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <Fragment>
+      <>
         {blocks.map((block, index) => {
           const { blockName, blockType } = block
 
@@ -22,19 +22,16 @@ const Blocks: React.FC<{
 
             if (Block) {
               return (
-                <Padding
-                  paddingBottom={index === blocks.length - 1 ? 'large' : undefined}
-                  key={index}
-                >
+                <React.Fragment key={blockName}>
                   {/* @ts-ignore */}
                   <Block id={kebabCase(blockName)} {...block} />
-                </Padding>
+                </React.Fragment>
               )
             }
           }
           return null
         })}
-      </Fragment>
+      </>
     )
   }
 

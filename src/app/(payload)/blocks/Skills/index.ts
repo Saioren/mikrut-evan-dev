@@ -11,8 +11,15 @@ const SkillsBlock: Block = {
     },
     fields: [
         {
-            name: 'header',
+            name: 'heading',
             type: 'text',
+        },
+        {
+            name: 'skills',
+            label: 'Skills',
+            type: 'relationship',
+            relationTo: 'skillsCollection',
+            hasMany: true,
         },
         Padding,
         Position,

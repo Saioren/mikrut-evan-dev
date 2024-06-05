@@ -1,7 +1,7 @@
 import { Link } from "@/types/Fields/Link/types";
 import { Media } from "@/types/Fields/Media/types";
 import { RichText } from "@/types/Fields/RichText/types";
-import { Padding } from "@/types/Layout/Padding/types"
+import { PaddingOption } from "@/types/Layout/Padding/types"
 import { Position } from "@/types/Layout/Position/types";
 
 export type Slide = {
@@ -13,8 +13,8 @@ export type Slide = {
 export type Carousel = {
     blockType?: 'carouselBlock';
     blockName: string;
-    header: string;
-    padding: Padding;
+    heading: string;
+    padding: PaddingOption;
     position: Position;
     content: {
       richText?: RichText;

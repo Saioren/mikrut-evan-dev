@@ -9,7 +9,7 @@ const TimelineBlock: Block = {
     },
     fields: [
         {
-            name: 'header',
+            name: 'heading',
             type: 'text',
         },
         Padding,

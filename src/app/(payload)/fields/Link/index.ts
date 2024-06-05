@@ -3,17 +3,13 @@ import { deepMerge } from "payload/utilities";
 import { LinkAppearances } from "@/types/Fields/Link/types";
 
 export const appearanceOptions = {
-  primary: {
-    label: 'Primary',
-    value: 'primary',
+  default: {
+    label: 'Default',
+    value: 'default',
   },
-  secondary: {
-    label: 'Secondary',
-    value: 'secondary',
-  },
-  tertiary: {
-    label: 'Tertiary',
-    value: 'tertiary',
+  gradient: {
+    label: 'Gradient',
+    value: 'gradient',
   },
 };
 
@@ -100,19 +96,15 @@ const Link: LinkType = ({
         name: 'appearance',
         label: 'Appearance',
         type: 'select',
-        defaultValue: 'primary',
+        defaultValue: 'default',
         options: [
          {
-            label: 'Primary',
-            value: 'primary',
+            label: 'default',
+            value: 'default',
           },
           {
-            label: 'Secondary',
-            value: 'secondary',
-          },
-          {
-            label: 'Tertiary',
-            value: 'tertiary',
+            label: 'Gradient',
+            value: 'gradient',
           },
         ]
       }

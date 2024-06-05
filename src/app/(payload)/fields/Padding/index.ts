@@ -1,49 +1,51 @@
-import { Field } from "payload/types";
+import { Field } from 'payload/types';
 
 const Padding: Field = {
-    name: 'padding',
-    label: 'Padding',
-    type: 'group',
-    fields: [
+  name: 'padding',
+  label: 'Padding',
+  type: 'group',
+  fields: [
+    {
+      name: 'paddingTop',
+      label: 'Padding Above',
+      type: 'select',
+      defaultValue: 'medium',
+      options: [
         {
-            name: 'paddingTop',
-            label: 'Padding Above',
-            type: 'select',
-            options: [
-                {
-                    label: 'Small',
-                    value: 'small',
-                },
-                {
-                    label: 'Medium',
-                    value: 'medium',
-                },
-                {
-                    label: 'Large',
-                    value: 'large',
-                },
-            ]
+          label: 'Small',
+          value: 'small',
         },
         {
-            name: 'paddingBottom',
-            label: 'Padding Below',
-            type: 'select',
-            options: [
-                {
-                    label: 'Small',
-                    value: 'small',
-                },
-                {
-                    label: 'Medium',
-                    value: 'medium',
-                },
-                {
-                    label: 'Large',
-                    value: 'large',
-                },
-            ]
+          label: 'Medium',
+          value: 'medium',
         },
-    ]
-}
+        {
+          label: 'Large',
+          value: 'large',
+        },
+      ]
+    },
+    {
+      name: 'paddingBottom',
+      label: 'Padding Below',
+      type: 'select',
+      defaultValue: 'medium',
+      options: [
+        {
+          label: 'Small',
+          value: 'small',
+        },
+        {
+          label: 'Medium',
+          value: 'medium',
+        },
+        {
+          label: 'Large',
+          value: 'large',
+        },
+      ]
+    },
+  ]
+};
 
 export default Padding;

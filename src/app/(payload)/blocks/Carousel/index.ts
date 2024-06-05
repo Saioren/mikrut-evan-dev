@@ -11,7 +11,7 @@ const CarouselBlock: Block = {
     },
     fields: [
         {
-            name: 'header',
+            name: 'heading',
             type: 'text',
         },
         Padding,

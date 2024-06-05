@@ -2,12 +2,12 @@ import React from 'react'
 import classes from './index.module.scss'
 import { PaddingOption, Padding as PaddingType } from '@/types/Layout/Padding/types'
 
-type Props = {
+type PaddingProps = {
   children?: React.ReactNode
   padding: PaddingOption
 }
 
-const Padding: React.FC<Props> = (props) => {
+const Padding: React.FC<PaddingProps> = (props) => {
   const { padding, children } = props
   const { paddingTop, paddingBottom } = padding
 

@@ -25,6 +25,10 @@
     --background-primary-element: #{$background-primary-element};
     --header-height: #{$header-height};
 
+    @include mid-break {
+      --header-height: #{$small-header-height};
+    }
+
     --header-color: #{$header-color};
     --header-background: #{$background-primary-element};
 
@@ -55,6 +59,10 @@
 
     --gutter-h: #{base(2)};
     --gutter-v: #{base(1)};
+
+    --scrollbar-thumb: #{$scrollbar-thumb};
+    --scrollbar-track: #{$scrollbar-track};
+    --scrollbar-hover: #{$scrollbar-hover};
 }
 
 * {
@@ -71,6 +79,8 @@
     line-height: calc(#{var(--html-line-height)} * 1px);
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+
+    @include custom-scrollbar;
 
     ::selection {
       color: white;
@@ -95,28 +105,8 @@
       }
     }
     
-@mixin customScrollbar {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--background);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-brand-black);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #141414;
-  }
-}
-  }
 
+  }
 html,
 body {
     margin: 0;
@@ -124,6 +114,8 @@ body {
 
 body {
     -webkit-text-size-adjust: none;
+    position: relative;
+    z-index: 1;
   }
   
   h1 {
@@ -218,6 +210,10 @@ body {
     --gradient-2: #{$purple-gradient-2};
     --gradient-3: #{$purple-gradient-3};
     --gradient-4: #{$purple-gradient-4};
+
+    --scrollbar-thumb: #{$dark-scrollbar-thumb};
+    --scrollbar-track: #{$dark-scrollbar-track};
+    --scrollbar-hover: #{$dark-scrollbar-hover};
 
     body {
       background-color: var(--background);

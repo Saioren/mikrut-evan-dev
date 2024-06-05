@@ -4,11 +4,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: var(--header-color);
-    padding: base(0.75);
+    padding: base(0.5);
     position: fixed;
     align-items: center;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.2s ease-in-out;
     z-index: 999;
+    @include small-break {
+    padding: base(0.25);
+    }
 }
 
 .rightSide {
@@ -33,6 +37,13 @@
     margin: 0;
     color: var(--font-color);
     text-decoration: none;
+    font-size: large;
+    @include mid-break {
+        font-size: medium;
+    }
+    @include small-break {
+        font-size: small;
+    }
 }
 
 .anchorButton {
@@ -43,6 +54,18 @@
 }
 
 .icon {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
+        @include mid-break {
+            width: 16px;
+            height: 16px;
+        }
+}
+
+.scrolled {
+    background-color: var(--header-color);
+}
+
+.notScrolled {
+    background-color: transparent;
 }

@@ -15,7 +15,7 @@ const StandardHero: React.FC<Hero> = (props) => {
 
   if (!standardHero) return null
 
-  const { content, heroImage, padding, heading } = standardHero
+  const { content, heroImage, padding, heading, position } = standardHero
 
   return (
     <Padding padding={padding}>
@@ -33,33 +33,63 @@ const StandardHero: React.FC<Hero> = (props) => {
         }}
         className={classes.parent}
       >
-        <div className={classes.standardHero}>
-          <Grid>
-            <Cell cols={7} colsM={4}>
-              <div className={classes.contentWrap}>
-                <Content hero={true} content={content} heading={heading} />
-              </div>
-            </Cell>
-            <Cell cols={7} colsM={5}>
-              {/*<Media mediaFromCMS={heroImage} />*/}
-              <FadeIn order={1}>
-                <Grid>
-                  <Cell cols={5} colsM={4} colsL={6} start={2}>
-                    <PopOut animate={true} wait={3}>
-                      <Image
-                        className={classes.pfp}
-                        src="/pfp.png"
-                        width={1728}
-                        height={1909}
-                        alt="my pfp"
-                      />
-                    </PopOut>
-                  </Cell>
-                </Grid>
-              </FadeIn>
-            </Cell>
-          </Grid>
-        </div>
+        {position === 'left' ? (
+          <div className={classes.standardHero}>
+            <Grid className={`${classes.position}`}>
+              <Cell cols={7} colsM={4} start={1}>
+                <div className={classes.contentWrap}>
+                  <Content hero={true} content={content} heading={heading} />
+                </div>
+              </Cell>
+              <Cell cols={7} colsM={5}>
+                {/*<Media mediaFromCMS={heroImage} />*/}
+                <FadeIn order={1}>
+                  <Grid>
+                    <Cell cols={5} colsM={4} colsL={6} start={2}>
+                      <PopOut animate={true} wait={3}>
+                        <Image
+                          className={classes.pfp}
+                          src="/pfp.png"
+                          width={1728}
+                          height={1909}
+                          alt="my pfp"
+                        />
+                      </PopOut>
+                    </Cell>
+                  </Grid>
+                </FadeIn>
+              </Cell>
+            </Grid>
+          </div>
+        ) : (
+          <div className={classes.standardHero}>
+            <Grid className={`${classes.position}`}>
+              <Cell cols={7} colsM={5}>
+                {/*<Media mediaFromCMS={heroImage} />*/}
+                <FadeIn order={1}>
+                  <Grid>
+                    <Cell cols={5} colsM={4} colsL={6} start={2} startL={1}>
+                      <PopOut animate={true} wait={3}>
+                        <Image
+                          className={classes.pfp}
+                          src="/pfp.png"
+                          width={1728}
+                          height={1909}
+                          alt="my pfp"
+                        />
+                      </PopOut>
+                    </Cell>
+                  </Grid>
+                </FadeIn>
+              </Cell>
+              <Cell cols={6} colsM={4}>
+                <div className={classes.contentWrap}>
+                  <Content hero={true} content={content} heading={heading} position={position} />
+                </div>
+              </Cell>
+            </Grid>
+          </div>
+        )}
       </motion.div>
     </Padding>
   )

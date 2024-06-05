@@ -8,6 +8,11 @@
     cursor: pointer;
     border: none;
     border-radius: 20px;
+    @include mid-break {
+        padding: base(0.2) base(0.3);
+        width: 55px;
+    height: 30px;
+    }
 }
 
 .themeContainer {
@@ -26,6 +31,11 @@
     bottom: 0;
     left: 0;
     right: 0;
+    @include mid-break {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+    }
 }
 
 .hidden {

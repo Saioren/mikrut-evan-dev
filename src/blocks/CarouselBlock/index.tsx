@@ -2,12 +2,13 @@ import React from 'react'
 import { Carousel as CarouselBlockType } from '@/types/Blocks/Carousel/types'
 import Media from '@/components/Media'
 import Content from '@/components/Content'
+import Padding from '@/layout/Padding'
 
 const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
-  const { header, padding, position, content, slides } = props
+  const { heading, padding, position, content, slides } = props
   return (
-    <div>
-      CarouselBlock {header} {padding} {position}
+    <Padding padding={padding}>
+      CarouselBlock {heading} {padding} {position}
       <Content content={content} />
       {slides.map((slide, i) => {
         return (
@@ -16,7 +17,7 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
           </div>
         )
       })}
-    </div>
+    </Padding>
   )
 }
 

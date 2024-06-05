@@ -19,3 +19,23 @@
     width: 100%;
     align-items: center;
 }
+
+.position {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.alignCenter {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.left {
+    flex-direction: row;
+}
+
+.right {
+    flex-direction: row-reverse;
+}

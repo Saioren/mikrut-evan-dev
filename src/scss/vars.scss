@@ -24,26 +24,26 @@ $color-black: #0000;
 
 $color-dark-gray: #e9e9f6;
 $color-gray: #4e4949;
-$color-light-gray: rgba(232, 230, 238, 0.8);
+$color-light-gray: rgb(232, 230, 238);
 
 $color-default-shadow: rgba($color: #201412, $alpha: 0.2);
 
-$header-color: rgba($color: #ffffff, $alpha: 0.2);
+$header-color: rgba($color: #f6eae6, $alpha: 0.8);
 
 $background-primary-element: #ffffff;
 
-$dark-background-primary-element: #212024; 
+$dark-background-primary-element: #1e1d22; 
 
 $dark-color-brand-orange: #FA5F55;
 $dark-color-brand-purple: #6961FA;
 
 $dark-color-dark-gray: #0f0f11;
 $dark-color-gray: #8f8989;
-$dark-color-light-gray: #1b1a1f;
+$dark-color-light-gray: #27252e;
 
-$dark-color-default-shadow: rgba($color: #3a3743, $alpha: 0.2);
+$dark-color-default-shadow: rgba($color: #333348, $alpha: 0.5);
 
-$dark-header-color: rgba($color: #3a3743, $alpha: 0.2);
+$dark-header-color: rgba($color: #181823, $alpha: 0.9);
 
 $orange-gradient-1: rgb(250,95,85);
 $orange-gradient-2: -moz-linear-gradient(356deg, rgba(250,95,85,1) 0%, rgba(255,136,0,1) 100%);
@@ -55,9 +55,18 @@ $purple-gradient-2: -moz-linear-gradient(356deg, rgba(105,97,250,1) 0%, rgba(47,
 $purple-gradient-3: -webkit-linear-gradient(356deg, rgba(105,97,250,1) 0%, rgba(47,51,186,1) 100%);
 $purple-gradient-4: linear-gradient(356deg, rgba(105,97,250,1) 0%, rgba(47,51,186,1) 100%);
 
+$scrollbar-thumb: rgb(189, 179, 176);
+$scrollbar-track: rgb(249, 245, 244);
+$scrollbar-hover: rgb(206, 195, 191);
+
+$dark-scrollbar-thumb: rgb(59, 55, 77);
+$dark-scrollbar-track: rgb(35, 32, 49);
+$dark-scrollbar-hover: rgb(79, 74, 99);
+
 //FONT
 
 $fontHeading: "Mosk", serif;
 $fontBody: "Gayathri", serif;
 
-$header-height: 93.57px;
+$header-height: 73.2px;
+$small-header-height: 52.4px;

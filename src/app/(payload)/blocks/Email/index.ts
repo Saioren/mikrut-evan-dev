@@ -10,7 +10,7 @@ const EmailBlock: Block = {
     },
     fields: [
         {
-            name: 'header',
+            name: 'heading',
             type: 'text',
         },
         Padding,

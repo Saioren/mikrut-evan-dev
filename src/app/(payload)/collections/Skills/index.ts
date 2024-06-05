@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-import { SkillField } from "../../fields/Skill";
+
 
 const SkillsCollection: CollectionConfig = {
     slug: 'skillsCollection',
@@ -8,7 +8,26 @@ const SkillsCollection: CollectionConfig = {
         singular: 'Skills',
     },
     fields: [
-        SkillField,
+        {
+            name: 'skills',
+            type: 'array',
+            fields: [
+                {
+                    name: 'skillName',
+                    type: 'text',
+                },
+                {
+                    name: 'skillDescription',
+                    type: 'richText',
+                },
+                {
+                    name: 'skillImage',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+            ]
+        }
     ]
 }
 

@@ -28,7 +28,7 @@
 }
 
 .animateChildren {
-    transition: 200ms ease-in-out transform;
+    transition: 250ms ease-in-out transform;
 }
 
 .initialChildren {
@@ -64,18 +64,38 @@
     cursor: pointer;
 }
 
+.header {
+    cursor: pointer;    
+    background-color: var(--background-primary-element);
+    transition: 50ms linear transform;
+}
+
 .label {
-    padding: base(.6) base();
+    padding: base(.5) base(0.9);
     @include large-break {
-        padding: base(0.4) base(0.6);
+        padding: base(0.3) base(0.5);
+    }
+}
+
+.headerLabel {
+    padding: base(.3) base(0.7);
+    @include large-break {
+        padding: base(0.2) base(0.4);
     }
 }
 
 .icon {
     @include large-break {
-        padding: base(0.4);
+        padding: base(0.3);
     }
-    padding: base(0.5);
+    padding: base(0.4);
+}
+
+.headerIcon {
+    @include large-break {
+        padding: base(0.2);
+    }
+    padding: base(0.3);
 }
 
 .hover {
@@ -83,7 +103,7 @@
 }
 
 .hover:hover {
-    .hoverChildren, .hoverChildrenGradient {
+    .hoverChildren, .hoverChildrenGradient, .header {
         transform: translateX(-10px)  translateY(-10px);
         @include extra-large-break {
             transform: translateX(-7px)  translateY(-7px);
