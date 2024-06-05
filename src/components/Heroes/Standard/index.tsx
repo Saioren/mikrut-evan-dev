@@ -42,17 +42,16 @@ const StandardHero: React.FC<Hero> = (props) => {
                 </div>
               </Cell>
               <Cell cols={7} colsM={5}>
-                {/*<Media mediaFromCMS={heroImage} />*/}
                 <FadeIn order={1}>
                   <Grid>
                     <Cell cols={5} colsM={4} colsL={6} start={2}>
                       <PopOut animate={true} wait={3}>
                         <Image
                           className={classes.pfp}
-                          src="/pfp.png"
+                          src={'/pfp.png'}
                           width={1728}
                           height={1909}
-                          alt="my pfp"
+                          alt={'my pfp'}
                         />
                       </PopOut>
                     </Cell>

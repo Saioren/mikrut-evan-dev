@@ -1,0 +1,41 @@
+@use '@/scss/common' as *;
+
+.footerWrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    background-color: var(--background-primary-element);
+    align-items: center;
+    gap: base();
+    padding: base();
+}
+
+.section {
+    padding: base(0.5);
+    border: 1px solid var(--color-brand-orange);
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.logoSection {
+
+}
+
+.linksSection {
+
+}
+
+.copyrightSection {
+    display: flex;
+    flex-direction: column;
+    p {
+        margin: 0;
+    }
+}
+
+.documentation {
+    display: flex;
+    gap: base();
+    align-items: center;
+}

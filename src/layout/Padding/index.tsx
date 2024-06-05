@@ -14,7 +14,9 @@ const Padding: React.FC<PaddingProps> = (props) => {
   const paddingTopClass = `padding-top-${paddingTop}`
   const paddingBottomClass = `padding-bottom-${paddingBottom}`
 
-  const paddingClasses = `${classes.padding} ${classes[paddingTopClass]} ${classes[paddingBottomClass]}`
+  const paddingClasses = `${classes.padding} ${paddingTop && classes[paddingTopClass]} ${
+    paddingBottom && classes[paddingBottomClass]
+  }`
 
   return <div className={paddingClasses}>{children}</div>
 }

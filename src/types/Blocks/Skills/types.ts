@@ -15,6 +15,10 @@ export type SkillItem = {
   updatedAt: string;
 };
 
+export type SkillsArray = {
+  skills?: SkillItem[];
+}
+
 export type Skills = {
   blockType?: 'skillsBlock';
   blockName?: string;

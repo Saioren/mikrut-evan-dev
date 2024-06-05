@@ -1,4 +1,5 @@
 import { Footer } from "@/types/Layout/Footer/types";
+import { SkillItem, SkillsArray } from "./types/Blocks/Skills/types";
 
 // TODO: if in preview mode, add payload token and ?draft=true to the request
 export const getByID = async ({
@@ -61,7 +62,7 @@ export const getAllGlobals = async (): Promise<{
 }> => {
   try {
     const [footer] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=1`).then((res) => {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=2`).then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch footer: ${res.statusText} (status ${res.status})`);
         }
@@ -75,6 +76,31 @@ export const getAllGlobals = async (): Promise<{
     return { footer: null }; // Return a default or null value if fetching fails
   }
 }
+
+/*export const getAllCollections = async (): Promise<{
+  skillsCollection: SkillsArray
+}> => {
+  try {
+    const [skillsCollection] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/skillsCollection/6660ce030212164877757c75`, {
+        headers: {
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+      }).then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch skills collection. ${res.statusText} (status ${res.status})`);
+        }
+        return res.json();
+      }),
+    ]);
+    return { skillsCollection };
+  } catch (error) {
+    console.log('Error fetching skills collection:', error);
+    return { skillsCollection: null };
+  }
+}*/
+
+
 
 export async function fetchPageData(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`);

@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { fetchPageData } from '@/requests'
+import { fetchPageData, /*getAllCollections,*/ getAllGlobals } from '@/requests'
 import { Hero } from '@/layout/Hero'
 import Blocks from '@/layout/Blocks'
 import Meta from '@/components/Meta'
@@ -7,7 +7,7 @@ import { PageType } from '@/types/Layout/Page/types'
 import classes from './index.module.scss'
 import BackgroundColors from '@/components/BackgroundColors'
 
-const HomePage: React.FC<PageType> = ({ layout, hero, meta }) => {
+const HomePage: React.FC<PageType & { globals: any }> = ({ layout, hero, meta, globals }) => {
   return (
     <main>
       <Meta {...meta} />
@@ -21,8 +21,18 @@ const HomePage: React.FC<PageType> = ({ layout, hero, meta }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await fetchPageData('home')
-  return { props: data }
+  const [pageData, globals /*skillsCollection*/] = await Promise.all([
+    fetchPageData('home'),
+    getAllGlobals(),
+    //getAllCollections(),
+  ])
+  return {
+    props: {
+      ...pageData,
+      globals,
+      //skillsCollection,
+    },
+  }
 }
 
 export default HomePage

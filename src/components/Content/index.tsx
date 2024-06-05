@@ -48,7 +48,6 @@ const Content: React.FC<ContentType> = ({
         </FadeIn>
         <FadeIn order={3}>
           <div className={classes.linksDiv}>
-            <LinkGroup gradient={gradient} links={content?.links} />
             {hero && (
               <React.Fragment>
                 <PopOut gradient margin icon hover>
@@ -71,6 +70,7 @@ const Content: React.FC<ContentType> = ({
                 </PopOut>
               </React.Fragment>
             )}
+            <LinkGroup gradient={gradient} links={content?.links} />
           </div>
         </FadeIn>
       </Cell>

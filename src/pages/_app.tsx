@@ -3,15 +3,16 @@ import { AppProps } from 'next/app'
 import cssVariables from '../../cssVariables'
 import React, { useEffect } from 'react'
 import ThemeContextProvider from '@/providers/ThemeContext'
-
 import '../scss/app.scss'
 import Header from '@/layout/Header'
 import Gutter from '@/layout/Gutter'
 import { WindowInfoProvider } from '@faceless-ui/window-info'
+import Footer from '@/layout/Footer'
+import { GlobalsProvider } from '@/providers/GlobalsProvider'
+import { IGlobals } from '@/providers/GlobalsProvider'
 
-const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
-  const { Component, pageProps } = appProps
-  const { globals, collection, id } = pageProps
+const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
+  const { globals, /*skillsCollection,*/ ...otherProps } = pageProps
 
   useEffect(() => {
     console.log(
@@ -24,49 +25,51 @@ const MikrutEvanApp = (appProps: AppProps): React.ReactElement => {
 
   return (
     <React.Fragment>
-      <WindowInfoProvider
-        breakpoints={{
-          s: '(max-width: 768px)',
-          m: '(max-width: 1024px)',
-          l: '(max-width: 1279px)',
-          xl: '(max-width: 1679px)',
-          xxl: '(max-width: 1920px)',
-        }}
-      >
-        <ThemeContextProvider>
-          <GridProvider
-            breakpoints={{
-              s: cssVariables.breakpoints.s,
-              m: cssVariables.breakpoints.m,
-              l: cssVariables.breakpoints.l,
-            }}
-            rowGap={{
-              s: '1rem',
-              m: '1rem',
-              l: '4rem',
-              xl: '4rem',
-            }}
-            colGap={{
-              s: '10px',
-              m: '10px',
-              l: '4rem',
-              xl: '4rem',
-            }}
-            cols={{
-              s: 9,
-              m: 9,
-              l: 14,
-              xl: 14,
-            }}
-          >
-            <Header />
-            <Gutter>
-              <Component {...pageProps} />
-            </Gutter>
-            {/*<Footer />*/}
-          </GridProvider>
-        </ThemeContextProvider>
-      </WindowInfoProvider>
+      <GlobalsProvider footer={globals.footer} /*skillsCollection={skillsCollection}*/>
+        <WindowInfoProvider
+          breakpoints={{
+            s: '(max-width: 768px)',
+            m: '(max-width: 1024px)',
+            l: '(max-width: 1279px)',
+            xl: '(max-width: 1679px)',
+            xxl: '(max-width: 1920px)',
+          }}
+        >
+          <ThemeContextProvider>
+            <GridProvider
+              breakpoints={{
+                s: cssVariables.breakpoints.s,
+                m: cssVariables.breakpoints.m,
+                l: cssVariables.breakpoints.l,
+              }}
+              rowGap={{
+                s: '1rem',
+                m: '1rem',
+                l: '4rem',
+                xl: '4rem',
+              }}
+              colGap={{
+                s: '10px',
+                m: '10px',
+                l: '4rem',
+                xl: '4rem',
+              }}
+              cols={{
+                s: 9,
+                m: 9,
+                l: 14,
+                xl: 14,
+              }}
+            >
+              <Header />
+              <Gutter>
+                <Component {...otherProps} />
+              </Gutter>
+              <Footer />
+            </GridProvider>
+          </ThemeContextProvider>
+        </WindowInfoProvider>
+      </GlobalsProvider>
     </React.Fragment>
   )
 }
