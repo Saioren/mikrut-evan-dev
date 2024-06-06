@@ -117,6 +117,22 @@
     }
 }
 
+
+.hover:active {
+    .hoverChildren, .hoverChildrenGradient, .header {
+        transform: translateX(0)  translateY(0);
+        @include extra-large-break {
+            transform: translateX(0)  translateY(0);
+        }
+        @include large-break {
+            transform: translateX(0)  translateY(0);
+        }
+        @include mid-break {
+            transform: translateX(0)  translateY(0);
+        }
+    }
+}
+
 .hoverHeadingShadow {
     position: absolute;
     top: 0;
@@ -128,7 +144,7 @@
 }
 
 .default {
-    margin-bottom: calc(base(1.5) + 20px);
+    /*margin-bottom: calc(base(1.5) + 20px);
     @include extra-large-break {
         margin-bottom: calc(base(1.5) + 15px);
     }
@@ -137,6 +153,26 @@
     }
     @include mid-break {
         margin-bottom: calc(base() + 10px);
+    }*/
+}
+
+.small {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-default-shadow);
+    z-index: 0;
+    transform: translateX(10px)  translateY(10px);
+    @include extra-large-break {
+        transform: translateX(7px)  translateY(7px);
+    }
+    @include large-break {
+        transform: translateX(-6px)  translateY(6px);
+    }
+    @include mid-break {
+        transform: translateX(5px)  translateY(5px);
     }
 }
 

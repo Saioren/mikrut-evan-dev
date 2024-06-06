@@ -16,7 +16,7 @@
     --font-heading: #{$fontHeading};
     --font-body: #{$fontBody};
 
-    --blur-color: #{$color-brand-orange};
+    --brand-color: #{$color-brand-orange};
 
     --background: #{$color-brand-white};
     --background-light: #{$color-white};
@@ -192,12 +192,11 @@ body {
 
     --background-primary-element: #{$dark-background-primary-element};
 
-    --header-color: #{$color-brand-purple};
     --header-background: #{$dark-background-primary-element};
 
     --background: #{$color-brand-black};
 
-    --blur-color: #{$color-brand-purple};
+    --brand-color: #{$color-brand-purple};
 
     --header-color: #{$dark-header-color};
 

@@ -2,7 +2,7 @@
 
 .left {
     //background-color: var(--color-blur-primary);
-    background-color: var(--blur-color);
+    background-color: var(--brand-color);
     position: absolute;
     z-index: -1;
     left: base();
@@ -20,7 +20,7 @@
 
 .right {
     //background-color: var(--color-blur-secondary)
-    background-color: var(--blur-color);
+    background-color: var(--brand-color);
     position: absolute;
     z-index: -1;
     right: base(10);

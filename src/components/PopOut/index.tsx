@@ -13,6 +13,7 @@ type Props = {
   header?: boolean
   margin?: boolean
   gradient?: boolean
+  small?: boolean
 }
 
 const PopOut: React.FC<Props> = (props) => {
@@ -32,6 +33,7 @@ const PopOut: React.FC<Props> = (props) => {
     header,
     margin = false,
     gradient,
+    small,
   } = props
 
   const delayTime = wait && wait * 300
@@ -82,7 +84,7 @@ const PopOut: React.FC<Props> = (props) => {
     <div className={`${classes.popOut} ${classes.default}`}>
       <div className={classes.children}>{children}</div>
       <div className={classes.headingBackground} />
-      <div className={classes.headingShadow} />
+      <div className={small ? classes.small : classes.headingShadow} />
     </div>
   )
 }

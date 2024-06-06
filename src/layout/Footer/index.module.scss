@@ -6,31 +6,63 @@
     display: flex;
     background-color: var(--background-primary-element);
     align-items: center;
-    gap: base();
+    gap: base(2.5);
     padding: base();
+    @include large-break {
+        gap: base(1.5);
+    }
+    @include small-break {
+        flex-direction: column;
+    }
 }
 
 .section {
+    border: 1px solid var(--brand-color);
     padding: base(0.5);
-    border: 1px solid var(--color-brand-orange);
     display: flex;
     height: 100%;
     align-items: center;
+    position: relative;
+    z-index: 2;
+    background-color: var(--background-primary-element);
 }
 
 .logoSection {
 
 }
 
-.linksSection {
+.linkSection {
+display: block;
+p {
+    margin: 0;
+    padding-bottom: base(0.5);
+}
+}
 
+.linksArray {
+    display: flex;
+    gap: base(0.5);
+}
+
+.firstHalf {
+    display: flex;
+    align-items: center;
+    gap: base(2.5);
+    @include large-break {
+        gap: base(1.5);
+    }
+    @include small-break {
+        width: 100%;
+    }
 }
 
 .copyrightSection {
-    display: flex;
-    flex-direction: column;
+   display: block;
     p {
         margin: 0;
+    }
+    @include small-break {
+        width: 100%;
     }
 }
 
@@ -38,4 +70,19 @@
     display: flex;
     gap: base();
     align-items: center;
+    padding-bottom: base(0.5);
+}
+
+.paddingBottom {
+    padding-bottom: base(0.5);
+}
+
+.copyrightLabel {
+    font-size: small;
+}
+
+.toTop {
+    position: absolute;
+    right: base();
+    bottom: base();
 }

@@ -1,0 +1,41 @@
+@use '@/scss/common' as *;
+
+.toTop {
+    position: relative;
+    display: flex;
+    &:hover {
+           .link {
+            transform: translateX(-4px) translateY(-4px);
+           }
+    }
+    &:active {
+        .link {
+         transform: translateX(0) translateY(0);
+        }
+ }
+}
+
+.link {
+    padding: base(0.5);
+    transition: 0.150s ease;
+    display: flex;
+    border-radius: 50%;
+    background-color: var(--background-primary-element);
+}
+
+.shadow {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-default-shadow);
+    border-radius: 50%;
+}
+
+.arrow {
+    width: 28px;
+    height: 28px;
+    color: var(--font-color);
+}

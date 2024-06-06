@@ -3,7 +3,17 @@
 .container {
     position: relative;
     width: 100%;
-    min-width: max-content
+    min-width: max-content;
+    margin-bottom: 20px;
+    @include extra-large-break {
+        margin-bottom: 15px;
+    }
+    @include large-break {
+        margin-bottom: 12px;
+    }
+    @include mid-break {
+        margin-bottom: 10px
+    }
 }
 
 .heading {

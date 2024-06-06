@@ -35,7 +35,13 @@ const Content: React.FC<ContentType> = ({
   return (
     <Grid>
       {' '}
-      <Cell cols={7} colsM={5} start={position === 'right' ? 1 : 2} startL={1}>
+      <Cell
+        className={classes.cell}
+        cols={7}
+        colsM={5}
+        start={position === 'right' ? 1 : 2}
+        startL={1}
+      >
         <FadeIn order={1}>
           <div className={classes.headingDiv}>
             <Heading heading={heading} />
