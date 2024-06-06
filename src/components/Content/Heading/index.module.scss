@@ -29,3 +29,23 @@
     align-items: center;
     padding: base(0.5);
 }
+
+.headingLowImpact {
+    @include h2;
+    font-family: 'Mosk', 'Montserrat', 'sans-serif';
+    margin: 0;
+}
+
+.headingLowImpactWrap {
+    background-color: var(--background-primary-element);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: base(0.5);
+}
+
+.headingLowImpactontainer {
+    position: relative;
+    width: 100%;
+    min-width: max-content;
+}

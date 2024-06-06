@@ -1,11 +1,28 @@
 import React from 'react'
 import classes from './index.module.scss'
 
-const BackgroundColors = () => {
+type BackgroundColorsProps = {
+  positions?: (
+    | 'left'
+    | 'right'
+    | 'topLeft'
+    | 'topRight'
+    | 'center'
+    | 'centerLeft'
+    | 'centerRight'
+    | 'bottomLeft'
+    | 'bottomRight'
+  )[]
+}
+
+const BackgroundColors: React.FC<BackgroundColorsProps> = (props) => {
+  const { positions = ['left'] } = props // Default to ['left'] if no positions are provided
+
   return (
     <>
-      <div className={classes.left} />
-      <div className={classes.right} />
+      {positions.map((position, index) => (
+        <div key={index} className={classes[position]} />
+      ))}
     </>
   )
 }

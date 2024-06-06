@@ -4,23 +4,23 @@ import PopOut from '@/components/PopOut'
 
 type Props = {
   heading?: string
-  headingLowImpact?: string
+  headingLowImpact?: boolean
 }
 
 const Heading: React.FC<Props> = (props) => {
   const { heading, headingLowImpact } = props
-  return (
+  return headingLowImpact ? (
+    <div className={classes.headingLowImpactContainer}>
+      <div className={classes.headinglowImpactWrap}>
+        <h1 className={classes.headingLowImpact}>{heading}</h1>
+      </div>
+    </div>
+  ) : (
     <div className={classes.container}>
       <PopOut wait={3}>
-        {headingLowImpact ? (
-          <div className={classes.headinglowImpactWrap}>
-            <h1 className={classes.headingLowImpact}>{headingLowImpact}</h1>
-          </div>
-        ) : (
-          <div className={classes.headingWrap}>
-            <h1 className={classes.heading}>{heading}</h1>
-          </div>
-        )}
+        <div className={classes.headingWrap}>
+          <h2 className={classes.heading}>{heading}</h2>
+        </div>
       </PopOut>
     </div>
   )

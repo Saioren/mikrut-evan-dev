@@ -18,7 +18,7 @@ type ContentType = {
     links?: Link[]
   }
   heading?: string
-  headingLowImpact?: string
+  headingLowImpact?: boolean
   hero?: boolean
   position?: Position
   gradient?: boolean
@@ -29,7 +29,7 @@ const Content: React.FC<ContentType> = ({
   heading,
   hero,
   position,
-  headingLowImpact,
+  headingLowImpact = false,
   gradient,
 }) => {
   return (
@@ -40,11 +40,11 @@ const Content: React.FC<ContentType> = ({
         cols={7}
         colsM={5}
         start={position === 'right' ? 1 : 2}
-        startL={1}
+        startL={position === 'right' ? 1 : 2}
       >
         <FadeIn order={1}>
           <div className={classes.headingDiv}>
-            <Heading heading={heading} />
+            <Heading headingLowImpact={headingLowImpact} heading={heading} />
           </div>
         </FadeIn>
         <FadeIn order={2}>

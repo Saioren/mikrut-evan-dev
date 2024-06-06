@@ -4,6 +4,7 @@ import { SkillItem } from '@/types/Blocks/Skills/types'
 
 export interface IGlobals {
   footer: Footer
+  skillsCollection?: SkillItem[]
 }
 
 export const GlobalsContext = createContext<IGlobals>({} as IGlobals)
@@ -15,6 +16,15 @@ interface GlobalsProviderProps {
   children: ReactNode
 }
 
-export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({ footer, children }) => {
-  return <GlobalsContext.Provider value={{ footer }}>{children}</GlobalsContext.Provider>
+export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({
+  footer,
+  children,
+  skillsCollection,
+}) => {
+  console.log(skillsCollection)
+  return (
+    <GlobalsContext.Provider value={{ footer, skillsCollection }}>
+      {children}
+    </GlobalsContext.Provider>
+  )
 }

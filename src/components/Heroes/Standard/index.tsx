@@ -9,6 +9,7 @@ import Image from 'next/image'
 import PopOut from '@/components/PopOut'
 import FadeIn from '@/components/FadeIn'
 import { motion } from 'framer-motion'
+import BackgroundColors from '@/components/BackgroundColors'
 
 const StandardHero: React.FC<Hero> = (props) => {
   const { standardHero } = props
@@ -33,6 +34,7 @@ const StandardHero: React.FC<Hero> = (props) => {
         }}
         className={classes.parent}
       >
+        <BackgroundColors positions={['topLeft', 'right']} />
         {position === 'left' ? (
           <div className={classes.standardHero}>
             <Grid className={`${classes.position}`}>

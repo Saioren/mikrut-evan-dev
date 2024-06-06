@@ -40,8 +40,9 @@ const Footer: React.FC = () => {
                     <p>{linkBlockLabel}</p>
                     <div className={classes.linksArray}>
                       {links?.map((link) => {
+                        console.log(link.imageLink.image)
                         return link.imageLink.url ? (
-                          <a>
+                          <a href={link.imageLink.url} key={link.imageLink.image.filename}>
                             <Image
                               src={link.imageLink.image.url}
                               width={32}
@@ -63,7 +64,7 @@ const Footer: React.FC = () => {
                   <div className={classes.documentation}>
                     <p>{linkText}</p>
                     {copyrightLinks?.map((link) => (
-                      <a>
+                      <a href={link.imageLink.url} key={link.imageLink.image.filename}>
                         <Image
                           src={link.imageLink.image.url}
                           width={32}

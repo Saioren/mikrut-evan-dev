@@ -77,28 +77,28 @@ export const getAllGlobals = async (): Promise<{
   }
 }
 
-/*export const getAllCollections = async (): Promise<{
-  skillsCollection: SkillsArray
+export const getAllCollections = async (): Promise<{
+  skillsCollection: SkillsArray | null;
 }> => {
   try {
-    const [skillsCollection] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/skillsCollection/6660ce030212164877757c75`, {
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
-        }
-      }).then((res) => {
-        if (!res.ok) {
-          throw new Error(`Failed to fetch skills collection. ${res.statusText} (status ${res.status})`);
-        }
-        return res.json();
-      }),
-    ]);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/skillsCollection/6660ce030212164877757c75?depth=1&draft=false`, {
+      headers: {
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch skills collection. ${response.statusText} (status ${response.status})`);
+    }
+
+    const skillsCollection = await response.json();
     return { skillsCollection };
   } catch (error) {
-    console.log('Error fetching skills collection:', error);
+    console.error('Error fetching skills collection:', error);
     return { skillsCollection: null };
   }
-}*/
+};
+
 
 
 

@@ -18,7 +18,7 @@ const SkillsCollection: CollectionConfig = {
                 },
                 {
                     name: 'skillDescription',
-                    type: 'richText',
+                    type: 'textarea',
                 },
                 {
                     name: 'skillImage',

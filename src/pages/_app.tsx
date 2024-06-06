@@ -12,7 +12,7 @@ import { GlobalsProvider } from '@/providers/GlobalsProvider'
 import { IGlobals } from '@/providers/GlobalsProvider'
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
-  const { globals, /*skillsCollection,*/ ...otherProps } = pageProps
+  const { globals, skillsCollection, ...otherProps } = pageProps
 
   useEffect(() => {
     console.log(
@@ -25,7 +25,7 @@ const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement =
 
   return (
     <React.Fragment>
-      <GlobalsProvider footer={globals.footer} /*skillsCollection={skillsCollection}*/>
+      <GlobalsProvider footer={globals.footer} skillsCollection={skillsCollection}>
         <WindowInfoProvider
           breakpoints={{
             s: '(max-width: 768px)',

@@ -1,36 +1,165 @@
 @use '@/scss/common' as *;
 
 .left {
-    //background-color: var(--color-blur-primary);
-    background-color: var(--brand-color);
-    position: absolute;
-    z-index: -1;
-    left: base();
-    top: base();
-    width: 40rem;
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: base();
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
     height: 30rem;
-    opacity: 15%;
-    border-radius: 50%;
-    filter: blur(10rem);
-    @include large-break {
-        height: 30rem;
-        width: 30rem;
-    }
+    width: 30rem;
+  }
 }
 
 .right {
-    //background-color: var(--color-blur-secondary)
-    background-color: var(--brand-color);
-    position: absolute;
-    z-index: -1;
-    right: base(10);
-    width: 60rem;
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 40rem;
+  height: 40rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
     height: 30rem;
-    opacity: 15%;
-    border-radius: 50%;
-    filter: blur(10rem);
-    @include large-break {
-        height: 30rem;
-        width: 30rem;
-    }
+    width: 30rem;
+  }
+}
+
+.topLeft {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  left: base(-10);
+  top: base(-3);
+  width: 40rem;
+  height: 40rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.topRight {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  right: base(-10);
+  top: base(-3);
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.center {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.centerLeft {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  left: base();
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.centerRight {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  right: base();
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.bottomLeft {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  left: base();
+  bottom: base();
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
+}
+
+.bottomRight {
+  background-color: var(--brand-color);
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: base(5);
+  width: 40rem;
+  height: 30rem;
+  opacity: 20%;
+  border-radius: 50%;
+  filter: blur(10rem);
+
+  @include large-break {
+    height: 30rem;
+    width: 30rem;
+  }
 }

@@ -1,0 +1,28 @@
+@use '@/scss/common' as *;
+
+.skillDisplay {
+    background-color: var(--background-primary-element);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Three equal columns
+    gap: base(2); // Adjusts the gap between the items
+    padding: base() base(1.8) base() base(1.8); // Applies padding
+    width: 100%; // Ensures the container takes the full width available
+    height: auto;
+    @include extra-large-break {
+        gap: base(1.25); 
+    }
+    @include large-break {
+        gap: base(); 
+    }
+}
+
+.skillWrap {
+    box-sizing: border-box; // Ensures padding and borders are included in the element's total width and height
+    display: flex;
+    width: 100%;
+}
+
+.skillImage {
+    width: 100%; // Ensures the image fills the grid cell
+    height: auto;
+}

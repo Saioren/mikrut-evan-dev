@@ -72,6 +72,8 @@
   }
 
   html {
+    overflow-x: hidden;
+    overflow-y: scroll;
     background-color: var(--background);
     color: $color-brand-black;
     font-family: $fontBody;
