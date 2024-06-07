@@ -22,13 +22,18 @@ $color-brand-black: #0a090b;
 $color-white: #ffff;
 $color-black: #0000;
 
+$light-mode-filter: $color-black;
+$dark-mode-filter: $color-white;
+
 $color-dark-gray: #e9e9f6;
 $color-gray: #4e4949;
 $color-light-gray: rgb(232, 230, 238);
 
 $color-default-shadow: rgba($color: #201412, $alpha: 0.2);
 
-$header-color: rgba($color: #efeae9, $alpha: 0.8);
+$header-color: rgba($color: #f2eae8, $alpha: 0.8);
+
+$skills-color: rgba($color: #ffff, $alpha: 0.9);
 
 $background-primary-element: #ffffff;
 
@@ -44,6 +49,8 @@ $dark-color-light-gray: #27252e;
 $dark-color-default-shadow: rgba($color: #414157, $alpha: 0.5);
 
 $dark-header-color: rgba($color: #181823, $alpha: 0.9);
+
+$dark-skills-color: rgba($color: #100f15, $alpha: 0.9);
 
 $orange-gradient-1: rgb(250,95,85);
 $orange-gradient-2: -moz-linear-gradient(356deg, rgba(250,95,85,1) 0%, rgba(255,136,0,1) 100%);

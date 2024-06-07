@@ -16,6 +16,8 @@
     --font-heading: #{$fontHeading};
     --font-body: #{$fontBody};
 
+    --filter-color: invert(0);
+
     --brand-color: #{$color-brand-orange};
 
     --background: #{$color-brand-white};
@@ -28,6 +30,8 @@
     @include mid-break {
       --header-height: #{$small-header-height};
     }
+
+    --skills-color: #{$skills-color};
 
     --header-color: #{$header-color};
     --header-background: #{$background-primary-element};
@@ -181,13 +185,13 @@ body {
     margin: 0;
   }
   
-  svg {
+  /*svg {
     path,
     circle,
     line {
       vector-effect: non-scaling-stroke;
     }
-  }
+  }*/
   
   .dark {
     --font-color: #{$color-brand-white};
@@ -202,10 +206,14 @@ body {
 
     --header-color: #{$dark-header-color};
 
+    --skills-color: #{$dark-skills-color};
+
     --color-dark-gray: #{$dark-color-dark-gray};
     --color-gray: #{$dark-color-gray};
     --color-light-gray: #{$dark-color-light-gray};
     --color-default-shadow: #{$dark-color-default-shadow};
+
+    --filter-color: invert(1);
 
     --gradient-1: #{$purple-gradient-1};
     --gradient-2: #{$purple-gradient-2};

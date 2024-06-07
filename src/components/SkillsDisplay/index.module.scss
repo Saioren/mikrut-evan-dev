@@ -5,14 +5,22 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); // Three equal columns
     gap: base(2); // Adjusts the gap between the items
-    padding: base() base(1.8) base() base(1.8); // Applies padding
+    padding: base() base(1.8) base() base(1.8);
     width: 100%; // Ensures the container takes the full width available
     height: auto;
+    position: relative;
     @include extra-large-break {
-        gap: base(1.25); 
+        gap: base(1.5); 
     }
     @include large-break {
         gap: base(); 
+    }
+    @include mid-break {
+        padding: base() base(1.25) base() base(1.25);
+    }
+    @include small-break {
+        gap: base(0.75);
+        padding: base();
     }
 }
 
@@ -25,4 +33,102 @@
 .skillImage {
     width: 100%; // Ensures the image fills the grid cell
     height: auto;
+    cursor: pointer;
+    transition: 0.1s ease transform;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(1);
+    }
+}
+
+.activeImage {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.skillName {
+    padding-top: 12%;
+    grid-column: span 2;
+    h3 {
+        margin: 0;
+    }
+}
+
+.skillInformation {
+    grid-column: span 3;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    p {
+        margin: 0;
+    }
+}
+
+.vercel {
+    filter: var(--filter-color);
+  }
+  
+  .payloadcms {
+    filter: var(--filter-color);
+  }
+  
+  .nextjs {
+    filter: var(--filter-color);
+  }
+
+.skillShowcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: base(2);
+    z-index: 2;
+    background-color: var(--skills-color);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.2s ease;
+    padding: base() base(1.8) base() base(1.8);
+    @include extra-large-break {
+        column-gap: base(1.5); 
+        row-gap: 0;
+    }
+    @include large-break {
+        gap: base(); 
+    }
+}
+
+
+
+.documentation {
+    grid-column: span 3; /* Span 3 columns */
+    flex-direction: column; /* Align items in a column */
+    position: relative;
+}
+
+
+.documentationText {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    &:hover {
+        border-bottom: 2px solid var(--brand-color);
+    }
+}
+
+.x {
+    border: none;
+    background-color: transparent;
+    color: var(--font-color);
+    cursor: pointer;
+    position: absolute;
+    top: base();
+    right: base();
+    transition: 0.2s ease opacity;
+    z-index: 10;
 }

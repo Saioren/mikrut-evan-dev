@@ -1,0 +1,11 @@
+@use '@/scss/common' as *;
+
+.x {
+    width: 24px;
+    height: 24px;
+}
+
+.stroke {
+    stroke: var(--font-color);
+    fill: var(--font-color)
+}

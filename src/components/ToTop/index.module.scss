@@ -17,7 +17,7 @@
 
 .link {
     padding: base(0.5);
-    transition: 0.150s transform ease;
+    transition: 100ms transform ease;
     display: flex;
     border-radius: 50%;
     background-color: var(--background-primary-element);
