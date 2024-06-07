@@ -6,10 +6,14 @@ import classes from './index.module.scss'
 export const ImageComponent: React.FC<Props> = (props) => {
   const { onClick, onLoad: onLoadFromProps, quality, mediaFromCMS, useNextImage = true } = props
 
+  console.log(props)
+
   const [isLoading, setIsLoading] = React.useState(true)
 
   if (mediaFromCMS) {
     const { width, height, url, alt } = mediaFromCMS
+
+    console.log(mediaFromCMS)
 
     const baseProps = {
       className: [classes.image].filter(Boolean).join(' '),
@@ -28,16 +32,14 @@ export const ImageComponent: React.FC<Props> = (props) => {
       <Fragment>
         {!useNextImage && <img {...baseProps} alt={alt} />}
         {useNextImage && (
-          <Fragment>
-            {/*<Image
-              src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
-              width={width}
-              height={height}
-              quality={quality}
-              alt={alt}
-              onLoadingComplete={() => setIsLoading(false)}
-        />*/}
-          </Fragment>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
+            width={width}
+            height={height}
+            quality={quality}
+            alt={alt}
+            onLoadingComplete={() => setIsLoading(false)}
+          />
         )}
       </Fragment>
     )
@@ -46,4 +48,4 @@ export const ImageComponent: React.FC<Props> = (props) => {
   return null
 }
 
-Image.displayName = 'Image'
+ImageComponent.displayName = 'ImageComponent'

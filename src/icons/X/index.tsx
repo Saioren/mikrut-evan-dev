@@ -11,20 +11,20 @@ const XIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_34_2)">
+      <g clipPath="url(#clip0_34_2)">
         <path
           className={classes.stroke}
           d="M96.9435 -64L-31 118.722"
           stroke="white"
-          stroke-width="10"
-          stroke-linecap="round"
+          strokeWidth="10"
+          strokeLinecap="round"
         />
         <path
           className={classes.stroke}
           d="M-39 -70L88.9435 112.722"
           stroke="white"
-          stroke-width="10"
-          stroke-linecap="round"
+          strokeWidth="10"
+          strokeLinecap="round"
         />
       </g>
       <defs>

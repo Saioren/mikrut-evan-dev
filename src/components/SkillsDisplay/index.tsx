@@ -121,15 +121,13 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
 
   const calculateOrder = (index: number) => {
     if (index >= 0 && index < 3) {
-      return 1 // First 3 elements
+      return 1
     } else if (index >= 3 && index < 6) {
-      return 2 // Second 3 elements
+      return 2
     } else {
-      return 3 // Third set of 3 elements
+      return 3
     }
   }
-
-  const visibility = skillShowcase ? classes.shown : classes.hidden
 
   return (
     <FadeIn order={1}>

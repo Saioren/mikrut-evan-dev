@@ -29,12 +29,6 @@ const CarouselBlock: Block = {
                     relationTo: 'media',
                     required: true,
                 },
-                {
-                    name: 'alt',
-                    label: 'Alt Text',
-                    type: 'text',
-                    required: true,
-                },
             ],
         },
     ]

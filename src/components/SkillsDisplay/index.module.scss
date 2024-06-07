@@ -46,7 +46,6 @@
 .activeImage {
     width: 100%;
     height: auto;
-    border-radius: 12px;
 }
 
 .skillName {
@@ -117,6 +116,7 @@
     right: 0;
     bottom: 0;
     &:hover {
+        bottom: -2px;
         border-bottom: 2px solid var(--brand-color);
     }
 }

@@ -23,7 +23,7 @@ padding-bottom : base(3);
 .padding-bottom-large {
 padding-bottom : base(5);
     @include extra-large-break {
-        padding-bottom: base(4);
+        padding-bottom: base(3.9);
     }
     @include mid-break {
         padding-bottom: base(2);
@@ -53,7 +53,7 @@ padding-top : base(3);
 .padding-top-large {
 padding-top : base(5);
     @include extra-large-break {
-        padding-top: base(4);
+        padding-top: base(3.9);
     }
     @include mid-break {
         padding-top: base(2);

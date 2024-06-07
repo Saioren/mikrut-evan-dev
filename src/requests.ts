@@ -13,7 +13,7 @@ export const getByID = async ({
 
   if (typeof id === 'string') {
     try {
-      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}/${id}?depth=1`);
+      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}/${id}?depth=2`);
       if (req.ok) {
         doc = await req.json();
       } else {
@@ -40,7 +40,7 @@ export const getBySlug = async ({
   if (typeof slug === 'string') {
     const lowerCaseSlug = slug.toLowerCase(); // NOTE: let the url be case insensitive
     try {
-      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}?where[slug][equals]=${lowerCaseSlug}&limit=1&depth=0`);
+      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${collection}?where[slug][equals]=${lowerCaseSlug}&limit=1&depth=2`);
       if (req.ok) {
         const data = await req.json();
         const { docs: [firstDoc] } = data;

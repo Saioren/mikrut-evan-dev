@@ -21,7 +21,6 @@ export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({
   children,
   skillsCollection,
 }) => {
-  console.log(skillsCollection)
   return (
     <GlobalsContext.Provider value={{ footer, skillsCollection }}>
       {children}

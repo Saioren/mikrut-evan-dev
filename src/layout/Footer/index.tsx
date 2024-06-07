@@ -17,8 +17,6 @@ const Footer: React.FC = () => {
   const { linkBlockLabel, links } = linkBlock
   const { copyrightLabel, copyrightBody, copyrightLinks, linkText } = copyrightBlock
 
-  console.log(links)
-
   const padding: PaddingOption = {
     paddingTop: 'large',
   }
@@ -40,7 +38,6 @@ const Footer: React.FC = () => {
                     <p>{linkBlockLabel}</p>
                     <div className={classes.linksArray}>
                       {links?.map((link) => {
-                        console.log(link.imageLink.image)
                         return link.imageLink.url ? (
                           <a href={link.imageLink.url} key={link.imageLink.image.filename}>
                             <Image
