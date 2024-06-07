@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { fetchPageData, getAllCollections, getAllGlobals } from '@/requests'
+import { fetchPageData, /*getAllCollections,*/ getAllGlobals } from '@/requests'
 import { Hero } from '@/layout/Hero'
 import Blocks from '@/layout/Blocks'
 import Meta from '@/components/Meta'
@@ -25,16 +25,16 @@ const HomePage: React.FC<PageType & { globals: any; skillsCollection: SkillsArra
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [pageData, globals, skillsCollection] = await Promise.all([
+  const [pageData, globals /*skillsCollection*/] = await Promise.all([
     fetchPageData('home'),
     getAllGlobals(),
-    getAllCollections(),
+    //getAllCollections(),
   ])
   return {
     props: {
       ...pageData,
       globals,
-      skillsCollection,
+      //skillsCollection,
     },
   }
 }

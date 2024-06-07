@@ -6,5 +6,6 @@ export type Media = {
   width?: number
   height?: number
   url: string
+  fallback?: Media
   }
   

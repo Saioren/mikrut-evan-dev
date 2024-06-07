@@ -6,18 +6,17 @@ import Content from '@/components/Content'
 import Padding from '@/layout/Padding'
 import SkillsDisplay from '@/components/SkillsDisplay'
 import { useGlobals } from '@/providers/GlobalsProvider'
-import FadeIn from '@/components/FadeIn'
 import BackgroundColors from '@/components/BackgroundColors'
 
 const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
   const { padding, position, content, heading } = props
-  const { skillsCollection } = useGlobals()
+  //const { skillsCollection } = useGlobals()
 
   return position === 'right' ? (
     <Padding padding={padding}>
       <Grid className={classes.skills}>
         <Cell cols={7} colsM={4}>
-          <SkillsDisplay skills={skillsCollection} />
+          <SkillsDisplay /*skills={skillsCollection}*/ />
         </Cell>
         <Cell className={classes.center} cols={7} colsM={5}>
           <Content content={content} heading={heading} headingLowImpact />
@@ -33,7 +32,7 @@ const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
           <Content content={content} heading={heading} headingLowImpact />
         </Cell>
         <Cell cols={7} colsM={4}>
-          <SkillsDisplay skills={skillsCollection} />
+          <SkillsDisplay /*skills={skillsCollection}*/ />
         </Cell>
       </Grid>
     </Padding>

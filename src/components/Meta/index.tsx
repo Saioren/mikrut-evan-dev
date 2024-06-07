@@ -1,6 +1,6 @@
 import NextHead from 'next/head'
 import React, { Fragment } from 'react'
-import { Meta as MetaType } from '@/types/Meta/types'
+import { Meta as MetaType } from '@/types/Fields/Meta/types'
 
 // NOTE: there is also an 'AppHead' component
 

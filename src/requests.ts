@@ -57,6 +57,22 @@ export const getBySlug = async ({
 }
 
 
+const defaultFooter: Footer = {
+  linkBlock: {
+    linkBlockLabel: 'links',
+    links: undefined, // Remove the '?' after 'links'
+  },
+  copyrightBlock: {
+    copyrightLabel: 'mikrutevan.dev all rights reserved',
+    copyrightBody: 'this site was made with payload cms and next js.',
+    linkText: 'official documentation',
+    copyrightLinks: undefined, // Remove the '?' after 'copyrightLinks'
+  },
+  globalType: 'footer', // Remove the '?' after 'globalType'
+  globalName: 'footer', // Remove the '?' after 'globalName'
+  id: 'footer',
+};
+
 export const getAllGlobals = async (): Promise<{
   footer: Footer
 }> => {
@@ -70,14 +86,14 @@ export const getAllGlobals = async (): Promise<{
       }),
     ]);
 
-    return { footer };
+    return { footer: footer || defaultFooter }; // Use defaultFooter if footer is null or undefined
   } catch (error) {
     console.error('Error fetching globals:', error);
-    return { footer: null }; // Return a default or null value if fetching fails
+    return { footer: defaultFooter }; // Return defaultFooter in case of error
   }
 }
 
-export const getAllCollections = async (): Promise<{
+/*export const getAllCollections = async (): Promise<{
   skillsCollection: SkillsArray | null;
 }> => {
   try {
@@ -97,7 +113,7 @@ export const getAllCollections = async (): Promise<{
     console.error('Error fetching skills collection:', error);
     return { skillsCollection: null };
   }
-};
+};*/
 
 
 

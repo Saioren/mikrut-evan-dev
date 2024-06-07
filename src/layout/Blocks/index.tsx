@@ -4,9 +4,7 @@ import kebabCase from 'lodash/kebabCase'
 import { Blocks as BlocksType } from '@/types/Blocks/types'
 import Padding from '../Padding'
 
-const Blocks: React.FC<{
-  blocks: BlocksType
-}> = (props) => {
+const Blocks: React.FC<{ blocks: BlocksType }> = (props) => {
   const { blocks } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
@@ -18,13 +16,13 @@ const Blocks: React.FC<{
           const { blockName, blockType } = block
 
           if (blockType && blockType in allBlocks) {
-            const Block = allBlocks[blockType]
+            const BlockComponent = allBlocks[blockType]
 
-            if (Block) {
+            if (BlockComponent) {
               return (
-                <React.Fragment key={blockName}>
+                <React.Fragment key={`${blockName}-${index}`}>
                   {/* @ts-ignore */}
-                  <Block id={kebabCase(blockName)} {...block} />
+                  <BlockComponent id={kebabCase(blockName)} {...block} />
                 </React.Fragment>
               )
             }

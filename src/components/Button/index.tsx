@@ -51,7 +51,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       onClick={onClick}
       newTab={newTab}
     >
-      <ButtonContents {...props} />
+      <ButtonContents className={classes.text} {...props} />
     </Hyperlink>
   )
 }

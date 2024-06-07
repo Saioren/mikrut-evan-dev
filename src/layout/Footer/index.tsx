@@ -37,9 +37,9 @@ const Footer: React.FC = () => {
                   <div className={`${classes.section} ${classes.linkSection}`}>
                     <p>{linkBlockLabel}</p>
                     <div className={classes.linksArray}>
-                      {links?.map((link) => {
+                      {links?.map((link, index) => {
                         return link.imageLink.url ? (
-                          <a href={link.imageLink.url} key={link.imageLink.image.filename}>
+                          <a href={link.imageLink.url} key={index}>
                             <Image
                               src={link.imageLink.image.url}
                               width={32}
@@ -60,8 +60,8 @@ const Footer: React.FC = () => {
                   <p className={classes.paddingBottom}>{copyrightBody}</p>
                   <div className={classes.documentation}>
                     <p>{linkText}</p>
-                    {copyrightLinks?.map((link) => (
-                      <a href={link.imageLink.url} key={link.imageLink.image.filename}>
+                    {copyrightLinks?.map((link, index) => (
+                      <a href={link.imageLink.url} key={index}>
                         <Image
                           src={link.imageLink.image.url}
                           width={32}

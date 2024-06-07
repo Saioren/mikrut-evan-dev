@@ -9,7 +9,7 @@ export const Hero: React.FC<Props> = (props) => {
 
   if (type && type in heroes) {
     const SelectedHero = heroes[type]
-    const heroProps = props[type] // heroProps will be the content of the specific hero type
+    const heroProps = props[type as keyof HeroType] // heroProps will be the content of the specific hero type
 
     return (
       // @ts-ignore because of the 'type' key not aligning across hero types
