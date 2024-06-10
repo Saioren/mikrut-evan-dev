@@ -1,0 +1,69 @@
+@use '@/scss/common' as *;
+
+.slide {
+    height: 100%;
+}
+
+.track {
+    @include hide-scrollbar;
+    display: flex;
+    height: auto;
+    overflow: hidden;
+}
+
+.dot {
+    transition: 0.15s ease all;
+    width: 20px;
+    height: 20px;
+    background-color: rgba($color: rgb(69, 60, 60), $alpha: 0.5);
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dotIsActive {
+    background-color: white;
+    transition: 0.15s ease all;
+    transform: scale(1.1);
+}
+
+.dotNav {
+    right: 50%;
+    transform: translateX(50%);
+    transition: 0.15s ease all;
+    gap: base(0.25);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: base(0.5);
+    z-index: 3;
+}
+
+.button {
+    padding: base(0.25);
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: var(--background-primary-element);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    color: var(--font-color);
+}
+
+.sliderButtonWrap {
+    position: absolute;
+    bottom: calc(50% - 24px);
+}
+
+.nextWrap {
+    right: base(-0.5);
+}
+
+.prevWrap {
+    left: base(-0.5);
+}

@@ -14,6 +14,9 @@ type Props = {
   margin?: boolean
   gradient?: boolean
   small?: boolean
+  smaller?: boolean
+  z?: number
+  className?: string
 }
 
 const PopOut: React.FC<Props> = (props) => {
@@ -34,6 +37,9 @@ const PopOut: React.FC<Props> = (props) => {
     margin = false,
     gradient,
     small,
+    smaller,
+    z = 1,
+    className,
   } = props
 
   const ref = useRef<HTMLDivElement>(null)
@@ -67,7 +73,11 @@ const PopOut: React.FC<Props> = (props) => {
   }, [delayTime])
 
   return animate ? (
-    <div ref={ref} style={{ width: '100%' }} className={`${classes.popOut} ${classes.animate}`}>
+    <div
+      ref={ref}
+      style={{ width: '100%', zIndex: z }}
+      className={`${classes.popOut} ${classes.animate} ${className}`}
+    >
       <div
         className={`${classes.children} ${margin ? classes.animateMargin : ''} ${
           hasAnimated ? classes.animateChildren : classes.initialChildren
@@ -81,7 +91,7 @@ const PopOut: React.FC<Props> = (props) => {
   ) : hover ? (
     <div
       ref={ref}
-      style={{ width: 'max-content' }}
+      style={{ width: 'max-content', zIndex: z }}
       className={`${classes.popOut} ${classes.hover}`}
     >
       <div
@@ -107,10 +117,10 @@ const PopOut: React.FC<Props> = (props) => {
       <div className={`${classes.hoverHeadingShadow}`} />
     </div>
   ) : (
-    <div ref={ref} className={`${classes.popOut} ${classes.default}`}>
+    <div style={{ zIndex: z }} ref={ref} className={`${classes.popOut} ${classes.default}`}>
       <div className={classes.children}>{children}</div>
       <div className={classes.headingBackground} />
-      <div className={small ? classes.small : classes.headingShadow} />
+      <div className={small ? classes.small : smaller ? classes.smaller : classes.headingShadow} />
     </div>
   )
 }

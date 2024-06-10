@@ -22,7 +22,7 @@ const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
           <Content content={content} heading={heading} headingLowImpact />
         </Cell>
       </Grid>
-      <BackgroundColors positions={['bottomRight']} />
+      <BackgroundColors positions={['bottomRight', 'left']} />
     </Padding>
   ) : (
     <Padding padding={padding}>

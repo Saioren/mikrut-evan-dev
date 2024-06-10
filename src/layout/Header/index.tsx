@@ -38,8 +38,12 @@ const Header: React.FC = () => {
       className={`${classes.header} ${isScrolled ? classes.scrolled : classes.notScrolled}`}
     >
       <div className={classes.leftSide}>
-        <Link href="/">
-          <HiOutlineQrcode className={classes.logo} />
+        <Link className={classes.logoLink} href="/">
+          <div className={classes.logo}>
+            <span className={classes.mikrut}>mikrut</span>
+            <span className={classes.evan}>evan</span>
+            <span className={classes.dev}>.dev </span>
+          </div>
         </Link>
       </div>
       <div className={classes.rightSide}>

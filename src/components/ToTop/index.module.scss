@@ -19,7 +19,6 @@
     padding: base(0.5);
     transition: 100ms transform ease;
     display: flex;
-    border-radius: 50%;
     background-color: var(--background-primary-element);
 }
 
@@ -31,7 +30,6 @@
     right: 0;
     bottom: 0;
     background-color: var(--color-default-shadow);
-    border-radius: 50%;
 }
 
 .arrow {

@@ -1,6 +1,6 @@
 import { SkillItem } from '@/types/Blocks/Skills/types'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classes from './index.module.scss'
 import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
@@ -108,6 +108,7 @@ const skills = [
 const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
   const [skillShowcase, setSkillShowcase] = useState(false)
   const [activeSkill, setActiveSkill] = useState('')
+  const showcaseRef = useRef<HTMLDivElement>(null)
 
   function handleSkillClick(skillId: string) {
     setSkillShowcase(true)
@@ -129,51 +130,79 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
     }
   }
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0,
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          ;() => {
+            closeShowcase()
+          }
+        }
+      })
+    }, options)
+
+    if (showcaseRef.current) {
+      observer.observe(showcaseRef.current)
+    }
+
+    return () => {
+      if (showcaseRef.current) {
+        observer.unobserve(showcaseRef.current)
+      }
+    }
+  }, [])
+
   return (
     <FadeIn order={1}>
       <PopOut animate wait={3}>
         <div className={classes.skillDisplay}>
           {skills.map((skill, index) => {
-            const formattedName = skill.skill.skillImage.id.toLowerCase()
             const order = calculateOrder(index)
             return (
               <FadeIn order={order} key={index}>
                 <div className={classes.skillWrap}>
                   <AnimatePresence>
                     {skillShowcase && activeSkill === skill.skill.skillImage.id && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={classes.skillShowcase}
-                      >
-                        <Image
-                          onClick={() => handleSkillClick(skill.skill.skillImage.id)}
-                          className={`${classes.activeImage} ${classes[formattedName]}`}
-                          alt={skill.skill.skillImage.id}
-                          src={skill.skill.skillImage.url}
-                          width={1200}
-                          height={1200}
-                        />
-                        <button className={classes.x} onClick={() => closeShowcase()}>
-                          <XIcon />
-                        </button>
-                        <FadeIn className={classes.skillName} order={0}>
-                          <h3>{skill.skill.skillName}</h3>
-                        </FadeIn>
-                        <FadeIn className={classes.skillInformation} order={1}>
-                          <p>{skill.skill.skillDescription}</p>
-                        </FadeIn>
-                        <FadeIn className={classes.documentation} order={2}>
-                          <a className={classes.documentationText}>official documentation</a>
-                          {/*<LinkGroup links={skill.skill.skillLink}/>*/}
-                        </FadeIn>
-                      </motion.div>
+                      <div ref={showcaseRef}>
+                        <motion.div key={'modal'} className={classes.skillShowcase}>
+                          <Image
+                            onClick={() => handleSkillClick(skill.skill.skillImage.id)}
+                            className={`${classes.activeImage} ${
+                              classes[skill.skill.skillImage.id.toLowerCase()]
+                            }`}
+                            alt={skill.skill.skillImage.id}
+                            src={skill.skill.skillImage.url}
+                            width={1200}
+                            height={1200}
+                          />
+                          <button className={classes.x} onClick={() => closeShowcase()}>
+                            <XIcon />
+                          </button>
+                          <FadeIn className={classes.skillName} order={0}>
+                            <h3>{skill.skill.skillName}</h3>
+                          </FadeIn>
+                          <FadeIn className={classes.skillInformation} order={1}>
+                            <p>{skill.skill.skillDescription}</p>
+                          </FadeIn>
+                          <FadeIn className={classes.documentation} order={2}>
+                            <a className={classes.documentationText}>official documentation</a>
+                            {/*<LinkGroup links={skill.skill.skillLink}/>*/}
+                          </FadeIn>
+                        </motion.div>
+                      </div>
                     )}
                   </AnimatePresence>
                   <Image
                     onClick={() => handleSkillClick(skill.skill.skillImage.id)}
-                    className={`${classes.skillImage} ${classes[formattedName]}`}
+                    className={`${classes.skillImage} ${
+                      classes[skill.skill.skillImage.id.toLowerCase()]
+                    }`}
                     alt={skill.skill.skillImage.id}
                     src={skill.skill.skillImage.url}
                     width={1200}

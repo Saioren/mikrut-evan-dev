@@ -20,6 +20,8 @@
 
     --brand-color: #{$color-brand-orange};
 
+    --bg-opacity: #{$bg-opacity};
+
     --background: #{$color-brand-white};
     --background-light: #{$color-white};
     --background-dark: #{$color-dark-gray};
@@ -212,6 +214,8 @@ body {
     --color-gray: #{$dark-color-gray};
     --color-light-gray: #{$dark-color-light-gray};
     --color-default-shadow: #{$dark-color-default-shadow};
+
+    --bg-opacity: #{$dark-bg-opacity};
 
     --filter-color: invert(1);
 

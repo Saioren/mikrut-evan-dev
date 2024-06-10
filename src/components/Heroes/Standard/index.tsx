@@ -17,7 +17,7 @@ const StandardHero: React.FC<Hero> = (props) => {
   if (!standardHero) return null
 
   const { content, heroImage, padding, heading, position } = standardHero
-
+  console.log(heroImage)
   return (
     <Padding padding={padding}>
       <motion.div

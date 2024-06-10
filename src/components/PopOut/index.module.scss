@@ -84,13 +84,6 @@
     }
 }
 
-.icon {
-    @include large-break {
-        padding: base(0.3);
-    }
-    padding: base(0.4);
-}
-
 .headerIcon {
     @include large-break {
         padding: base(0.2);
@@ -156,7 +149,7 @@
     }*/
 }
 
-.small {
+.small, .smaller {
     position: absolute;
     top: 0;
     right: 0;
@@ -164,6 +157,22 @@
     left: 0;
     background-color: var(--color-default-shadow);
     z-index: 0;
+}
+
+.small {
+    transform: translateX(10px)  translateY(10px);
+    @include extra-large-break {
+        transform: translateX(7px)  translateY(7px);
+    }
+    @include large-break {
+        transform: translateX(-6px)  translateY(6px);
+    }
+    @include mid-break {
+        transform: translateX(5px)  translateY(5px);
+    }
+}
+
+.smaller {
     transform: translateX(10px)  translateY(10px);
     @include extra-large-break {
         transform: translateX(7px)  translateY(7px);
