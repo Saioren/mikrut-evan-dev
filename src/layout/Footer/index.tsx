@@ -9,6 +9,7 @@ import { HiOutlineQrcode } from 'react-icons/hi'
 import Padding from '../Padding'
 import { PaddingOption } from '@/types/Layout/Padding/types'
 import ToTop from '@/components/ToTop'
+import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 
 const Footer: React.FC = () => {
   const { footer } = useGlobals()
@@ -30,7 +31,7 @@ const Footer: React.FC = () => {
               <section className={classes.firstHalf}>
                 <PopOut small>
                   <div className={`${classes.section} ${classes.logoSection}`}>
-                    <HiOutlineQrcode className={classes.logo} />
+                    <MikrutEvanLogo />
                   </div>
                 </PopOut>
                 <PopOut small>

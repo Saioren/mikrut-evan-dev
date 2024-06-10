@@ -165,7 +165,7 @@
         transform: translateX(7px)  translateY(7px);
     }
     @include large-break {
-        transform: translateX(-6px)  translateY(6px);
+        transform: translateX(6px)  translateY(6px);
     }
     @include mid-break {
         transform: translateX(5px)  translateY(5px);
@@ -173,15 +173,15 @@
 }
 
 .smaller {
-    transform: translateX(10px)  translateY(10px);
+    transform: translateX(7px)  translateY(7px);
     @include extra-large-break {
-        transform: translateX(7px)  translateY(7px);
+        transform: translateX(5px)  translateY(5px);
     }
     @include large-break {
-        transform: translateX(-6px)  translateY(6px);
+        transform: translateX(4px)  translateY(4px);
     }
     @include mid-break {
-        transform: translateX(5px)  translateY(5px);
+        transform: translateX(3px)  translateY(3px);
     }
 }
 

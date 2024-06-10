@@ -4,17 +4,25 @@
   background-color: var(--brand-color);
   position: absolute;
   z-index: -1;
-  left: 0;
-  top: base();
-  width: 40rem;
-  height: 30rem;
+  left: base(-5);
+  top: 0;
+  width: base(35);
+  height: base(40);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
+  @include extra-large-break {
+    width: base(30);
+    height: base(25);
+  }
   @include large-break {
-    height: 30rem;
-    width: 30rem;
+    width: base(25);
+    height: base(20);
+  }
+  @include mid-break {
+    width: base(20);
+    height: base(15);
   }
 }
 
@@ -22,16 +30,17 @@
   background-color: var(--brand-color);
   position: absolute;
   z-index: -1;
-  right: 0;
-  width: 40rem;
-  height: 40rem;
+  right: base(-5);
+  top: 0;
+  width: base(25);
+  height: base(20);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
   @include large-break {
-    height: 30rem;
-    width: 30rem;
+    height: base(20);
+    width: base(15);
   }
 }
 
@@ -40,16 +49,16 @@
   position: absolute;
   z-index: -1;
   left: base(-10);
-  top: base(-3);
-  width: 40rem;
-  height: 40rem;
+  top: base(-5);
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
-  @include large-break {
-    height: 30rem;
-    width: 30rem;
+  @include extra-large-break {
+    width: base(25);
+    height: base(20);
   }
 }
 
@@ -58,16 +67,16 @@
   position: absolute;
   z-index: -1;
   right: base(-10);
-  top: base(-3);
-  width: 40rem;
-  height: 30rem;
+  top: base(-5);
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
-  @include large-break {
-    height: 30rem;
-    width: 30rem;
+  @include extra-large-break {
+    width: base(25);
+    height: base(20);
   }
 }
 
@@ -78,15 +87,15 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 40rem;
-  height: 30rem;
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
-  @include large-break {
-    height: 30rem;
-    width: 30rem;
+  @include extra-large-break {
+    width: base(25);
+    height: base(20);
   }
 }
 
@@ -97,8 +106,8 @@
   left: base();
   top: 50%;
   transform: translateY(-50%);
-  width: 40rem;
-  height: 30rem;
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
@@ -116,8 +125,8 @@
   right: base();
   top: 50%;
   transform: translateY(-50%);
-  width: 40rem;
-  height: 30rem;
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
@@ -132,17 +141,17 @@
   background-color: var(--brand-color);
   position: absolute;
   z-index: -1;
-  left: base();
-  bottom: base();
+  left: base(-5);
+  bottom: base(-10);
   width: 40rem;
   height: 30rem;
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
-  @include large-break {
-    height: 30rem;
-    width: 30rem;
+  @include extra-large-break {
+    width: base(25);
+    height: base(20);
   }
 }
 
@@ -150,16 +159,16 @@
   background-color: var(--brand-color);
   position: absolute;
   z-index: -1;
-  right: 0;
-  bottom: base(5);
-  width: 40rem;
-  height: 30rem;
+  right: base(-5);
+  bottom: base(-10);
+  width: base(30);
+  height: base(25);
   opacity: var(--bg-opacity);
   border-radius: 50%;
   filter: blur(10rem);
 
-  @include large-break {
-    height: 30rem;
-    width: 30rem;
+  @include extra-large-break {
+    width: base(25);
+    height: base(20);
   }
 }

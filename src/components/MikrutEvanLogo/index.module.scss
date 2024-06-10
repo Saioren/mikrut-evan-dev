@@ -1,0 +1,27 @@
+.logoLink, .logo {
+    text-decoration: none;
+    border: none;
+}
+
+.mikrut {
+    color: var(--font-color);
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.evan {
+    font-family: 'Nanum Pen Script', cursive;
+    color: var(--brand-color);
+    text-transform: uppercase;
+}
+
+.dev {
+    color: var(--font-color);
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.logoLink span {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border-bottom: none;
+}

@@ -32,6 +32,7 @@ const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
           <Content content={content} heading={heading} headingLowImpact />
         </Cell>
         <Cell cols={7} colsM={4}>
+          <BackgroundColors positions={['bottomLeft', 'right']} />
           <SkillsDisplay /*skills={skillsCollection}*/ />
         </Cell>
       </Grid>

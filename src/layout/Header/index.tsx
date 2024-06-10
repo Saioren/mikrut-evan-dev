@@ -6,6 +6,7 @@ import { BsGithub, BsTwitterX } from 'react-icons/bs'
 import { HiOutlineQrcode } from 'react-icons/hi'
 import PopOut from '@/components/PopOut'
 import { motion } from 'framer-motion'
+import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 
 const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null)
@@ -38,13 +39,7 @@ const Header: React.FC = () => {
       className={`${classes.header} ${isScrolled ? classes.scrolled : classes.notScrolled}`}
     >
       <div className={classes.leftSide}>
-        <Link className={classes.logoLink} href="/">
-          <div className={classes.logo}>
-            <span className={classes.mikrut}>mikrut</span>
-            <span className={classes.evan}>evan</span>
-            <span className={classes.dev}>.dev </span>
-          </div>
-        </Link>
+        <MikrutEvanLogo />
       </div>
       <div className={classes.rightSide}>
         <div className={classes.links}>

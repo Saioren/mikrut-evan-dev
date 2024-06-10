@@ -5,6 +5,7 @@ import Padding from '@/layout/Padding'
 import { Cell, Grid } from '@faceless-ui/css-grid'
 import Carousel from '@/components/Carousel'
 import classes from './index.module.scss'
+import BackgroundColors from '@/components/BackgroundColors'
 
 const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
   const { heading, padding, position, content /*slides*/ } = props
@@ -36,9 +37,20 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
       url: '/api/media/file/main-qimg-dc599ae681492759baf5d9938b9070a4-lq-1.jpg',
       thumbnailURL: null,
     },
+    {
+      id: '66633b188c7c2a709a980515',
+      alt: 'laptop',
+      filename: 'main-qimg-dc599ae681492759baf5d9938b9070a4-lq.jpg',
+      mimeType: 'image/jpeg',
+      filesize: 49882,
+      width: 602,
+      height: 378,
+      createdAt: '2024-06-07T16:53:44.471Z',
+      updatedAt: '2024-06-07T16:53:44.471Z',
+      url: '/api/media/file/main-qimg-dc599ae681492759baf5d9938b9070a4-lq.jpg',
+      thumbnailURL: null,
+    },
   ]
-
-  console.log(slides)
 
   return (
     <Padding padding={padding}>
@@ -51,6 +63,7 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
             <Cell className={classes.carousel} cols={8} colsM={5}>
               <Carousel slides={slides} />
             </Cell>
+            <BackgroundColors positions={['bottomLeft', 'right']} />
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -60,6 +73,7 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
             <Cell cols={6} colsM={4}>
               <Content heading={heading} headingLowImpact content={content} />
             </Cell>
+            <BackgroundColors positions={['left', 'bottomRight']} />
           </React.Fragment>
         )}
       </Grid>

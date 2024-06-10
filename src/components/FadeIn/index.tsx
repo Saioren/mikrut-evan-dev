@@ -9,7 +9,7 @@ type Props = {
 }
 
 const FadeIn: React.FC<Props> = (props) => {
-  const { children, order, className } = props
+  const { children, order } = props
   const delayTime = order * 0.15 // Ensure delay is in seconds for framer-motion
 
   return (
@@ -17,8 +17,8 @@ const FadeIn: React.FC<Props> = (props) => {
       initial={{ y: -20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ delay: delayTime, duration: 0.5, ease: 'easeOut' }}
-      className={`${classes.fadeIn} ${className}`}
       viewport={{ once: true, amount: 'some' }}
+      className={props.className}
     >
       {children}
     </motion.div>

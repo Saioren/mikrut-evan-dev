@@ -1,14 +1,31 @@
 @use '@/scss/common' as *;
 
-.slide {
+.slideImage {
+    display: flex;
+    width: 100%;
     height: 100%;
+}
+
+.slide {
+    position: relative;
+
+    .projectInfoWrap {
+        opacity: 0;
+        transition: opacity 0.3s ease; 
+        transition-delay: 0.1s;
+    }
+
+    &:hover {
+        .projectInfoWrap {
+            opacity: 1; 
+            transition: opacity 0.3s ease;
+            transition-delay: 500ms; 
+        }
+    }
 }
 
 .track {
     @include hide-scrollbar;
-    display: flex;
-    height: auto;
-    overflow: hidden;
 }
 
 .dot {
@@ -67,3 +84,23 @@
 .prevWrap {
     left: base(-0.5);
 }
+
+.projectInfoWrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--project-filter);
+    backdrop-filter: blur(10px);
+    padding: base();
+    @include mid-break {
+        padding: base(0.5);
+    }
+}
+
+.projectInfo {
+    display: grid;
+    grid-template-rows: 3, 1fr;
+}
+
