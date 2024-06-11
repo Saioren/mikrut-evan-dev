@@ -2,6 +2,7 @@ import { Block } from "payload/types";
 import Content from "../../fields/Content";
 import Padding from "../../fields/Padding";
 import Position from "../../fields/Position";
+import Link from "../../fields/Link";
 
 const CarouselBlock: Block = {
     slug: 'carouselBlock',
@@ -29,6 +30,23 @@ const CarouselBlock: Block = {
                     relationTo: 'media',
                     required: true,
                 },
+                {
+                    name: 'slideTitle',
+                    type: 'text',
+                },
+                {
+                    name: 'slideDescription',
+                    type: 'textarea',
+                },
+                {
+                    name: 'slideLinks',
+                    type: 'array',
+                    fields: [
+                        Link({
+                            
+                        })
+                    ]
+                }
             ],
         },
     ]

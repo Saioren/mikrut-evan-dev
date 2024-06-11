@@ -8,9 +8,9 @@ import classes from './index.module.scss'
 import BackgroundColors from '@/components/BackgroundColors'
 
 const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
-  const { heading, padding, position, content /*slides*/ } = props
+  const { heading, padding, position, content, slides } = props
 
-  const slides = [
+  const customSlides = [
     {
       id: '66633b188c7c2a709a980515',
       alt: 'laptop',
@@ -61,14 +61,14 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
               <Content heading={heading} headingLowImpact content={content} />
             </Cell>
             <Cell className={classes.carousel} cols={8} colsM={5}>
-              <Carousel slides={slides} />
+              <Carousel slides={customSlides} slideData={slides} />
             </Cell>
             <BackgroundColors positions={['bottomLeft', 'right']} />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Cell cols={7} colsM={5} className={classes.carousel}>
-              <Carousel slides={slides} />
+              <Carousel slides={customSlides} slideData={slides} />
             </Cell>
             <Cell cols={6} colsM={4}>
               <Content heading={heading} headingLowImpact content={content} />

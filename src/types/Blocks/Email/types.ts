@@ -1,3 +1,5 @@
+import { Link } from "@/types/Fields/Link/types";
+import { RichText } from "@/types/Fields/RichText/types";
 import { PaddingOption } from "@/types/Layout/Padding/types";
 import { Position } from "@/types/Layout/Position/types";
 
@@ -6,5 +8,8 @@ export type Email = {
     blockName?: string;
     heading: string;
     padding: PaddingOption;
-    position: Position;
+    content?: {
+        richText?: RichText;
+        links?: Link[];
+    }
 }

@@ -1,0 +1,62 @@
+@use '@/scss/common' as *;
+
+.emailForm {
+    padding: base();
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: base();
+    background-color: var(--background-primary-element);
+    .formGroup {
+        input {
+            outline: none;
+            font-size: large;
+            color: var(--font-color);
+            font-family: var(--font-body);
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid var(--brand-color);
+            display: flex;
+            width: 100%;
+        }
+        textarea {
+            outline: none;
+            font-size: large;
+            color: var(--font-color);
+            font-family: var(--font-body);
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid var(--brand-color);
+            display: flex;
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+.buttonWrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.send {
+    padding: 10px 12px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: transparent;
+    font-size: large;
+    border: none;
+    font-family: var(--font-body);
+    color: white;
+    cursor: pointer;
+    .plane {
+        transition: 100ms ease transform;
+    }
+    &:hover {
+        .plane {
+            transform: translateX(3px) translateY(-3px);
+        }
+    }
+}

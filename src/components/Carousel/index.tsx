@@ -7,13 +7,15 @@ import classes from './index.module.scss'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
+import { Slide as SlideType } from '@/types/Blocks/Carousel/types'
 
 export type CarouselProps = {
   slides: MediaType[]
+  slideData: SlideType[]
 }
 
 const Carousel: React.FC<CarouselProps> = (props) => {
-  const { slides } = props
+  const { slides, slideData } = props
   const [slideNumber, setSlideNumber] = useState(0)
   const [hoveredSlide, setHoveredSlide] = useState(false)
 
@@ -53,9 +55,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                     />
                     <div className={`${classes.projectInfoWrap}`}>
                       <div className={classes.projectInfo}>
-                        <div>test</div>
-                        <div>test</div>
-                        <div>test</div>
+                        <div className={classes.projectTitle}>{slide.alt}</div>
+                        <div className={classes.projectDescription}>test</div>
+                        <div className={classes.projectLinks}>
+                          <a>Test</a>
+                        </div>
                       </div>
                     </div>
                   </Slide>

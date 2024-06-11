@@ -4,7 +4,12 @@ import { RichText } from "@/types/Fields/RichText/types";
 import { PaddingOption } from "@/types/Layout/Padding/types"
 import { Position } from "@/types/Layout/Position/types";
 
-export type Slide = Media;
+export type Slide = {
+  slide: Media;
+  slideTitle: string;
+  slideDescription: string;
+  slideLinks: Link[];
+}
 
 
 export type Carousel = {
@@ -17,5 +22,5 @@ export type Carousel = {
     richText?: RichText;
     links?: Link[];
   };
-  slides: Media[];
+  slides: Slide[];
 };

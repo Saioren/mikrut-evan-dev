@@ -1,3 +1,91 @@
+@use '@/scss/common' as *;
+
 .timeline {
-    background-color: rgb(191, 243, 191);
+    h2 {
+        margin: 0;
+    }
+}
+
+.timelineSection {
+    display: flex;
+    gap: base();
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding-bottom: base(4.05);
+    padding-top: base(4.05);
+
+    .cell {
+        position: relative;
+        width: 100%;
+
+        &:nth-child(odd) {
+            transform: translateY(calc(-75%));
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: -14px; /* Adjust size */
+                left: base();
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent; /* Adjust size */
+                border-right: 15px solid transparent; /* Adjust size */
+                border-top: 15px solid var(--background-primary-element); /* Change color */
+                transform: translateX(-50%);
+                z-index: 2; /* Increase z-index */
+            }
+            .timelineIcon {
+                bottom: -65px;
+                left: base();
+                transform: translateX(-50%);
+            }
+        }
+
+        &:nth-child(even) {
+            transform: translateY(75%);
+            &:before {
+                content: '';
+                position: absolute;
+                top: -14px; /* Adjust size */
+                left: base();
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent; /* Adjust size */
+                border-right: 15px solid transparent; /* Adjust size */
+                border-bottom: 15px solid var(--background-primary-element); /* Change color */
+                transform: translateX(-50%);
+                z-index: 2; /* Increase z-index */
+            }
+            .timelineIcon {
+                top: -65px;
+                left: base();
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+.timelineLine {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 100%;
+    background-color: var(--background-primary-element);
+    transform: translateY(-50%);
+}
+
+.timelineIcon {
+    background-color: var(--color-default-shadow);
+    border-radius: 50%;
+    padding: base(0.25);
+    display: flex;
+    position: absolute;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
 }

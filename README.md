@@ -1,3 +1,7 @@
+# mikrutevan.dev
+
+Hello, I'm Evan, and this is my resume repo! Build in Next.JS, powered by Payload CMS version 3.0. Below you'll find the information regarding the blank Payload boilerplate I used, Next.JS native.
+
 # Payload Blank Template
 
 A blank template for [Payload](https://github.com/payloadcms/payload) to help you get up and running quickly. This repo may have been created by running `npx create-payload-app@latest` and selecting the "blank" template or by cloning this template on [Payload Cloud](https://payloadcms.com/new/clone/blank).

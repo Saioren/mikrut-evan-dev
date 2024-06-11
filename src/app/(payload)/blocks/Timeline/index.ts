@@ -1,5 +1,6 @@
 import { Block } from "payload/types";
 import Padding from "../../fields/Padding";
+import Content from "../../fields/Content";
 
 const TimelineBlock: Block = {
     slug: 'timelineBlock',
@@ -13,6 +14,7 @@ const TimelineBlock: Block = {
             type: 'text',
         },
         Padding,
+        Content,
         {
             name: 'timelineElements',
             type: 'array',
