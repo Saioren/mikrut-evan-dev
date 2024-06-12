@@ -1,4 +1,11 @@
+@use '@/scss/common' as *;
+
 .grid {
     display: flex;
     align-items: center;
+}
+
+.toaster {
+    background-color: var(--background-primary-element);
+    color: var(--font-color);
 }

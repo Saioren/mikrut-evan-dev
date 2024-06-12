@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import classes from './index.module.scss'
 import PopOut from '../PopOut'
 import { FaPaperPlane } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
+import { toast } from 'react-hot-toast'
 
 const EmailComponent = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const EmailComponent = () => {
     message: '',
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
@@ -18,20 +20,54 @@ const EmailComponent = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const { name, email, message } = formData
+    if (name === '' || email === '' || message === '') {
+      toast.error('Please fill in all fields.')
+      return false
+    }
+
+    if (!email.includes('@')) {
+      toast.error('Please enter a valid email address.')
+      return false
+    }
+
+    return true
+  }
+
+  const serviceId = process.env.EMAILJS_SERVICE_ID || 'service_rgnwnc8'
+  const templateId = process.env.EMAILJS_TEMPLATE_ID || 'template_oik1zlg'
+  const publicKey = process.env.EMAILJS_PUBLIC_KEY || 'E-dwrODiszns7TEVk'
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Here you can add code to handle form submission, like sending data to a server or performing client-side validation
-    console.log(formData)
-    // Clear the form fields after submission if needed
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    })
+    if (validateForm()) {
+      toast.loading('Sending email...')
+      try {
+        const response = await emailjs.send(
+          serviceId as string,
+          templateId as string,
+          formData,
+          publicKey,
+        )
+        console.log('Email was sent successfully. ', response)
+        toast.dismiss()
+        toast.success('Email sent successfully!')
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        })
+      } catch (error) {
+        console.log('Error sending email: ', error)
+        toast.dismiss()
+        toast.error('Failed to send email. Please try again later.')
+      }
+    }
   }
 
   return (
-    <form className={classes.emailForm} onSubmit={handleSubmit}>
+    <form noValidate className={classes.emailForm} onSubmit={handleSubmit}>
       <div className={classes.formGroup}>
         <input
           type="text"

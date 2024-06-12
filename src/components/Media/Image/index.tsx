@@ -29,19 +29,19 @@ export const ImageComponent: React.FC<Props> = (props) => {
     }
 
     {
-      /*<Image
-            src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
-            width={width}
-            height={height}
-            quality={quality}
-            alt={alt}
-            onLoadingComplete={() => setIsLoading(false)}
-          />*/
+      ;<Image
+        src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
+        width={width}
+        height={height}
+        quality={quality}
+        alt={alt}
+        onLoadingComplete={() => setIsLoading(false)}
+      />
     }
 
     return (
       <Fragment>
-        {!useNextImage && <img {...baseProps} alt={alt} />}
+        {!useNextImage && <img src={url} alt={alt} />}
         {useNextImage && <></>}
       </Fragment>
     )

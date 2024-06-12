@@ -7,11 +7,25 @@ import React from 'react'
 import classes from './index.module.scss'
 import PopOut from '@/components/PopOut'
 import FadeIn from '@/components/FadeIn'
+import { Toaster } from 'react-hot-toast'
 
 const EmailBlock: React.FC<EmailBlockType> = (props) => {
   const { heading, padding, content } = props
   return (
     <Padding padding={padding}>
+      <Toaster
+        toastOptions={{
+          className: '',
+          style: {
+            backgroundColor: 'var(--background-primary-element)',
+            color: 'var(--font-color)',
+            fontSize: 'medium',
+            display: 'flex',
+            alignItems: 'center',
+          },
+        }}
+        position="bottom-right"
+      />
       <FadeIn order={0}>
         <Grid className={classes.grid}>
           <Cell cols={7} colsM={4}>
