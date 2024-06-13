@@ -29,6 +29,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         pauseOnHover
         currentSlideIndex={slideNumber}
         slidesToShow={1}
+        scrollSnap
         autoPlay
         autoplaySpeed={7000}
         onSlide={(index) => setSlideNumber(index)}
@@ -40,34 +41,32 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             </SliderButton>
           </PopOut>
         </div>
-        <PopOut wait={3} animate>
-          <SliderTrack className={classes.track}>
-            {slides.map((slide, index) => {
-              return (
-                <React.Fragment>
-                  <Slide className={classes.slide} index={index} key={index}>
-                    <Image
-                      className={classes.slideImage}
-                      src={slide.url}
-                      alt={slide.alt}
-                      width={slide.width}
-                      height={slide.height}
-                    />
-                    <div className={`${classes.projectInfoWrap}`}>
-                      <div className={classes.projectInfo}>
-                        <div className={classes.projectTitle}>{slide.alt}</div>
-                        <div className={classes.projectDescription}>test</div>
-                        <div className={classes.projectLinks}>
-                          <a>Test</a>
-                        </div>
+        <SliderTrack className={classes.track}>
+          {slides.map((slide, index) => {
+            return (
+              <React.Fragment>
+                <Slide className={classes.slide} index={index} key={index}>
+                  <Image
+                    className={classes.slideImage}
+                    src={slide.url}
+                    alt={slide.alt}
+                    width={slide.width}
+                    height={slide.height}
+                  />
+                  <div className={`${classes.projectInfoWrap}`}>
+                    <div className={classes.projectInfo}>
+                      <div className={classes.projectTitle}>{slide.alt}</div>
+                      <div className={classes.projectDescription}>test</div>
+                      <div className={classes.projectLinks}>
+                        <a>Test</a>
                       </div>
                     </div>
-                  </Slide>
-                </React.Fragment>
-              )
-            })}
-          </SliderTrack>
-        </PopOut>
+                  </div>
+                </Slide>
+              </React.Fragment>
+            )
+          })}
+        </SliderTrack>
         <div className={`${classes.sliderButtonWrap} ${classes.nextWrap}`}>
           <PopOut icon hover z={3} smaller>
             <SliderButton className={`${classes.next} ${classes.button}`} direction="next">

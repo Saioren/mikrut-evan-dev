@@ -3,12 +3,14 @@
 .slideImage {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .slide {
     position: relative;
-
+    display: flex;
+    height: auto;
+    width: 100%;
     .projectInfoWrap {
         opacity: 0;
         transition: opacity 0.3s ease; 
@@ -26,6 +28,7 @@
 
 .track {
     @include hide-scrollbar;
+    height: 100%;
 }
 
 .dot {

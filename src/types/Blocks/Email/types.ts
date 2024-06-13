@@ -7,6 +7,7 @@ export type Email = {
     blockType?: 'emailBlock';
     blockName?: string;
     heading: string;
+    position: Position
     padding: PaddingOption;
     content?: {
         richText?: RichText;

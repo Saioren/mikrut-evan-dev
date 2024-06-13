@@ -8,9 +8,10 @@ import classes from './index.module.scss'
 import PopOut from '@/components/PopOut'
 import FadeIn from '@/components/FadeIn'
 import { Toaster } from 'react-hot-toast'
+import BackgroundColors from '@/components/BackgroundColors'
 
 const EmailBlock: React.FC<EmailBlockType> = (props) => {
-  const { heading, padding, content } = props
+  const { heading, padding, content, position = 'left' } = props
   return (
     <Padding padding={padding}>
       <Toaster
@@ -28,14 +29,31 @@ const EmailBlock: React.FC<EmailBlockType> = (props) => {
       />
       <FadeIn order={0}>
         <Grid className={classes.grid}>
-          <Cell cols={7} colsM={4}>
-            <Content heading={heading} headingLowImpact content={content} />
-          </Cell>
-          <Cell cols={7} colsM={5}>
-            <PopOut animate wait={3}>
-              <EmailComponent />
-            </PopOut>
-          </Cell>
+          {position == 'left' ? (
+            <React.Fragment>
+              <Cell cols={7} colsM={4}>
+                <Content heading={heading} headingLowImpact content={content} />
+              </Cell>
+              <Cell cols={7} colsM={5}>
+                <PopOut animate wait={3}>
+                  <EmailComponent />
+                </PopOut>
+              </Cell>
+              <BackgroundColors positions={['bottomLeft']} />
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Cell cols={7} colsM={5}>
+                <PopOut animate wait={3}>
+                  <EmailComponent />
+                </PopOut>
+              </Cell>
+              <Cell cols={7} colsM={4}>
+                <Content heading={heading} headingLowImpact content={content} />
+              </Cell>
+              <BackgroundColors positions={['bottomLeft']} />
+            </React.Fragment>
+          )}
         </Grid>
       </FadeIn>
     </Padding>
