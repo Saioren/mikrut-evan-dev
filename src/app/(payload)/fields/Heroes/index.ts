@@ -1,5 +1,6 @@
 import { Field } from 'payload/types';
 import StandardHero from './StandardHero';
+import ProjectsHero from './ProjectsHero';
 
 export const Hero: Field = {
   name: 'hero',
@@ -16,6 +17,10 @@ export const Hero: Field = {
           label: 'Standard',
           value: 'standard',
         },
+        {
+          label: 'Projects',
+          value: 'projects',
+        },
         // Add more hero types here as needed
       ],
     },
@@ -27,6 +32,16 @@ export const Hero: Field = {
       },
       fields: [
         StandardHero,
+      ]
+    },
+    {
+      name: 'projects',
+      type: 'group',
+      admin: {
+        condition: (_, { type }) => type === 'projects',
+      },
+      fields: [
+        ProjectsHero,
       ]
     },
     // Add more hero type groups here as needed

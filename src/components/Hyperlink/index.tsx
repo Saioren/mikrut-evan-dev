@@ -22,6 +22,7 @@ export type HyperlinkProps = {
   style?: CSSProperties
   newTab?: boolean
   children?: React.ReactNode
+  customUrl?: string
 }
 
 export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
@@ -40,6 +41,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     display,
     style,
     newTab: newTabFromProps,
+    customUrl,
   } = props
 
   const { asPath } = useRouter()
@@ -49,8 +51,9 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
 
   if (linkFromCMS) {
     const { type, url, reference, newTab: newTabFromLink } = linkFromCMS.link
-
-    if (type === 'reference' && reference) {
+    if (customUrl) {
+      href = customUrl
+    } else if (type === 'reference' && reference) {
       href = formatPermalink(reference) // Assume formatPermalink handles the formatting correctly
     }
 

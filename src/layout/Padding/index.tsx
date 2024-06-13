@@ -5,10 +5,11 @@ import { PaddingOption, Padding as PaddingType } from '@/types/Layout/Padding/ty
 type PaddingProps = {
   children?: React.ReactNode
   padding: PaddingOption
+  id?: string
 }
 
 const Padding: React.FC<PaddingProps> = (props) => {
-  const { padding, children } = props
+  const { padding, children, id } = props
   const { paddingTop, paddingBottom } = padding
 
   const paddingTopClass = `padding-top-${paddingTop}`
@@ -18,7 +19,11 @@ const Padding: React.FC<PaddingProps> = (props) => {
     paddingBottom && classes[paddingBottomClass]
   }`
 
-  return <div className={paddingClasses}>{children}</div>
+  return (
+    <div id={id} className={paddingClasses}>
+      {children}
+    </div>
+  )
 }
 
 export default Padding

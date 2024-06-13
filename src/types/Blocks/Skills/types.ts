@@ -4,26 +4,24 @@ import { PaddingOption } from "../../Layout/Padding/types";
 import { Position } from "../../Layout/Position/types";
 import { RichText } from "@/types/Fields/RichText/types";
 
-export type SkillItem = {
+export type SkillCollection = {
+    id: string
+    skills: Skill[]
+}
+
+export type Skill = {
   id: string;
-  skill: {
-    skillName: string;
-    skillDescription: RichText;
-    skillImage?: Media;
-  };
+  skillName: string;
+  skillDescription: string;
+  skillImage: Media;
   createdAt: string;
   updatedAt: string;
 };
-
-export type SkillsArray = {
-  skills?: SkillItem[];
-}
 
 export type Skills = {
   blockType?: 'skillsBlock';
   blockName?: string;
   heading: string;
-  skills?: SkillItem[];
   padding: PaddingOption;
   position: Position;
   content: {

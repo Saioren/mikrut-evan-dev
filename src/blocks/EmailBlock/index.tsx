@@ -13,7 +13,7 @@ import BackgroundColors from '@/components/BackgroundColors'
 const EmailBlock: React.FC<EmailBlockType> = (props) => {
   const { heading, padding, content, position = 'left' } = props
   return (
-    <Padding padding={padding}>
+    <Padding id="contact" padding={padding}>
       <Toaster
         toastOptions={{
           className: '',

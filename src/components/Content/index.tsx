@@ -22,15 +22,17 @@ type ContentType = {
   hero?: boolean
   position?: Position
   gradient?: boolean
+  url?: string
   centered?: boolean
 }
 
 const Content: React.FC<ContentType> = ({
   content,
   heading,
-  hero,
+  hero = false,
   position,
   headingLowImpact = false,
+  url,
   gradient,
   centered,
 }) => {
@@ -80,7 +82,7 @@ const Content: React.FC<ContentType> = ({
                   </PopOut>
                 </React.Fragment>
               )}
-              <LinkGroup gradient={gradient} links={content?.links} />
+              <LinkGroup url={url} gradient={gradient} links={content?.links} />
             </div>
           </FadeIn>
         )}

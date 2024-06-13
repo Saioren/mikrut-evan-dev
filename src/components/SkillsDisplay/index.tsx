@@ -1,4 +1,4 @@
-import { SkillItem } from '@/types/Blocks/Skills/types'
+import { Skill, SkillCollection } from '@/types/Blocks/Skills/types'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import classes from './index.module.scss'
@@ -7,12 +7,10 @@ import FadeIn from '../FadeIn'
 import LinkGroup from '../LinkGroup'
 import XIcon from '@/icons/X'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useGlobals } from '@/providers/GlobalsProvider'
+import { RichText } from '../RichText'
 
-type SkillsDisplayProps = {
-  skills?: SkillItem[]
-}
-
-const skills = [
+/*const skills = [
   {
     skill: {
       skillName: 'Payload CMS',
@@ -103,9 +101,9 @@ const skills = [
       },
     },
   },
-]
+]*/
 
-const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
+const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }) => {
   const [skillShowcase, setSkillShowcase] = useState(false)
   const [activeSkill, setActiveSkill] = useState('')
   const showcaseRef = useRef<HTMLDivElement>(null)
@@ -158,26 +156,28 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
     }
   }, [])
 
+  console.log(collection, collection?.skills)
+
   return (
     <FadeIn order={1}>
       <PopOut animate wait={3}>
         <div className={classes.skillDisplay}>
-          {skills.map((skill, index) => {
+          {collection?.skills?.map((skill, index) => {
             const order = calculateOrder(index)
             return (
               <FadeIn order={order} key={index}>
                 <div className={classes.skillWrap}>
                   <AnimatePresence>
-                    {skillShowcase && activeSkill === skill.skill.skillImage.id && (
+                    {skillShowcase && activeSkill === skill.skillImage.id && (
                       <div ref={showcaseRef}>
                         <motion.div key={'modal'} className={classes.skillShowcase}>
                           <Image
-                            onClick={() => handleSkillClick(skill.skill.skillImage.id)}
+                            onClick={() => handleSkillClick(skill.skillImage.id)}
                             className={`${classes.activeImage} ${
-                              classes[skill.skill.skillImage.id.toLowerCase()]
+                              classes[skill.skillImage.id.toLowerCase()]
                             }`}
-                            alt={skill.skill.skillImage.id}
-                            src={skill.skill.skillImage.url}
+                            alt={skill.skillImage.id}
+                            src={skill.skillImage.url}
                             width={1200}
                             height={1200}
                           />
@@ -185,10 +185,10 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
                             <XIcon />
                           </button>
                           <FadeIn className={classes.skillName} order={0}>
-                            <h3>{skill.skill.skillName}</h3>
+                            <h3>{skill.skillName}</h3>
                           </FadeIn>
                           <FadeIn className={classes.skillInformation} order={1}>
-                            <p>{skill.skill.skillDescription}</p>
+                            <p>{skill.skillDescription}</p>
                           </FadeIn>
                           <FadeIn className={classes.documentation} order={2}>
                             <a className={classes.documentationText}>official documentation</a>
@@ -199,12 +199,12 @@ const SkillsDisplay: React.FC<SkillsDisplayProps> = () => {
                     )}
                   </AnimatePresence>
                   <Image
-                    onClick={() => handleSkillClick(skill.skill.skillImage.id)}
+                    onClick={() => handleSkillClick(skill.skillImage.id)}
                     className={`${classes.skillImage} ${
-                      classes[skill.skill.skillImage.id.toLowerCase()]
+                      classes[skill.skillImage.id.toLowerCase()]
                     }`}
-                    alt={skill.skill.skillImage.id}
-                    src={skill.skill.skillImage.url}
+                    alt={skill.skillImage.id}
+                    src={skill.skillImage.url}
                     width={1200}
                     height={1200}
                   />

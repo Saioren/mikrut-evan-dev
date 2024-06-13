@@ -39,13 +39,8 @@ const CarouselBlock: Block = {
                     type: 'textarea',
                 },
                 {
-                    name: 'slideLinks',
-                    type: 'array',
-                    fields: [
-                        Link({
-                            
-                        })
-                    ]
+                    name: 'slideUrl',
+                    type: 'text',
                 }
             ],
         },

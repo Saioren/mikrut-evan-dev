@@ -11,7 +11,8 @@ const ButtonContents: React.FC<ButtonProps> = ({ linkFromCMS }) => {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { buttonType, className, linkFromCMS, onMouseEnter, onMouseLeave, onClick } = props
+  const { buttonType, className, linkFromCMS, onMouseEnter, onMouseLeave, onClick, customUrl } =
+    props
   const { appearance, type, label, reference, url, newTab } = linkFromCMS.link
 
   const classList = [className, classes.button, appearance && classes[`type--${appearance}`]]
@@ -43,6 +44,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   return (
     <Hyperlink
+      customUrl={customUrl}
       href={href}
       linkFromCMS={linkFromCMS}
       className={classes.contents}

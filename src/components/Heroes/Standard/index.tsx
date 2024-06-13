@@ -40,7 +40,7 @@ const StandardHero: React.FC<Hero> = (props) => {
             <Grid className={`${classes.position}`}>
               <Cell cols={7} colsM={4} start={1}>
                 <div className={classes.contentWrap}>
-                  <Content hero={true} content={content} heading={heading} />
+                  <Content url={'#contact'} hero={true} content={content} heading={heading} />
                 </div>
               </Cell>
               <Cell cols={7} colsM={5}>

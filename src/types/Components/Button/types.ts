@@ -8,4 +8,5 @@ export type ButtonProps = {
     onMouseLeave?: () => void
     onClick?: () => void
     buttonType?: 'submit' | 'button'
+    customUrl?: string
 }

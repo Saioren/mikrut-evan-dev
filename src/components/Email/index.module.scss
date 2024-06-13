@@ -53,6 +53,19 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    .plane {
+        transition: 100ms ease transform;
+    }
+}
+
+.button {
+    display: flex;
+    width: max-content;
+    &:hover {
+        .plane {
+            transform: translateX(3px) translateY(-3px);
+        }
+    }
 }
 
 .send {
@@ -66,14 +79,6 @@
     font-family: var(--font-body);
     color: white;
     cursor: pointer;
-    .plane {
-        transition: 100ms ease transform;
-    }
-    &:hover {
-        .plane {
-            transform: translateX(3px) translateY(-3px);
-        }
-    }
 }
 
 .warningToast {

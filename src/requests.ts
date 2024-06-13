@@ -1,5 +1,4 @@
 import { Footer } from "@/types/Layout/Footer/types";
-import { SkillItem, SkillsArray } from "./types/Blocks/Skills/types";
 
 // TODO: if in preview mode, add payload token and ?draft=true to the request
 export const getByID = async ({
@@ -26,7 +25,6 @@ export const getByID = async ({
 
   return doc;
 }
-
 
 export const getBySlug = async ({
   collection,
@@ -55,7 +53,6 @@ export const getBySlug = async ({
 
   return doc;
 }
-
 
 const defaultFooter: Footer = {
   linkBlock: {
@@ -92,31 +89,6 @@ export const getAllGlobals = async (): Promise<{
     return { footer: defaultFooter }; // Return defaultFooter in case of error
   }
 }
-
-/*export const getAllCollections = async (): Promise<{
-  skillsCollection: SkillsArray | null;
-}> => {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/skillsCollection/6660ce030212164877757c75?depth=1&draft=false`, {
-      headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch skills collection. ${response.statusText} (status ${response.status})`);
-    }
-
-    const skillsCollection = await response.json();
-    return { skillsCollection };
-  } catch (error) {
-    console.error('Error fetching skills collection:', error);
-    return { skillsCollection: null };
-  }
-};*/
-
-
-
 
 export async function fetchPageData(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`);
