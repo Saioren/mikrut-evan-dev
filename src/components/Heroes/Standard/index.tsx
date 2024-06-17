@@ -10,9 +10,11 @@ import PopOut from '@/components/PopOut'
 import FadeIn from '@/components/FadeIn'
 import { motion } from 'framer-motion'
 import BackgroundColors from '@/components/BackgroundColors'
+import { useWindowInfo } from '@faceless-ui/window-info'
 
 const StandardHero: React.FC<Hero> = (props) => {
   const { standardHero } = props
+  const { height, width } = useWindowInfo()
 
   if (!standardHero) return null
 
@@ -38,16 +40,16 @@ const StandardHero: React.FC<Hero> = (props) => {
         {position === 'left' ? (
           <div className={classes.standardHero}>
             <Grid className={`${classes.position}`}>
-              <Cell cols={7} colsM={4} start={1}>
+              <Cell cols={7} colsM={4} start={1} colsS={9}>
                 <div className={classes.contentWrap}>
                   <Content url={'#contact'} hero={true} content={content} heading={heading} />
                 </div>
               </Cell>
-              <Cell cols={7} colsM={5}>
-                <FadeIn order={1}>
+              <Cell cols={7} colsM={5} colsS={9}>
+                <FadeIn order={width && width < 768 ? 4 : 1}>
                   <Grid>
-                    <Cell cols={5} colsM={4} colsL={6} start={2}>
-                      <PopOut animate={true} wait={3}>
+                    <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
+                      <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
                         <Image
                           className={classes.pfp}
                           src={'/pfp.png'}
@@ -65,12 +67,12 @@ const StandardHero: React.FC<Hero> = (props) => {
         ) : (
           <div className={classes.standardHero}>
             <Grid className={`${classes.position}`}>
-              <Cell cols={7} colsM={5}>
+              <Cell cols={7} colsM={5} colsS={9}>
                 {/*<Media mediaFromCMS={heroImage} />*/}
-                <FadeIn order={1}>
+                <FadeIn order={width && width < 768 ? 4 : 1}>
                   <Grid>
-                    <Cell cols={5} colsM={4} colsL={6} start={2} startL={1}>
-                      <PopOut animate={true} wait={3}>
+                    <Cell cols={5} colsM={4} colsL={6} start={2} startL={1} startS={3} colsS={5}>
+                      <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
                         <Image
                           className={classes.pfp}
                           src="/pfp.png"
@@ -83,7 +85,7 @@ const StandardHero: React.FC<Hero> = (props) => {
                   </Grid>
                 </FadeIn>
               </Cell>
-              <Cell cols={6} colsM={4}>
+              <Cell cols={6} colsM={4} colsS={9}>
                 <div className={classes.contentWrap}>
                   <Content hero={true} content={content} heading={heading} position={position} />
                 </div>

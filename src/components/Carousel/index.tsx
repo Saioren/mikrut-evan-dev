@@ -8,6 +8,7 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
 import { Slide as SlideType } from '@/types/Blocks/Carousel/types'
+import { useWindowInfo } from '@faceless-ui/window-info'
 
 export type CarouselProps = {
   slides: MediaType[]
@@ -16,6 +17,7 @@ export type CarouselProps = {
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides, slideData } = props
+  const { width } = useWindowInfo()
   const [slideNumber, setSlideNumber] = useState(0)
   const [hoveredSlide, setHoveredSlide] = useState(false)
 
@@ -24,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   }
 
   return (
-    <FadeIn order={0}>
+    <FadeIn order={width && width < 768 ? 3 : 0}>
       <SliderProvider
         pauseOnHover
         currentSlideIndex={slideNumber}
@@ -44,7 +46,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         <SliderTrack className={classes.track}>
           {slides.map((slide, index) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <Slide className={classes.slide} index={index} key={index}>
                   <Image
                     className={classes.slideImage}

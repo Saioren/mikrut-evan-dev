@@ -2,6 +2,7 @@ import { TimelineElement as TimelineElementProps } from '@/types/Blocks/Timeline
 import React from 'react'
 import classes from './index.module.scss'
 import PopOut from '@/components/PopOut'
+import { RichText } from '@/components/RichText'
 
 type Props = {
   element: TimelineElementProps
@@ -9,7 +10,7 @@ type Props = {
 
 const TimelineElement: React.FC<Props> = (props) => {
   const { element } = props
-  const { description, title, date, icon } = element
+  const { richText, title, date, icon } = element
   const formattedDate = new Date(date)
   const monthYear = formattedDate.toLocaleString('en-US', {
     month: 'long',
@@ -18,9 +19,13 @@ const TimelineElement: React.FC<Props> = (props) => {
   return (
     <div className={classes.timelineElementWrap} key={title}>
       <div className={classes.timelineElement}>
-        <div className={classes.title}>{title}</div>
-        <div className={classes.date}>{monthYear}</div>
-        <div className={classes.description}>{description}</div>
+        <div className={classes.info}>
+          <div className={classes.title}>{title}</div>
+          <div className={classes.date}>{monthYear}</div>
+        </div>
+        <div className={classes.description}>
+          <RichText content={richText} />
+        </div>
       </div>
     </div>
   )

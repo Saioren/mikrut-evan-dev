@@ -61,11 +61,5 @@ export const ImageLink: Field = {
               type: 'upload',
               relationTo: 'media',
           },
-          {
-              name: 'alt',
-              label: 'Alt Text',
-              type: 'text',
-              required: true,
-          },
     ]
 }

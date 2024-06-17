@@ -26,6 +26,14 @@ const SkillsCollection: CollectionConfig = {
                     relationTo: 'media',
                     required: true,
                 },
+                {
+                    name: 'skillId',
+                    type: 'text',
+                },
+                {
+                    name: 'skillLink',
+                    type: 'text',
+                },
             ]
         }
     ]

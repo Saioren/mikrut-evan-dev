@@ -6,10 +6,20 @@
     flex-direction: column;
     padding: base();
     gap: base(0.5);
+    font-size: medium;
 }
 
 .timelineElementWrap {
     background-color: var(--background-primary-element ); 
     display: flex;
     width: 100%;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-weight: bold;
 }

@@ -1,7 +1,7 @@
 import Meta from '@/components/Meta'
 import Blocks from '@/layout/Blocks'
 import { Hero } from '@/layout/Hero'
-import { fetchPageData, getAllGlobals } from '@/requests'
+import { fetchPageData } from '@/requests'
 import { PageType } from '@/types/Layout/Page/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
@@ -13,7 +13,6 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: ProjectCollect
   layout,
   hero,
   meta,
-  globals,
 }) => {
   return (
     <main>
@@ -28,11 +27,10 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: ProjectCollect
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [pageData, globals] = await Promise.all([fetchPageData('projects'), getAllGlobals()])
+  const [pageData] = await Promise.all([fetchPageData('projects')])
   return {
     props: {
       ...pageData,
-      globals,
     },
   }
 }

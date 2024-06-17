@@ -9,9 +9,11 @@ import PopOut from '@/components/PopOut'
 import FadeIn from '@/components/FadeIn'
 import { Toaster } from 'react-hot-toast'
 import BackgroundColors from '@/components/BackgroundColors'
+import { useWindowInfo } from '@faceless-ui/window-info'
 
 const EmailBlock: React.FC<EmailBlockType> = (props) => {
   const { heading, padding, content, position = 'left' } = props
+  const { width } = useWindowInfo()
   return (
     <Padding id="contact" padding={padding}>
       <Toaster
@@ -31,10 +33,10 @@ const EmailBlock: React.FC<EmailBlockType> = (props) => {
         <Grid className={classes.grid}>
           {position == 'left' ? (
             <React.Fragment>
-              <Cell cols={7} colsM={4}>
+              <Cell cols={7} colsM={4} colsS={9}>
                 <Content heading={heading} headingLowImpact content={content} />
               </Cell>
-              <Cell cols={7} colsM={5}>
+              <Cell cols={7} colsM={5} colsS={9}>
                 <PopOut animate wait={3}>
                   <EmailComponent />
                 </PopOut>

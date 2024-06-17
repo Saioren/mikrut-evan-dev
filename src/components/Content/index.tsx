@@ -44,8 +44,10 @@ const Content: React.FC<ContentType> = ({
         style={{ textAlign: centered ? 'center' : undefined }}
         cols={centered ? 14 : 6}
         colsM={centered ? 9 : 5}
+        colsS={9}
         start={centered ? 1 : position === 'right' ? 1 : 2}
         startL={centered ? 1 : position === 'right' ? 1 : 2}
+        startS={1}
       >
         <FadeIn order={1}>
           <div className={classes.headingDiv}>

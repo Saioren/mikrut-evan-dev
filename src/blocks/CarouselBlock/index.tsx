@@ -58,10 +58,10 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
       <Grid className={classes.carouselBlock}>
         {position === 'left' ? (
           <React.Fragment>
-            <Cell cols={6} colsM={4}>
+            <Cell cols={6} colsM={4} colsS={9}>
               <Content heading={heading} headingLowImpact content={content} />
             </Cell>
-            <Cell className={classes.carousel} cols={8} colsM={5}>
+            <Cell className={classes.carousel} cols={8} colsM={5} colsS={9}>
               <PopOut wait={3} animate>
                 <Carousel slides={customSlides} slideData={slides} />
               </PopOut>

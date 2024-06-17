@@ -38,9 +38,11 @@
             height: 250px;
             @include extra-large-break {
                 font-size: large;
+                height: 200px;
             }
             @include large-break {
                 font-size: medium;
+                height: 150px;
             }
         }
     }
@@ -79,17 +81,13 @@
     font-family: var(--font-body);
     color: white;
     cursor: pointer;
+    @include small-break {
+        padding: 5px 6px;
+        font-size: small;
+    }
 }
 
 .warningToast {
     background-color: var(--background-primary-element);
     border: 0;
-}
-
-.successToast {
-
-}
-
-.errorToast {
-
 }

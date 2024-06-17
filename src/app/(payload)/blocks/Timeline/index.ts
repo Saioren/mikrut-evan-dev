@@ -1,6 +1,7 @@
 import { Block } from "payload/types";
 import Padding from "../../fields/Padding";
 import Content from "../../fields/Content";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 const TimelineBlock: Block = {
     slug: 'timelineBlock',
@@ -31,14 +32,11 @@ const TimelineBlock: Block = {
                                 width: "50%",
                             },
                         },
-                            {
-                                name: 'description',
-                                label: 'Description',
-                                type: 'textarea',
-                                admin: {
-                                    width: "50%",
-                                },
-                            },
+                        {   
+                            name: 'richText',
+                            type: 'richText',
+                            editor: lexicalEditor({}),
+                        },
                     ],
                 },
                 {

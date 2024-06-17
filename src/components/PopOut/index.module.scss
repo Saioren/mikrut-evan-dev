@@ -136,19 +136,6 @@
     z-index: 0;
 }
 
-.default {
-    /*margin-bottom: calc(base(1.5) + 20px);
-    @include extra-large-break {
-        margin-bottom: calc(base(1.5) + 15px);
-    }
-    @include large-break {
-        margin-bottom: calc(base() + 12px);
-    }
-    @include mid-break {
-        margin-bottom: calc(base() + 10px);
-    }*/
-}
-
 .small, .smaller {
     position: absolute;
     top: 0;

@@ -14,6 +14,8 @@ export type Skill = {
   skillName: string;
   skillDescription: string;
   skillImage: Media;
+  skillId: string;
+  skillLink: string;
   createdAt: string;
   updatedAt: string;
 };

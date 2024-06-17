@@ -4,14 +4,11 @@ import { SkillCollection } from '@/types/Blocks/Skills/types'
 import { ProjectCollection } from '@/types/Collections/Projects'
 
 export interface IGlobals {
-  globals: {
-    footer: Footer
-  }
-  footer: Footer
-  skills: {
+  footer?: Footer
+  skills?: {
     docs: SkillCollection[]
   }
-  projectsArray: {
+  projectsArray?: {
     docs: ProjectCollection[]
   }
 }
@@ -20,18 +17,16 @@ export const GlobalsContext = createContext<IGlobals>({} as IGlobals)
 export const useGlobals = (): IGlobals => useContext(GlobalsContext)
 
 interface GlobalsProviderProps {
-  globals: {
-    footer: Footer
-  }
+  footer?: Footer
   skills?: SkillCollection[]
   projectsArray?: ProjectCollection[]
   children: ReactNode
 }
 
-export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({ globals, children }) => {
-  const footer = globals.footer
+export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({ children }) => {
   const [skills, setSkills] = useState([])
   const [projectsArray, setProjects] = useState([])
+  const [footer, setFooter] = useState<Footer>() // Initialize with null or appropriate initial state
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -56,12 +51,25 @@ export const GlobalsProvider: React.FC<GlobalsProviderProps> = ({ globals, child
       }
     }
 
+    const fetchFooter = async () => {
+      try {
+        const footerResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=1&draft=false`,
+        )
+        const footerData = await footerResponse.json()
+        setFooter(footerData) // Ensure footerData matches the structure of Footer
+      } catch (error) {
+        console.error('Error fetching footer:', error)
+      }
+    }
+
     fetchSkills()
     fetchProjects()
+    fetchFooter()
   }, [])
 
   return (
-    <GlobalsContext.Provider value={{ globals, footer, projectsArray, skills }}>
+    <GlobalsContext.Provider value={{ footer, projectsArray, skills }}>
       {children}
     </GlobalsContext.Provider>
   )

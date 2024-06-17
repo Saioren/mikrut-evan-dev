@@ -17,7 +17,7 @@ export type Timeline = {
 
 export type TimelineElement = {
     title: string;
-    description: string;
+    richText: RichText;
     date: string;
     icon: Media;
 }

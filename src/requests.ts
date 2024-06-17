@@ -54,7 +54,7 @@ export const getBySlug = async ({
   return doc;
 }
 
-const defaultFooter: Footer = {
+/*const defaultFooter: Footer = {
   linkBlock: {
     linkBlockLabel: 'links',
     links: undefined, // Remove the '?' after 'links'
@@ -75,7 +75,7 @@ export const getAllGlobals = async (): Promise<{
 }> => {
   try {
     const [footer] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer?depth=2`).then((res) => {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/globals/footer`).then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch footer: ${res.statusText} (status ${res.status})`);
         }
@@ -88,7 +88,7 @@ export const getAllGlobals = async (): Promise<{
     console.error('Error fetching globals:', error);
     return { footer: defaultFooter }; // Return defaultFooter in case of error
   }
-}
+}*/
 
 export async function fetchPageData(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`);

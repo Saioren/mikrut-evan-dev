@@ -14,6 +14,9 @@
     @include mid-break {
         margin-bottom: 10px
     }
+    @include small-break {
+        width: 240px;
+    }
 }
 
 .heading {

@@ -9,6 +9,7 @@ import XIcon from '@/icons/X'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useGlobals } from '@/providers/GlobalsProvider'
 import { RichText } from '../RichText'
+import { useWindowInfo } from '@faceless-ui/window-info'
 
 /*const skills = [
   {
@@ -107,6 +108,7 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
   const [skillShowcase, setSkillShowcase] = useState(false)
   const [activeSkill, setActiveSkill] = useState('')
   const showcaseRef = useRef<HTMLDivElement>(null)
+  const { width } = useWindowInfo()
 
   function handleSkillClick(skillId: string) {
     setSkillShowcase(true)
@@ -156,10 +158,8 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
     }
   }, [])
 
-  console.log(collection, collection?.skills)
-
   return (
-    <FadeIn order={1}>
+    <FadeIn order={width && width < 768 ? 4 : 1}>
       <PopOut animate wait={3}>
         <div className={classes.skillDisplay}>
           {collection?.skills?.map((skill, index) => {
@@ -168,15 +168,15 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
               <FadeIn order={order} key={index}>
                 <div className={classes.skillWrap}>
                   <AnimatePresence>
-                    {skillShowcase && activeSkill === skill.skillImage.id && (
+                    {skillShowcase && activeSkill === skill.skillId && (
                       <div ref={showcaseRef}>
                         <motion.div key={'modal'} className={classes.skillShowcase}>
                           <Image
-                            onClick={() => handleSkillClick(skill.skillImage.id)}
+                            onClick={() => handleSkillClick(skill.skillId)}
                             className={`${classes.activeImage} ${
-                              classes[skill.skillImage.id.toLowerCase()]
+                              classes[skill.skillId.toLowerCase()]
                             }`}
-                            alt={skill.skillImage.id}
+                            alt={skill.skillImage.alt}
                             src={skill.skillImage.url}
                             width={1200}
                             height={1200}
@@ -191,7 +191,13 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
                             <p>{skill.skillDescription}</p>
                           </FadeIn>
                           <FadeIn className={classes.documentation} order={2}>
-                            <a className={classes.documentationText}>official documentation</a>
+                            <a
+                              href={skill.skillLink}
+                              target="_blank"
+                              className={classes.documentationText}
+                            >
+                              official documentation
+                            </a>
                             {/*<LinkGroup links={skill.skill.skillLink}/>*/}
                           </FadeIn>
                         </motion.div>
@@ -199,11 +205,9 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
                     )}
                   </AnimatePresence>
                   <Image
-                    onClick={() => handleSkillClick(skill.skillImage.id)}
-                    className={`${classes.skillImage} ${
-                      classes[skill.skillImage.id.toLowerCase()]
-                    }`}
-                    alt={skill.skillImage.id}
+                    onClick={() => handleSkillClick(skill.skillId)}
+                    className={`${classes.skillImage} ${classes[skill.skillId]}`}
+                    alt={skill.skillId}
                     src={skill.skillImage.url}
                     width={1200}
                     height={1200}

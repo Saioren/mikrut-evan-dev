@@ -11,7 +11,7 @@ import Footer from '@/layout/Footer'
 import { GlobalsProvider } from '@/providers/GlobalsProvider'
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
-  const { globals, ...otherProps } = pageProps
+  const { ...otherProps } = pageProps
 
   useEffect(() => {
     console.log(
@@ -24,7 +24,7 @@ const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement =
 
   return (
     <React.Fragment>
-      <GlobalsProvider globals={globals}>
+      <GlobalsProvider>
         <WindowInfoProvider
           breakpoints={{
             s: '(max-width: 768px)',
