@@ -59,11 +59,11 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
         {position === 'left' ? (
           <React.Fragment>
             <Cell cols={6} colsM={4} colsS={9}>
-              <Content heading={heading} headingLowImpact content={content} />
+              <Content start={1} heading={heading} headingLowImpact content={content} />
             </Cell>
             <Cell className={classes.carousel} cols={8} colsM={5} colsS={9}>
               <PopOut wait={3} animate>
-                <Carousel slides={customSlides} slideData={slides} />
+                <Carousel slides={slides} />
               </PopOut>
             </Cell>
             <BackgroundColors positions={['bottomLeft', 'right']} />
@@ -71,7 +71,7 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
         ) : (
           <React.Fragment>
             <Cell cols={7} colsM={5} className={classes.carousel}>
-              <Carousel slides={customSlides} slideData={slides} />
+              <Carousel slides={slides} />
             </Cell>
             <Cell cols={6} colsM={4}>
               <Content heading={heading} headingLowImpact content={content} />

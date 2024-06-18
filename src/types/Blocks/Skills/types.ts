@@ -6,7 +6,7 @@ import { RichText } from "@/types/Fields/RichText/types";
 
 export type SkillCollection = {
     id: string
-    skills: Skill[]
+    docs: Skill[]
 }
 
 export type Skill = {

@@ -107,7 +107,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
 
   if (isLocal) {
     return (
-      <Link href={sanitizedHref} prefetch={false} scroll={false} legacyBehavior>
+      <Link href={sanitizedHref} prefetch={false} legacyBehavior>
         <a {...sharedProps}>{children}</a>
       </Link>
     )

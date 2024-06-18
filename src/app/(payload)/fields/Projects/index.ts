@@ -22,5 +22,12 @@ export const ProjectsField: Field = {
             name: 'projectDescription',
             type: 'textarea',
         },   
+        {
+            name: 'projectUrl',
+            type: 'text',
+            admin: {
+                description: 'Keep identical to [Slide Url] in any given carousel slide.'
+            }
+        },  
     ]
 }

@@ -9,24 +9,25 @@ import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
 import { Slide as SlideType } from '@/types/Blocks/Carousel/types'
 import { useWindowInfo } from '@faceless-ui/window-info'
+import Link from 'next/link'
 
 export type CarouselProps = {
-  slides: MediaType[]
-  slideData: SlideType[]
+  slides: SlideType[]
 }
 
 const Carousel: React.FC<CarouselProps> = (props) => {
-  const { slides, slideData } = props
+  const { slides } = props
   const { width } = useWindowInfo()
   const [slideNumber, setSlideNumber] = useState(0)
-  const [hoveredSlide, setHoveredSlide] = useState(false)
 
   if (slides.length === 0) {
     return <p>Loading slides...</p>
   }
 
+  const widthCheck = width && width < 768
+
   return (
-    <FadeIn order={width && width < 768 ? 3 : 0}>
+    <FadeIn order={widthCheck ? 3 : 0}>
       <SliderProvider
         pauseOnHover
         currentSlideIndex={slideNumber}
@@ -50,17 +51,19 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                 <Slide className={classes.slide} index={index} key={index}>
                   <Image
                     className={classes.slideImage}
-                    src={slide.url}
-                    alt={slide.alt}
-                    width={slide.width}
-                    height={slide.height}
+                    src={'/api/media/file/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg'}
+                    alt={'slide'}
+                    width={'1920'}
+                    height={'1080'}
                   />
                   <div className={`${classes.projectInfoWrap}`}>
                     <div className={classes.projectInfo}>
-                      <div className={classes.projectTitle}>{slide.alt}</div>
-                      <div className={classes.projectDescription}>test</div>
+                      <div className={classes.projectTitle}>{slide.slideTitle}</div>
+                      <div className={classes.projectDescription}>{slide.slideDescription}</div>
                       <div className={classes.projectLinks}>
-                        <a>Test</a>
+                        <Link className={classes.viewProject} href={`/projects#${slide.slideUrl}`}>
+                          View on Projects Page
+                        </Link>
                       </div>
                     </div>
                   </div>

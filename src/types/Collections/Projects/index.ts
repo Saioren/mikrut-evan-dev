@@ -36,6 +36,7 @@ export type Project = {
         projectName: string
         projectTeaser: string
         projectDescription: string
+        projectUrl: string
     }
     id: string
 }

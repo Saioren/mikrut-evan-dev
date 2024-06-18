@@ -1,0 +1,10 @@
+@use '@/scss/common' as *;
+
+.projectsCell {
+    display: flex;
+    flex-direction: column;
+    gap: base(2);
+    @include mid-break {
+        gap: base();
+    }
+}

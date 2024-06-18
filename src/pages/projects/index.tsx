@@ -20,7 +20,7 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: ProjectCollect
       <div id="page-content" className={classes.pageContent}>
         <Hero {...hero} />
         <ProjectsComponent />
-        {/*<Blocks blocks={layout} />*/}
+        <Blocks blocks={layout} />
       </div>
     </main>
   )

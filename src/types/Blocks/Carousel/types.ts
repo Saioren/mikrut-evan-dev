@@ -8,7 +8,7 @@ export type Slide = {
   slide: Media;
   slideTitle: string;
   slideDescription: string;
-  slideLinks: Link[];
+  slideUrl: string;
 }
 
 

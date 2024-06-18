@@ -36,9 +36,6 @@
     display: flex;
     flex-direction: column;
     gap: base();
-    @include small-break {
-        padding-bottom: base();
-    }
 }
 
 .headingDiv {

@@ -9,6 +9,7 @@ import FadeIn from '@/components/FadeIn'
 import Content from '@/components/Content'
 import Image from 'next/image'
 import { useWindowInfo } from '@faceless-ui/window-info'
+import BackgroundColors from '@/components/BackgroundColors'
 
 const TimelineBlock: React.FC<TimelineBlockType> = (props) => {
   const { timelineElements, heading, padding, content } = props
@@ -45,6 +46,7 @@ const TimelineBlock: React.FC<TimelineBlockType> = (props) => {
                             <TimelineElement element={element} />
                           </PopOut>
                         </FadeIn>
+                        <BackgroundColors positions={['bottomRight']} />
                       </Cell>
                     )
                   })}
@@ -92,6 +94,7 @@ const TimelineBlock: React.FC<TimelineBlockType> = (props) => {
                     </div>
                   </div>
                 </Cell>
+                <BackgroundColors positions={['bottomRight']} />
               </FadeIn>
             </div>
           </Cell>

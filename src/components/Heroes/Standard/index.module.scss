@@ -14,6 +14,12 @@
     align-self: flex-end;
 }
 
+.pfpCell {
+    @include small-break {
+        padding-bottom: base();
+    }
+}
+
 .contentWrap {
     height: 100%;
     width: 100%;

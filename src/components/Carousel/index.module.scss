@@ -39,6 +39,10 @@
     cursor: pointer;
     border: none;
     border-radius: 50%;
+    @include small-break {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 .dotIsActive {
@@ -103,7 +107,44 @@
 }
 
 .projectInfo {
-    display: grid;
-    grid-template-columns: 3, 1fr;
+    display: flex;
+    gap: base();
+    flex-direction: column;
 }
 
+.viewProject {
+    text-decoration: none;
+    color: var(--font-color);
+    &:hover {
+        border-bottom: 2px solid  var(--brand-color);
+    }
+}
+
+.projectDescription {
+    padding: base();
+    @include small-break {
+        font-size: medium;
+        padding: 0 base();
+    }
+}
+
+.projectTitle {
+    font-weight: bold;
+    text-align: center;
+    @include small-break {
+        font-size: medium;
+    }
+}
+
+.projectLinks {
+    position: absolute;
+    bottom: base(1.5);
+    font-size: medium;
+    left: 0;
+    right: 0;
+    text-align: center;
+    @include small-break {
+        font-size: small;
+        bottom: base(1.25);
+    }
+}

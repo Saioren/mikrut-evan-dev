@@ -24,6 +24,8 @@ type ContentType = {
   gradient?: boolean
   url?: string
   centered?: boolean
+  start?: number
+  projectHero?: boolean
 }
 
 const Content: React.FC<ContentType> = ({
@@ -35,6 +37,8 @@ const Content: React.FC<ContentType> = ({
   url,
   gradient,
   centered,
+  start,
+  projectHero = false,
 }) => {
   return (
     <Grid>
@@ -45,20 +49,36 @@ const Content: React.FC<ContentType> = ({
         cols={centered ? 14 : 6}
         colsM={centered ? 9 : 5}
         colsS={9}
-        start={centered ? 1 : position === 'right' ? 1 : 2}
-        startL={centered ? 1 : position === 'right' ? 1 : 2}
+        start={centered ? 1 : start ? start : position === 'right' ? 1 : 2}
+        startL={centered ? 1 : start ? start : position === 'right' ? 1 : 2}
         startS={1}
       >
         <FadeIn order={1}>
           <div className={classes.headingDiv}>
-            <Heading headingLowImpact={headingLowImpact} heading={heading} />
+            <Heading
+              headingLowImpact={headingLowImpact}
+              projectHero={projectHero}
+              heading={heading}
+            />
           </div>
         </FadeIn>
-        <FadeIn order={2}>
-          <div className={classes.richTextDiv}>
-            <RichText content={content?.richText} />
-          </div>
-        </FadeIn>
+        {centered && projectHero ? (
+          <Grid>
+            <Cell cols={8} start={4} colsM={7} startM={2}>
+              <FadeIn order={2}>
+                <div className={classes.richTextDiv}>
+                  <RichText content={content?.richText} />
+                </div>
+              </FadeIn>
+            </Cell>
+          </Grid>
+        ) : (
+          <FadeIn order={2}>
+            <div className={classes.richTextDiv}>
+              <RichText content={content?.richText} />
+            </div>
+          </FadeIn>
+        )}
         {content?.links && (
           <FadeIn order={3}>
             <div className={classes.linksDiv}>

@@ -5,14 +5,21 @@ import PopOut from '@/components/PopOut'
 type Props = {
   heading?: string
   headingLowImpact?: boolean
+  projectHero?: boolean
 }
 
 const Heading: React.FC<Props> = (props) => {
-  const { heading, headingLowImpact } = props
+  const { heading, headingLowImpact, projectHero } = props
   return headingLowImpact ? (
     <div className={classes.headingLowImpactContainer}>
       <div className={classes.headinglowImpactWrap}>
         <h1 className={classes.headingLowImpact}>{heading}</h1>
+      </div>
+    </div>
+  ) : projectHero ? (
+    <div className={classes.projectHeroHeading}>
+      <div className={classes.projectHeroHeadingWrap}>
+        <h1 className={classes.projectHero}>{heading}</h1>
       </div>
     </div>
   ) : (

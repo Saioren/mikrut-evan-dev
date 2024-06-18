@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
           imageLink: {
             type: 'custom',
             url: 'https://x.com/mikrutevan1',
-
+            newTab: true,
             image: {
               id: '66705b8f5e2428b5084c30e3',
               alt: 'X',
@@ -185,7 +185,6 @@ const Footer: React.FC = () => {
                     <p>{linkText}</p>
                     <div className={classes.docsArray}>
                       {copyrightLinks?.map((link, index) => {
-                        console.log(link.imageLink.image.filename)
                         return (
                           <a
                             href={link.imageLink.url}

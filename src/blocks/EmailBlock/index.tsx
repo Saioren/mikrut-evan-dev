@@ -43,14 +43,26 @@ const EmailBlock: React.FC<EmailBlockType> = (props) => {
               </Cell>
               <BackgroundColors positions={['bottomLeft']} />
             </React.Fragment>
-          ) : (
+          ) : position == 'right' && width && width < 768 ? (
             <React.Fragment>
-              <Cell cols={7} colsM={5}>
+              <Cell cols={7} colsM={4} colsS={9}>
+                <Content heading={heading} headingLowImpact content={content} />
+              </Cell>
+              <Cell cols={7} colsM={5} colsS={9}>
                 <PopOut animate wait={3}>
                   <EmailComponent />
                 </PopOut>
               </Cell>
-              <Cell cols={7} colsM={4}>
+              <BackgroundColors positions={['bottomLeft']} />
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Cell cols={7} colsM={5} colsS={9}>
+                <PopOut animate wait={3}>
+                  <EmailComponent />
+                </PopOut>
+              </Cell>
+              <Cell cols={7} colsM={4} colsS={9}>
                 <Content heading={heading} headingLowImpact content={content} />
               </Cell>
               <BackgroundColors positions={['bottomLeft']} />

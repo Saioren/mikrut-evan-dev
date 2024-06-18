@@ -35,6 +35,10 @@
       --header-height: #{$small-header-height};
     }
 
+    @include small-break {
+      --header-height: #{$smaller-header-height};
+    }
+
     --skills-color: #{$skills-color};
 
     --header-color: #{$header-color};

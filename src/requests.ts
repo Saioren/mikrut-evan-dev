@@ -1,4 +1,5 @@
-import { Footer } from "@/types/Layout/Footer/types";
+import payload from 'payload';
+import { CollectionAfterChangeHook } from "payload/types";
 
 // TODO: if in preview mode, add payload token and ?draft=true to the request
 export const getByID = async ({
@@ -94,4 +95,22 @@ export async function fetchPageData(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`);
   const data = await res.json();
   return data.docs[0];
+}
+
+export const afterChangeHook: CollectionAfterChangeHook = async ({req: { payload }}) => {
+  try {
+    const projects = await payload.find({
+      collection: 'projects',
+    });
+
+    const skills = await payload.find({
+      collection: 'skillsCollection',
+    })
+
+    console.log('Fetched projects:', projects);
+    console.log('Fetched skills:', skills);
+    
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+  }
 }

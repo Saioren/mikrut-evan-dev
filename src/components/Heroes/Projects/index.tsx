@@ -35,11 +35,11 @@ const ProjectsHero: React.FC<Hero> = (props) => {
         className={classes.parent}
       >
         <BackgroundColors positions={['topLeft', 'right']} />
-        <div className={classes.standardHero}>
-          <Grid className={`${classes.position}`}>
-            <Cell cols={7} colsM={4} start={1}>
+        <div className={classes.projectsHero}>
+          <Grid className={classes.grid}>
+            <Cell cols={14} colsM={9}>
               <div className={classes.contentWrap}>
-                <Content url={'#contact'} hero={false} content={content} heading={heading} />
+                <Content centered projectHero content={content} heading={heading} />
               </div>
             </Cell>
           </Grid>
