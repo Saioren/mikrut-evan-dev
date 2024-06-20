@@ -1,3 +1,5 @@
+@use '@/scss/common' as *;
+
 .projectImage {
     display: flex;
     width: 100%;
@@ -8,5 +10,14 @@
     h2, p {
         margin: 0;
     }
-    background-color: red;
+    background-color: var(--background-primary-element);
+    padding: base(0.5);
+}
+
+.projectInfo {
+    padding: base(0.5);
+}
+
+.projectHeader {
+
 }

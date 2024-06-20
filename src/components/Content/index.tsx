@@ -2,7 +2,7 @@ import React from 'react'
 import { RichText } from '../RichText'
 import LinkGroup from '../LinkGroup'
 import { RichText as RichTextType } from '@/types/Fields/RichText/types'
-import { Link, LinkAppearances } from '@/types/Fields/Link/types'
+import { Link as LinkType, LinkAppearances } from '@/types/Fields/Link/types'
 import { Cell, Grid } from '@faceless-ui/css-grid'
 import classes from './index.module.scss'
 import Heading from './Heading'
@@ -11,11 +11,12 @@ import { BsGithub, BsTwitterX } from 'react-icons/bs'
 import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
 import { Position } from '@/types/Layout/Position/types'
+import Link from 'next/link'
 
 type ContentType = {
   content?: {
     richText?: RichTextType
-    links?: Link[]
+    links?: LinkType[]
   }
   heading?: string
   headingLowImpact?: boolean
@@ -81,30 +82,38 @@ const Content: React.FC<ContentType> = ({
         )}
         {content?.links && (
           <FadeIn order={3}>
-            <div className={classes.linksDiv}>
+            <div
+              className={classes.linksDiv}
+              style={{ justifyContent: centered ? 'center' : undefined }}
+            >
               {hero && (
                 <React.Fragment>
-                  <PopOut gradient margin icon hover>
-                    <a
-                      className={classes.anchorButton}
-                      href="https://github.com/Saioren"
-                      target="__blank"
-                    >
+                  <a
+                    className={classes.anchorButton}
+                    href="https://github.com/Saioren"
+                    target="__blank"
+                  >
+                    <PopOut gradient margin icon hover>
                       <BsGithub className={classes.icon} />
-                    </a>
-                  </PopOut>
-                  <PopOut gradient margin icon hover={true}>
-                    <a
-                      className={classes.anchorButton}
-                      href="https://x.com/mikrutevan1"
-                      target="__blank"
-                    >
+                    </PopOut>
+                  </a>
+                  <a
+                    className={classes.anchorButton}
+                    href="https://x.com/mikrutevan1"
+                    target="__blank"
+                  >
+                    <PopOut gradient margin icon hover={true}>
                       <BsTwitterX className={classes.icon} />
-                    </a>
-                  </PopOut>
+                    </PopOut>
+                  </a>
+                  <Link className={classes.anchorButton} href="#contact">
+                    <PopOut gradient margin hover={true}>
+                      <p>contact me</p>
+                    </PopOut>
+                  </Link>
                 </React.Fragment>
               )}
-              <LinkGroup url={url} gradient={gradient} links={content?.links} />
+              {!hero && <LinkGroup url={url} gradient={gradient} links={content?.links} />}
             </div>
           </FadeIn>
         )}

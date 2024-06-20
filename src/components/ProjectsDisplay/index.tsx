@@ -8,6 +8,8 @@ import Project from './Project'
 import { Cell, Grid } from '@faceless-ui/css-grid'
 import classes from './index.module.scss'
 import { useWindowInfo } from '@faceless-ui/window-info'
+import FadeIn from '../FadeIn'
+import PopOut from '../PopOut'
 
 type ProjectsDisplay = {
   projects?: ProjectCollectionType[]
@@ -26,34 +28,55 @@ const ProjectsDisplay: React.FC<ProjectsDisplay> = (props) => {
   const { projects, content, order } = props
   const { height } = useWindowInfo()
 
-  return order % 2 !== 0 ? (
-    <React.Fragment>
-      <Cell cols={6} colsM={4} colsS={9}>
-        {content?.heading}
-        <RichText content={content?.content?.richText} />
-      </Cell>
-      <Cell className={classes.projectsCell} cols={8} colsM={5} colsS={9}>
-        {projects?.map((project) => (
-          <React.Fragment>
-            <Project project={project} />
-          </React.Fragment>
-        ))}
-      </Cell>
-    </React.Fragment>
-  ) : (
-    <React.Fragment>
-      <Cell className={classes.projectsCell} cols={8} colsM={5} colsS={9}>
-        {projects?.map((project) => (
-          <React.Fragment>
-            <Project project={project} />
-          </React.Fragment>
-        ))}
-      </Cell>
-      <Cell cols={6} colsM={4} colsS={9}>
-        {content?.heading}
-        <RichText content={content?.content?.richText} />
-      </Cell>
-    </React.Fragment>
+  return (
+    <Grid className={classes.grid}>
+      {order % 2 !== 0 ? (
+        <React.Fragment>
+          <Cell cols={6} colsM={4} colsS={9}>
+            <section className={classes.projectHeading}>
+              <FadeIn order={0}>
+                <h3>{content?.heading}</h3>
+                <RichText content={content?.content?.richText} />
+              </FadeIn>
+            </section>
+          </Cell>
+
+          <Cell className={classes.projectsCell} cols={8} colsM={5} colsS={9}>
+            {projects?.map((project) => (
+              <React.Fragment key={project.id}>
+                <FadeIn order={1}>
+                  <PopOut animate wait={3}>
+                    <Project project={project} />
+                  </PopOut>
+                </FadeIn>
+              </React.Fragment>
+            ))}
+          </Cell>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Cell className={classes.projectsCell} cols={8} colsM={5} colsS={9}>
+            {projects?.map((project) => (
+              <React.Fragment key={project.id}>
+                <FadeIn order={1}>
+                  <PopOut animate wait={3}>
+                    <Project project={project} />
+                  </PopOut>
+                </FadeIn>
+              </React.Fragment>
+            ))}
+          </Cell>
+          <Cell cols={6} colsM={4} colsS={9}>
+            <section className={classes.projectHeading}>
+              <FadeIn order={0}>
+                <h3>{content?.heading}</h3>
+                <RichText content={content?.content?.richText} />
+              </FadeIn>
+            </section>
+          </Cell>
+        </React.Fragment>
+      )}
+    </Grid>
   )
 }
 

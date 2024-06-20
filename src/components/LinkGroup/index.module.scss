@@ -5,3 +5,10 @@
     width: max-content;
     height: auto;
 }
+
+.button {
+    padding: base(0.4);
+    @include mid-break {
+        padding: base(0.3);
+    }
+}

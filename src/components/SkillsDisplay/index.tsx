@@ -170,7 +170,14 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = ({ collection }
                   <AnimatePresence>
                     {skillShowcase && activeSkill === skill.skillId && (
                       <div ref={showcaseRef}>
-                        <motion.div key={'modal'} className={classes.skillShowcase}>
+                        <motion.div
+                          key="showcase"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className={classes.skillShowcase}
+                        >
                           <Image
                             onClick={() => handleSkillClick(skill.skillId)}
                             className={`${classes.activeImage} ${

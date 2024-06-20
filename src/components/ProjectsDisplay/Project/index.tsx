@@ -11,7 +11,9 @@ const Project: React.FC<ProjectType> = (props) => {
   const { project } = props
   return (
     <div id={project.projectsField.projectUrl} className={classes.project}>
-      <h2>{project?.projectsField.projectName}</h2>
+      <div className={classes.projectInfo}>
+        <h2 className={classes.projectHeader}>{project?.projectsField.projectName}</h2>
+      </div>
 
       {/*<p>{project?.projectsField.projectDescription}</p>*/}
       <Image
@@ -21,7 +23,9 @@ const Project: React.FC<ProjectType> = (props) => {
         height={project.projectsField.projectImage.height}
         width={project.projectsField.projectImage.width}
       />
-      <p>{project?.projectsField.projectTeaser}</p>
+      <div className={classes.projectInfo}>
+        <p>{project?.projectsField.projectTeaser}</p>
+      </div>
     </div>
   )
 }

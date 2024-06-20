@@ -27,11 +27,12 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   const widthCheck = width && width < 768
 
   return (
-    <FadeIn order={widthCheck ? 3 : 0}>
+    <FadeIn order={widthCheck ? 3 : 1}>
       <SliderProvider
         pauseOnHover
         currentSlideIndex={slideNumber}
         slidesToShow={1}
+        scrollable={false}
         scrollSnap
         autoPlay
         autoplaySpeed={7000}

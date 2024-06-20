@@ -1,4 +1,4 @@
-import { Link } from "@/types/Fields/Link/types";
+import { Link, LinkAppearances } from "@/types/Fields/Link/types";
 
 export type ButtonProps = {
     className?: string;
@@ -9,4 +9,7 @@ export type ButtonProps = {
     onClick?: () => void
     buttonType?: 'submit' | 'button'
     customUrl?: string
+    appearance?: LinkAppearances
+    gradient?: boolean
+    centered?: boolean
 }

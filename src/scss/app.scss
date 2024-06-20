@@ -29,15 +29,6 @@
     --background-dark: #{$color-dark-gray};
 
     --background-primary-element: #{$background-primary-element};
-    --header-height: #{$header-height};
-
-    @include mid-break {
-      --header-height: #{$small-header-height};
-    }
-
-    @include small-break {
-      --header-height: #{$smaller-header-height};
-    }
 
     --skills-color: #{$skills-color};
 

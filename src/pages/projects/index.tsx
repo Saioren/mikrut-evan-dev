@@ -5,7 +5,6 @@ import { fetchPageData } from '@/requests'
 import { PageType } from '@/types/Layout/Page/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import classes from '../index.module.scss'
 import { ProjectCollection } from '@/types/Collections/Projects'
 import ProjectsComponent from '@/components/ProjectsComponent'
 
@@ -17,7 +16,7 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: ProjectCollect
   return (
     <main>
       <Meta {...meta} />
-      <div id="page-content" className={classes.pageContent}>
+      <div id="page-content">
         <Hero {...hero} />
         <ProjectsComponent />
         <Blocks blocks={layout} />

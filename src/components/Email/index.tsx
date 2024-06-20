@@ -102,14 +102,16 @@ const EmailComponent = () => {
       </div>
       <div className={classes.buttonWrap}>
         <div className={classes.button}>
-          <PopOut icon gradient margin hover>
-            <button className={classes.send} type="submit">
-              <div>Send</div>
-              <div className={classes.plane}>
-                <FaPaperPlane />
+          <button className={classes.send} type="submit">
+            <PopOut icon gradient margin hover>
+              <div className={classes.sendWrap}>
+                <div className={classes.sendText}>Send</div>
+                <div className={classes.plane}>
+                  <FaPaperPlane />
+                </div>
               </div>
-            </button>
-          </PopOut>
+            </PopOut>
+          </button>
         </div>
       </div>
     </form>

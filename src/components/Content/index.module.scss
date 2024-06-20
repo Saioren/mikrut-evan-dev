@@ -2,7 +2,7 @@
 
 .linksDiv {
     display: flex;
-    gap: base(0.5);
+    gap: base();
     align-items: center;
     @include small-break {
         justify-content: center;
@@ -11,11 +11,12 @@
 
 .anchorButton {
     color: var(--color-brand-black);
+    text-decoration: none;
     display: flex;
-    @include large-break {
-        padding: base(0.3);
+    p {
+        margin: 0;
+        text-decoration: none;
     }
-    padding: base(0.4);
 }
 
 .icon {

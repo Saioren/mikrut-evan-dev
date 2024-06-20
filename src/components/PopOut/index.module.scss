@@ -191,3 +191,10 @@
         transform: translateX(10px)  translateY(10px);
     }
 }
+
+.icon {
+    padding: base(0.4);
+    @include mid-break {
+        padding: base(0.3);
+    }
+}

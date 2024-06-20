@@ -17,6 +17,8 @@ type Props = {
   smaller?: boolean
   z?: number
   className?: string
+  href?: string
+  target?: string
 }
 
 const PopOut: React.FC<Props> = (props) => {

@@ -28,9 +28,6 @@
 .timelineElements {
     position: relative;
     width: 100%;
-    display: flex;
-    gap: base();
-    flex-direction: column;
 
     &:nth-child(odd) {
         transform: translateY(calc(-75%));
@@ -58,6 +55,11 @@
         }
         @include small-break {
             transform: translateY(0);
+        }
+        @include small-break {     
+            display: flex;
+            gap: base();
+            flex-direction: column;
         }
     }
 

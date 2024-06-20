@@ -39,7 +39,7 @@ const ProjectsHero: React.FC<Hero> = (props) => {
           <Grid className={classes.grid}>
             <Cell cols={14} colsM={9}>
               <div className={classes.contentWrap}>
-                <Content centered projectHero content={content} heading={heading} />
+                <Content hero centered projectHero content={content} heading={heading} />
               </div>
             </Cell>
           </Grid>

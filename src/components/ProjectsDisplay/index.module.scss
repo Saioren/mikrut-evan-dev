@@ -2,9 +2,20 @@
 
 .projectsCell {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     gap: base(2);
     @include mid-break {
         gap: base();
+    }
+}
+
+.projectHeading {
+    position: sticky;
+    top: 40vh;
+    bottom: base(2);
+    padding: base();
+    h3 {
+        margin: 0;
     }
 }

@@ -71,10 +71,6 @@
 }
 
 .send {
-    padding: 10px 12px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
     background-color: transparent;
     font-size: large;
     border: none;
@@ -82,9 +78,18 @@
     color: white;
     cursor: pointer;
     @include small-break {
-        padding: 5px 6px;
         font-size: small;
     }
+}
+
+.sendWrap {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.sendText {
+    height: max-content;
 }
 
 .warningToast {

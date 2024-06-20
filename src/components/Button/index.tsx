@@ -3,6 +3,7 @@ import { LinkAppearances, Link as LinkType } from '@/types/Fields/Link/types'
 import React, { Fragment } from 'react'
 import classes from './index.module.scss'
 import { ButtonProps } from '@/types/Components/Button/types'
+import PopOut from '../PopOut'
 
 const ButtonContents: React.FC<ButtonProps> = ({ linkFromCMS }) => {
   const labelToUse = linkFromCMS?.link.label
@@ -11,8 +12,17 @@ const ButtonContents: React.FC<ButtonProps> = ({ linkFromCMS }) => {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { buttonType, className, linkFromCMS, onMouseEnter, onMouseLeave, onClick, customUrl } =
-    props
+  const {
+    buttonType,
+    className,
+    linkFromCMS,
+    onMouseEnter,
+    onMouseLeave,
+    onClick,
+    customUrl,
+    gradient,
+    centered,
+  } = props
   const { appearance, type, label, reference, url, newTab } = linkFromCMS.link
 
   const classList = [className, classes.button, appearance && classes[`type--${appearance}`]]
@@ -53,7 +63,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       onClick={onClick}
       newTab={newTab}
     >
-      <ButtonContents className={classes.text} {...props} />
+      <PopOut gradient={gradient} appearance={appearance} hover={true}>
+        <ButtonContents className={classes.text} {...props} />
+      </PopOut>
     </Hyperlink>
   )
 }

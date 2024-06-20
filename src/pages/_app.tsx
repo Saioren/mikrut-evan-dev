@@ -9,7 +9,6 @@ import Gutter from '@/layout/Gutter'
 import { WindowInfoProvider } from '@faceless-ui/window-info'
 import Footer from '@/layout/Footer'
 import { GlobalsProvider } from '@/providers/GlobalsProvider'
-import MouseBubble from '@/components/MouseBubble/MouseTrail'
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const { ...otherProps } = pageProps
