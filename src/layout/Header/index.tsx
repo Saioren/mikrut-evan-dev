@@ -43,21 +43,21 @@ const Header: React.FC = () => {
       </div>
       <div className={classes.rightSide}>
         <div className={classes.links}>
-          <PopOut header hover>
-            <Link className={classes.contactButton} href={'#contact'}>
+          <Link className={classes.contactButton} href={'#contact'}>
+            <PopOut header hover>
               contact
-            </Link>
-          </PopOut>
-          <PopOut icon hover header>
-            <a className={classes.anchorButton} href="https://github.com/Saioren" target="__blank">
+            </PopOut>
+          </Link>
+          <a className={classes.anchorButton} href="https://github.com/Saioren" target="__blank">
+            <PopOut icon hover header>
               <BsGithub className={classes.icon} />
-            </a>
-          </PopOut>
-          <PopOut icon hover header>
-            <a className={classes.anchorButton} href="https://x.com/mikrutevan1" target="__blank">
+            </PopOut>
+          </a>
+          <a className={classes.anchorButton} href="https://x.com/mikrutevan1" target="__blank">
+            <PopOut icon hover header>
               <BsTwitterX className={classes.icon} />
-            </a>
-          </PopOut>
+            </PopOut>
+          </a>
         </div>
         <ThemeSlider />
       </div>
