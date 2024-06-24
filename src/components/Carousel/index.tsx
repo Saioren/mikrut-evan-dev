@@ -40,7 +40,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       >
         <div className={`${classes.sliderButtonWrap} ${classes.prevWrap}`}>
           <PopOut icon hover z={3} smaller>
-            <SliderButton className={`${classes.prev} ${classes.button}`} direction="prev">
+            <SliderButton
+              style={{ padding: '0' }}
+              className={`${classes.prev} ${classes.button}`}
+              direction="prev"
+            >
               <FaAngleLeft className={classes.icon} />
             </SliderButton>
           </PopOut>
@@ -75,7 +79,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         </SliderTrack>
         <div className={`${classes.sliderButtonWrap} ${classes.nextWrap}`}>
           <PopOut icon hover z={3} smaller>
-            <SliderButton className={`${classes.next} ${classes.button}`} direction="next">
+            <SliderButton
+              style={{ padding: '0' }}
+              className={`${classes.next} ${classes.button}`}
+              direction="next"
+            >
               <FaAngleRight className={classes.icon} />
             </SliderButton>
           </PopOut>

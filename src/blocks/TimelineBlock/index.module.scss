@@ -28,9 +28,8 @@
 .timelineElements {
     position: relative;
     width: 100%;
-
     &:nth-child(odd) {
-        transform: translateY(calc(-75%));
+        transform: translateY(calc(-85%));
         position: relative;
         &:before {
             content: '';
@@ -64,7 +63,7 @@
     }
 
     &:nth-child(even) {
-        transform: translateY(75%);
+        transform: translateY(85%);
         position: relative;
         &:before {
             content: '';
