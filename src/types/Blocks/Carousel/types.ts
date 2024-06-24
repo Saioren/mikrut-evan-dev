@@ -5,7 +5,8 @@ import { PaddingOption } from "@/types/Layout/Padding/types"
 import { Position } from "@/types/Layout/Position/types";
 
 export type Slide = {
-  slide: Media;
+  slideDark: Media;
+  slideLight: Media;
   slideTitle: string;
   slideDescription: string;
   slideUrl: string;

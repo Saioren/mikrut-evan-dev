@@ -55,6 +55,14 @@ const ProjectsDisplay: React.FC<ProjectsDisplay> = (props) => {
         </React.Fragment>
       ) : (
         <React.Fragment>
+          <Cell className={classes.smallCell} cols={6} colsM={4} colsS={9}>
+            <section className={classes.projectHeading}>
+              <FadeIn order={0}>
+                <h3>{content?.heading}</h3>
+                <RichText content={content?.content?.richText} />
+              </FadeIn>
+            </section>
+          </Cell>
           <Cell className={classes.projectsCell} cols={8} colsM={5} colsS={9}>
             {projects?.map((project) => (
               <React.Fragment key={project.id}>
@@ -66,7 +74,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplay> = (props) => {
               </React.Fragment>
             ))}
           </Cell>
-          <Cell cols={6} colsM={4} colsS={9}>
+          <Cell className={classes.largeCell} cols={6} colsM={4} colsS={9}>
             <section className={classes.projectHeading}>
               <FadeIn order={0}>
                 <h3>{content?.heading}</h3>

@@ -25,7 +25,13 @@ const CarouselBlock: Block = {
             minRows: 2,
             fields: [
                 {
-                    name: 'slide',
+                    name: 'slideLight',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+                {
+                    name: 'slideDark',
                     type: 'upload',
                     relationTo: 'media',
                     required: true,

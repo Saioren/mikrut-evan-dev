@@ -10,7 +10,6 @@
     top: 0;
     align-items: center;
     backdrop-filter: blur(10px);
-    transition: 0.2s ease background-color;
     z-index: 999;
     @include small-break {
     padding: base(0.25);

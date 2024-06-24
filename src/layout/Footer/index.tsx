@@ -11,126 +11,18 @@ import ToTop from '@/components/ToTop'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 
 const Footer: React.FC = () => {
-  //const { footer } = useGlobals(
+  const { footer } = useGlobals()
 
-  const footer = {
-    linkBlock: {
-      linkBlockLabel: 'you can find me on',
+  const linkBlock = footer?.linkBlock
+  const copyrightBlock = footer?.copyrightBlock
 
-      links: [
-        {
-          imageLink: {
-            type: 'custom',
-            newTab: true,
-            url: 'https://github.com/Saioren',
+  const linkBlockLabel = linkBlock?.linkBlockLabel
+  const links = linkBlock?.links
 
-            image: {
-              id: '66608f44c6832661fdd0ddd7',
-              alt: 'Github',
-              filename: 'Octicons-mark-github.svg',
-              mimeType: 'image/svg+xml',
-              filesize: 968,
-              width: 1024,
-              height: 1024,
-              createdAt: '2024-06-05T16:16:04.145Z',
-              updatedAt: '2024-06-05T16:16:04.145Z',
-              url: '/api/media/file/Octicons-mark-github.svg',
-              thumbnailURL: null,
-            },
-            alt: 'Github',
-          },
-          id: '66608f1031d23f0d8ca6327a',
-        },
-
-        {
-          imageLink: {
-            type: 'custom',
-            url: 'https://x.com/mikrutevan1',
-            newTab: true,
-            image: {
-              id: '66705b8f5e2428b5084c30e3',
-              alt: 'X',
-              filename: 'x.webp',
-              mimeType: 'image/webp',
-              filesize: 32640,
-              width: 2364,
-              height: 2364,
-              createdAt: '2024-06-17T15:51:43.602Z',
-              updatedAt: '2024-06-17T15:51:43.602Z',
-              url: '/api/media/file/x.webp',
-              thumbnailURL: null,
-            },
-            alt: 'X',
-          },
-          id: '66705b53140fc05210ab1099',
-        },
-      ],
-    },
-
-    copyrightBlock: {
-      copyrightLabel: 'Evan Mikrut © All Rights Reserved. ',
-      copyrightBody: 'this website was built with Payload CMS 3.0 and Next.JS.',
-      linkText: 'official documentation',
-
-      copyrightLinks: [
-        {
-          imageLink: {
-            type: 'custom',
-            newTab: true,
-            url: 'https://payloadcms.com/',
-
-            image: {
-              id: '66608fe3c6832661fdd0de6a',
-              alt: 'Payload CMS',
-              filename: 'payload-logo-A8D673164C-seeklogo.com.png',
-              mimeType: 'image/png',
-              filesize: 3575,
-              width: 253,
-              height: 300,
-              createdAt: '2024-06-05T16:18:43.554Z',
-              updatedAt: '2024-06-05T16:18:43.554Z',
-              url: '/api/media/file/payload-logo-A8D673164C-seeklogo.com.png',
-              thumbnailURL: null,
-            },
-            alt: 'Payload CMS',
-          },
-          id: '66608fa631d23f0d8ca6327b',
-        },
-
-        {
-          imageLink: {
-            type: 'custom',
-            newTab: true,
-            url: 'https://nextjs.org/',
-
-            image: {
-              id: '66608ff6c6832661fdd0dea3',
-              alt: 'Next.JS',
-              filename: 'next-js.svg',
-              mimeType: 'image/svg+xml',
-              filesize: 1527,
-              width: 1365,
-              height: 1365,
-              createdAt: '2024-06-05T16:19:02.675Z',
-              updatedAt: '2024-06-05T16:19:02.675Z',
-              url: '/api/media/file/next-js.svg',
-              thumbnailURL: null,
-            },
-            alt: 'Next.JS',
-          },
-          id: '66608fe731d23f0d8ca6327c',
-        },
-      ],
-    },
-    globalType: 'footer',
-    createdAt: '2024-06-05T16:20:01.846Z',
-    updatedAt: '2024-06-17T15:51:51.456Z',
-    id: '66609031c6832661fdd0dec2',
-  }
-
-  const { linkBlock, copyrightBlock } = footer
-  const { linkBlockLabel, links } = linkBlock
-  const { copyrightLabel, copyrightBody, copyrightLinks, linkText } = copyrightBlock
+  const copyrightLabel = copyrightBlock?.copyrightLabel
+  const copyrightBody = copyrightBlock?.copyrightBody
+  const linkText = copyrightBlock?.linkText
+  const copyrightLinks = copyrightBlock?.copyrightLinks
 
   const padding: PaddingOption = {
     paddingTop: 'large',

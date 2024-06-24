@@ -32,6 +32,8 @@ export type ProjectCollection = {
 
 export type Project = {
     projectsField: {
+        projectImageLight: Media
+        projectImageDark: Media
         projectImage: Media
         projectName: string
         projectTeaser: string

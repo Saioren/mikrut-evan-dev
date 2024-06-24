@@ -18,7 +18,7 @@ const ProjectsComponent = () => {
     <Padding padding={padding}>
       {projectsArray?.docs.map((collection) => {
         return (
-          <React.Fragment>
+          <React.Fragment key={collection.id}>
             <Padding padding={padding}>
               <ProjectsDisplay
                 order={1}

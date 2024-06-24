@@ -43,27 +43,40 @@ const EmailBlock: React.FC<EmailBlockType> = (props) => {
               </Cell>
               <BackgroundColors positions={['bottomLeft']} />
             </React.Fragment>
-          ) : position == 'right' && width && width < 768 ? (
+          ) : position == 'right' ? (
             <React.Fragment>
-              <Cell cols={7} colsM={4} colsS={9}>
+              <Cell
+                className={width && width < 768 ? classes.shown : classes.hidden}
+                cols={7}
+                colsM={4}
+                colsS={9}
+              >
                 <Content heading={heading} headingLowImpact content={content} />
               </Cell>
               <Cell cols={7} colsM={5} colsS={9}>
                 <PopOut animate wait={3}>
                   <EmailComponent />
                 </PopOut>
+              </Cell>
+              <Cell
+                className={width && width > 768 ? classes.shown : classes.hidden}
+                cols={7}
+                colsM={4}
+                colsS={9}
+              >
+                <Content heading={heading} headingLowImpact content={content} />
               </Cell>
               <BackgroundColors positions={['bottomLeft']} />
             </React.Fragment>
           ) : (
             <React.Fragment>
+              <Cell cols={7} colsM={4} colsS={9}>
+                <Content heading={heading} headingLowImpact content={content} />
+              </Cell>
               <Cell cols={7} colsM={5} colsS={9}>
                 <PopOut animate wait={3}>
                   <EmailComponent />
                 </PopOut>
-              </Cell>
-              <Cell cols={7} colsM={4} colsS={9}>
-                <Content heading={heading} headingLowImpact content={content} />
               </Cell>
               <BackgroundColors positions={['bottomLeft']} />
             </React.Fragment>

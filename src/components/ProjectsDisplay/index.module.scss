@@ -14,8 +14,25 @@
     position: sticky;
     top: 40vh;
     bottom: base(2);
-    padding: base();
     h3 {
         margin: 0;
+        padding-bottom: base(0.5);
+    }
+    @include small-break {
+        text-align: center;
+    }
+}
+
+.largeCell {
+    display: block;
+    @include small-break {
+        display: none;
+    }
+}
+
+.smallCell {
+    display: none;
+    @include small-break {
+        display: block;
     }
 }
