@@ -64,13 +64,12 @@
 }
 
 .button {
-    padding: base(0.25);
     cursor: pointer;
     display: flex;
     width: 100%;
     height: auto;
     border: none;
-    background-color: var(--background-primary-element);
+    background-color: transparent;
 }
 
 .icon {

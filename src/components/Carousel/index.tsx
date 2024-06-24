@@ -39,15 +39,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         onSlide={(index) => setSlideNumber(index)}
       >
         <div className={`${classes.sliderButtonWrap} ${classes.prevWrap}`}>
-          <PopOut icon hover z={3} smaller>
-            <SliderButton
-              style={{ padding: '0' }}
-              className={`${classes.prev} ${classes.button}`}
-              direction="prev"
-            >
+          <SliderButton className={`${classes.prev} ${classes.button}`} direction="prev">
+            <PopOut icon hover z={3} smaller>
               <FaAngleLeft className={classes.icon} />
-            </SliderButton>
-          </PopOut>
+            </PopOut>
+          </SliderButton>
         </div>
         <SliderTrack className={classes.track}>
           {slides.map((slide, index) => {
@@ -78,15 +74,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           })}
         </SliderTrack>
         <div className={`${classes.sliderButtonWrap} ${classes.nextWrap}`}>
-          <PopOut icon hover z={3} smaller>
-            <SliderButton
-              style={{ padding: '0' }}
-              className={`${classes.next} ${classes.button}`}
-              direction="next"
-            >
+          <SliderButton className={`${classes.next} ${classes.button}`} direction="next">
+            <PopOut icon hover z={3} smaller>
               <FaAngleRight className={classes.icon} />
-            </SliderButton>
-          </PopOut>
+            </PopOut>
+          </SliderButton>
         </div>
         <DotNav
           className={classes.dotNav}
