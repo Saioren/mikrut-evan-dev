@@ -37,34 +37,62 @@ const StandardHero: React.FC<Hero> = (props) => {
         className={classes.parent}
       >
         <BackgroundColors positions={['topLeft', 'right']} />
-        {position === 'left' && width && width > 768 ? (
-          <div className={classes.standardHero}>
-            <Grid className={`${classes.position}`}>
-              <Cell cols={7} colsM={4} start={1} colsS={9}>
-                <div className={classes.contentWrap}>
-                  <Content url={'#contact'} hero={true} content={content} heading={heading} />
-                </div>
-              </Cell>
-              <Cell cols={7} colsM={5} colsS={9}>
-                <FadeIn order={width && width < 768 ? 4 : 1}>
-                  <Grid>
-                    <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
-                      <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
-                        <Image
-                          className={classes.pfp}
-                          src={'/pfp.png'}
-                          width={1728}
-                          height={1909}
-                          alt={'my pfp'}
-                        />
-                      </PopOut>
-                    </Cell>
-                  </Grid>
-                </FadeIn>
-              </Cell>
-            </Grid>
-          </div>
-        ) : width && width < 768 ? (
+        {position === 'left' ? (
+          <React.Fragment>
+            <div className={[classes.standardHero, classes.standardHeroRight].join(' ')}>
+              <Grid className={`${classes.position}`}>
+                <Cell cols={7} colsM={4} start={1} colsS={9}>
+                  <div className={classes.contentWrap}>
+                    <Content url={'#contact'} hero={true} content={content} heading={heading} />
+                  </div>
+                </Cell>
+                <Cell className={classes.pfpCell} cols={7} colsM={5} colsS={9}>
+                  <FadeIn order={width && width < 768 ? 4 : 1}>
+                    <Grid>
+                      <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
+                        <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
+                          <Image
+                            className={classes.pfp}
+                            src={'/pfp.png'}
+                            width={1728}
+                            height={1909}
+                            alt={'my pfp'}
+                          />
+                        </PopOut>
+                      </Cell>
+                    </Grid>
+                  </FadeIn>
+                </Cell>
+              </Grid>
+            </div>
+            <div className={[classes.standardHero, classes.standardHeroLeft].join(' ')}>
+              <Grid className={`${classes.position}`}>
+                <Cell className={classes.pfpCell} cols={7} colsM={5} colsS={9}>
+                  <FadeIn order={1}>
+                    <Grid>
+                      <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
+                        <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
+                          <Image
+                            className={classes.pfp}
+                            src={'/pfp.png'}
+                            width={1728}
+                            height={1909}
+                            alt={'my pfp'}
+                          />
+                        </PopOut>
+                      </Cell>
+                    </Grid>
+                  </FadeIn>
+                </Cell>
+                <Cell cols={7} colsM={4} start={1} colsS={9}>
+                  <div className={classes.contentWrap}>
+                    <Content url={'#contact'} hero={true} content={content} heading={heading} />
+                  </div>
+                </Cell>
+              </Grid>
+            </div>
+          </React.Fragment>
+        ) : position !== 'right' ? (
           <div className={classes.standardHero}>
             <Grid className={`${classes.position}`}>
               <Cell cols={7} colsM={5} colsS={9}>

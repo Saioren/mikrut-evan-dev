@@ -75,12 +75,15 @@ const Content: React.FC<ContentType> = ({
           </Grid>
         ) : (
           <FadeIn order={2}>
-            <div className={classes.richTextDiv}>
+            <div
+              className={classes.richTextDiv}
+              style={{ paddingBottom: content && content.links?.length === 0 ? '24px' : undefined }}
+            >
               <RichText content={content?.richText} />
             </div>
           </FadeIn>
         )}
-        {content?.links && (
+        {content?.links && content.links.length > 0 && (
           <FadeIn order={3}>
             <div
               className={classes.linksDiv}

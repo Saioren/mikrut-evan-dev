@@ -2,6 +2,7 @@ import { Field } from "payload/types";
 import Content from "../../Content";
 import Padding from "../../Padding";
 import Position from "../../Position";
+import BackgroundColors from "../../BackgroundColors";
 
 const StandardHero: Field = {
     name: 'standardHero',
@@ -22,6 +23,21 @@ const StandardHero: Field = {
             relationTo: 'media',
             required: true,
          },
+         {
+            name: 'enableBackgroundColors',
+            label: 'Enable Background Colors',
+            type: 'checkbox',
+          },
+          {
+            name: 'backgroundColors',
+            type: 'group',
+            admin: {
+              condition: (_, { checkbox }) => checkbox === true,
+            },
+            fields: [
+              BackgroundColors,
+            ]
+          },
     ]
 }
 

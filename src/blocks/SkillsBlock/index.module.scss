@@ -5,3 +5,17 @@
     align-items: center;
     width: 100%;
 }
+
+.skillsRight {
+    display: block;
+    @include small-break {
+        display: none;
+    }
+}
+
+.skillsLeft {
+    display: none;
+    @include small-break {
+        display: block;
+    }
+}

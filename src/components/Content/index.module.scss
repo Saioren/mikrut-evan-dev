@@ -2,11 +2,12 @@
 
 .linksDiv {
     display: flex;
-    gap: base();
+    gap: base(0.75);
     align-items: center;
     @include small-break {
         justify-content: center;
         gap: base(0.5);
+        padding-bottom: base();
     }
 }
 
