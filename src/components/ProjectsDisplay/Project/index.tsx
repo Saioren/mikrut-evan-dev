@@ -1,4 +1,4 @@
-import { Project as ProjectCollectionType } from '@/types/Collections/Projects'
+import { Project as ProjectCollectionType } from '@/types/Blocks/Projects'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import classes from './index.module.scss'
@@ -17,23 +17,21 @@ const Project: React.FC<ProjectType> = (props) => {
   useEffect(() => {
     let formattedImage: Media
 
-    if (project.projectsField.projectImage) {
-      formattedImage = project.projectsField.projectImage
+    if (project.projectImage) {
+      formattedImage = project.projectImage
     } else if (theme === 'dark') {
-      formattedImage =
-        project.projectsField.projectImageDark || project.projectsField.projectImageLight
+      formattedImage = project.projectImageDark || project.projectImageLight
     } else {
-      formattedImage =
-        project.projectsField.projectImageLight || project.projectsField.projectImageDark
+      formattedImage = project.projectImageLight || project.projectImageDark
     }
 
     setDarkImage(formattedImage)
   }, [theme, project])
 
   return (
-    <div id={project.projectsField.projectUrl} className={classes.project}>
+    <div id={project.projectUrl} className={classes.project}>
       <div className={classes.projectInfo}>
-        <h2 className={classes.projectHeader}>{project?.projectsField.projectName}</h2>
+        <h2 className={classes.projectHeader}>{project?.projectName}</h2>
       </div>
 
       {darkImage && (
@@ -47,7 +45,7 @@ const Project: React.FC<ProjectType> = (props) => {
       )}
 
       <div className={classes.projectInfo2}>
-        <p>{project?.projectsField.projectTeaser}</p>
+        <p>{project?.projectTeaser}</p>
       </div>
     </div>
   )

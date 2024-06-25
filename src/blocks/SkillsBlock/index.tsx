@@ -6,62 +6,67 @@ import Content from '@/components/Content'
 import Padding from '@/layout/Padding'
 import SkillsDisplay from '@/components/SkillsDisplay'
 import BackgroundColors from '@/components/BackgroundColors'
-import { useGlobals } from '@/providers/GlobalsProvider'
 import { useWindowInfo } from '@faceless-ui/window-info'
 
 const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
-  const { skills } = useGlobals()
-  const { padding, position, content, heading } = props
+  const { padding, position, content, heading, skills } = props
+  const { width } = useWindowInfo()
 
-  return position === 'right' ? (
+  return (
     <Padding padding={padding}>
-      <div className={[classes.skills, classes.skillsRight].join(' ')}>
-        <Grid>
-          {skills &&
-            skills?.docs?.map((collection) => (
-              <Cell cols={7} colsM={4} key={collection.id}>
-                <BackgroundColors positions={['bottomLeft', 'right']} />
-                <SkillsDisplay collection={collection} />
-              </Cell>
-            ))}
-          <Cell className={classes.center} cols={7} colsM={5}>
-            <Content content={content} heading={heading} headingLowImpact />
-          </Cell>
-        </Grid>
-      </div>
-      <div className={[classes.skills, classes.skillsLeft].join(' ')}>
-        <Grid>
-          <Cell cols={7} colsM={5} colsS={9}>
-            <Content content={content} heading={heading} headingLowImpact />
-          </Cell>
-          {skills &&
-            skills?.docs?.map((collection) => (
-              <Cell cols={7} colsM={4} key={collection.id} colsS={9}>
-                <BackgroundColors positions={['bottomLeft', 'right']} />
-                <SkillsDisplay collection={collection} />
-              </Cell>
-            ))}
-        </Grid>
-      </div>
-      <BackgroundColors positions={['bottomRight', 'left']} />
-    </Padding>
-  ) : position === 'left' ? (
-    <Padding padding={padding}>
-      <Grid className={classes.skills}>
-        <Cell cols={7} colsM={5} colsS={9}>
-          <Content content={content} heading={heading} headingLowImpact />
-        </Cell>
-        {skills &&
-          skills?.docs?.map((collection) => (
-            <Cell cols={7} colsM={4} key={collection.id} colsS={9}>
+      {position === 'right' ? (
+        <div className={[classes.skills, classes.skillsRight].join(' ')}>
+          <Grid>
+            <Cell
+              className={
+                width && width > 768
+                  ? classes.shown
+                  : width && width < 768
+                  ? classes.hidden
+                  : classes.hidden
+              }
+              cols={7}
+              colsM={4}
+            >
               <BackgroundColors positions={['bottomLeft', 'right']} />
-              <SkillsDisplay collection={collection} />
+              <SkillsDisplay skills={skills} />
             </Cell>
-          ))}
-      </Grid>
+            <Cell className={classes.center} cols={7} colsM={5}>
+              <Content content={content} heading={heading} headingLowImpact />
+            </Cell>
+            <Cell
+              className={
+                width && width < 768
+                  ? classes.shown
+                  : width && width > 768
+                  ? classes.hidden
+                  : classes.shown
+              }
+              cols={7}
+              colsM={4}
+            >
+              <BackgroundColors positions={['bottomLeft', 'right']} />
+              <SkillsDisplay skills={skills} />
+            </Cell>
+          </Grid>
+        </div>
+      ) : position === 'left' ? (
+        <div className={[classes.skills, classes.skillsLeft].join(' ')}>
+          <Grid>
+            <Cell cols={7} colsM={5} colsS={9}>
+              <Content content={content} heading={heading} headingLowImpact />
+            </Cell>
+
+            <Cell cols={7} colsM={4} colsS={9}>
+              <BackgroundColors positions={['bottomLeft', 'right']} />
+              <SkillsDisplay skills={skills} />
+            </Cell>
+          </Grid>
+        </div>
+      ) : (
+        <div>Nothing to see here.</div>
+      )}
     </Padding>
-  ) : (
-    <div>Nothing to see here.</div>
   )
 }
 

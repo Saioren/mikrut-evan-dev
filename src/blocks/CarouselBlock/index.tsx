@@ -14,48 +14,6 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
   const { heading, padding, position, content, slides } = props
   const { width } = useWindowInfo()
 
-  const customSlides = [
-    {
-      id: '666b144f8e3e838aac461d38',
-      alt: 'Slide',
-      filename: '1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 125858,
-      width: 1920,
-      height: 1080,
-      createdAt: '2024-06-13T15:46:23.735Z',
-      updatedAt: '2024-06-13T15:46:23.735Z',
-      url: '/api/media/file/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      thumbnailURL: null,
-    },
-    {
-      id: '666b144f8e3e838aac461d38',
-      alt: 'Slide',
-      filename: '1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 125858,
-      width: 1920,
-      height: 1080,
-      createdAt: '2024-06-13T15:46:23.735Z',
-      updatedAt: '2024-06-13T15:46:23.735Z',
-      url: '/api/media/file/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      thumbnailURL: null,
-    },
-    {
-      id: '666b144f8e3e838aac461d38',
-      alt: 'Slide',
-      filename: '1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 125858,
-      width: 1920,
-      height: 1080,
-      createdAt: '2024-06-13T15:46:23.735Z',
-      updatedAt: '2024-06-13T15:46:23.735Z',
-      url: '/api/media/file/1920-x-1080-hd-1qq8r4pnn8cmcew4.jpg',
-      thumbnailURL: null,
-    },
-  ]
-
   const widthCheck = width && width < 768
 
   return (

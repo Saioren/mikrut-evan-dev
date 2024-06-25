@@ -5,6 +5,7 @@ import TimelineBlock from "../../blocks/Timeline";
 import { CollectionConfig } from "payload/types";
 import { slugField } from "../../fields/Slug";
 import { Hero } from "../../fields/Heroes";
+import ProjectsBlock from "../../blocks/Projects";
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -45,6 +46,7 @@ const Pages: CollectionConfig = {
         EmailBlock,
         SkillsBlock,
         TimelineBlock,
+        ProjectsBlock
       ],
     },
     slugField(),

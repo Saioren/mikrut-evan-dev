@@ -4,11 +4,6 @@ import { PaddingOption } from "../../Layout/Padding/types";
 import { Position } from "../../Layout/Position/types";
 import { RichText } from "@/types/Fields/RichText/types";
 
-export type SkillCollection = {
-    id: string
-    skills: Skill[]
-}
-
 export type Skill = {
   id: string;
   skillName: string;
@@ -26,6 +21,7 @@ export type Skills = {
   heading: string;
   padding: PaddingOption;
   position: Position;
+  skills: Skill[]; 
   content: {
     richText?: RichText;
     links?: Link[];

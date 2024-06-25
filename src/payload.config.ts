@@ -11,7 +11,6 @@ import Media from './app/(payload)/collections/Media/index'
 import Pages from './app/(payload)/collections/Pages'
 import SkillsCollection from './app/(payload)/collections/Skills'
 import Footer from './app/(payload)/globals/Footer'
-import Projects from './app/(payload)/collections/Projects'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,7 +19,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Pages, SkillsCollection, Projects],
+  collections: [Users, Media, Pages, SkillsCollection],
   globals: [
     Footer,
   ],

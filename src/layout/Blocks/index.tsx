@@ -2,7 +2,6 @@ import React from 'react'
 import { blocks as allBlocks } from '../../blocks'
 import kebabCase from 'lodash/kebabCase'
 import { Blocks as BlocksType } from '@/types/Blocks/types'
-import Padding from '../Padding'
 
 const Blocks: React.FC<{ blocks: BlocksType }> = (props) => {
   const { blocks } = props

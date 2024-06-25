@@ -1,9 +1,7 @@
 import React from 'react'
-import { Footer as FooterType } from '@/types/Layout/Footer/types'
 import PopOut from '@/components/PopOut'
 import classes from './index.module.scss'
 import { Cell, Grid } from '@faceless-ui/css-grid'
-import { useGlobals } from '@/providers/GlobalsProvider'
 import Image from 'next/image'
 import Padding from '../Padding'
 import { PaddingOption } from '@/types/Layout/Padding/types'
@@ -11,8 +9,6 @@ import ToTop from '@/components/ToTop'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 
 const Footer: React.FC = () => {
-  //const { footer } = useGlobals()
-
   const footer = {
     linkBlock: {
       linkBlockLabel: 'you can find me on',

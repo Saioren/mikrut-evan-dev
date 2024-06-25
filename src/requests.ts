@@ -1,5 +1,4 @@
-import payload from 'payload';
-import { CollectionAfterChangeHook } from "payload/types";
+
 
 // TODO: if in preview mode, add payload token and ?draft=true to the request
 export const getByID = async ({
@@ -140,21 +139,3 @@ export async function fetchPageData(slug: string) {
 
   return data.docs[0];
 }*/
-
-export const afterChangeHook: CollectionAfterChangeHook = async ({req: { payload }}) => {
-  try {
-    const projects = await payload.find({
-      collection: 'projects',
-    });
-
-    const skills = await payload.find({
-      collection: 'skillsCollection',
-    })
-
-    console.log('Fetched projects:', projects);
-    console.log('Fetched skills:', skills);
-    
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-  }
-}

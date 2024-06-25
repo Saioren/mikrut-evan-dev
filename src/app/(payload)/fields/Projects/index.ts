@@ -2,7 +2,7 @@ import { Field } from "payload/types";
 
 export const ProjectsField: Field = {
     name: 'projectsField',
-    type: 'group',
+    type: 'array',
     fields: [
         {
             name: 'projectImage',

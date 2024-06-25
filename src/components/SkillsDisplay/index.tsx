@@ -1,27 +1,25 @@
-import { Skill, SkillCollection } from '@/types/Blocks/Skills/types'
+import { Skill } from '@/types/Blocks/Skills/types'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import classes from './index.module.scss'
 import PopOut from '../PopOut'
 import FadeIn from '../FadeIn'
-import LinkGroup from '../LinkGroup'
 import XIcon from '@/icons/X'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useGlobals } from '@/providers/GlobalsProvider'
-import { RichText } from '../RichText'
 import { useWindowInfo } from '@faceless-ui/window-info'
 
-const SkillsDisplay: React.FC<{ collection: SkillCollection }> = (
-  {
-    /*collection*/
-  },
-) => {
+type Props = {
+  skills: Skill[]
+}
+
+const SkillsDisplay: React.FC<Props> = (props) => {
+  const { skills } = props
   const [skillShowcase, setSkillShowcase] = useState(false)
   const [activeSkill, setActiveSkill] = useState('')
   const showcaseRef = useRef<HTMLDivElement>(null)
   const { width } = useWindowInfo()
 
-  const skills = {
+  /*const skills = {
     id: '6660ce030212164877757c75',
 
     skills: [
@@ -234,7 +232,7 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = (
     ],
     createdAt: '2024-06-05T20:43:47.688Z',
     updatedAt: '2024-06-25T13:51:04.958Z',
-  }
+  }*/
 
   function handleSkillClick(skillId: string) {
     setSkillShowcase(true)
@@ -289,7 +287,7 @@ const SkillsDisplay: React.FC<{ collection: SkillCollection }> = (
       <PopOut animate wait={3}>
         <div className={classes.skillDisplay}>
           {
-            /*collection?.*/ skills?.skills?.map((skill, index) => {
+            /*collection?.*/ skills?.map((skill, index) => {
               const order = calculateOrder(index)
               return (
                 <FadeIn order={order} key={index}>
