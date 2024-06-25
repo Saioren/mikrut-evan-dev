@@ -11,7 +11,119 @@ import ToTop from '@/components/ToTop'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 
 const Footer: React.FC = () => {
-  const { footer } = useGlobals()
+  //const { footer } = useGlobals()
+
+  const footer = {
+    linkBlock: {
+      linkBlockLabel: 'you can find me on',
+
+      links: [
+        {
+          imageLink: {
+            type: 'custom',
+            newTab: true,
+            url: 'https://github.com/Saioren',
+
+            image: {
+              id: '66608f44c6832661fdd0ddd7',
+              alt: 'Github',
+              filename: 'Octicons-mark-github.svg',
+              mimeType: 'image/svg+xml',
+              filesize: 968,
+              width: 1024,
+              height: 1024,
+              createdAt: '2024-06-05T16:16:04.145Z',
+              updatedAt: '2024-06-05T16:16:04.145Z',
+              url: '/api/media/file/Octicons-mark-github.svg',
+              thumbnailURL: null,
+            },
+          },
+          id: '66608f1031d23f0d8ca6327a',
+        },
+
+        {
+          imageLink: {
+            type: 'custom',
+            newTab: true,
+            url: 'https://x.com/mikrutevan1',
+
+            image: {
+              id: '6679c6e768a4a01e54dc7fa0',
+              alt: 'X',
+              filename: 'Twitter_new_X_logo.png',
+              mimeType: 'image/png',
+              filesize: 75267,
+              width: 576,
+              height: 488,
+              createdAt: '2024-06-24T19:20:07.521Z',
+              updatedAt: '2024-06-24T19:20:07.521Z',
+              url: '/api/media/file/Twitter_new_X_logo.png',
+              thumbnailURL: null,
+            },
+          },
+          id: '66705b53140fc05210ab1099',
+        },
+      ],
+    },
+
+    copyrightBlock: {
+      copyrightLabel: 'Evan Mikrut © All Rights Reserved. ',
+      copyrightBody: 'this website was built with Payload CMS 3.0 and Next.JS.',
+      linkText: 'official documentation',
+
+      copyrightLinks: [
+        {
+          imageLink: {
+            type: 'custom',
+            newTab: true,
+            url: 'https://payloadcms.com/',
+
+            image: {
+              id: '667058075e2428b5084c2cce',
+              alt: 'Payload CMS',
+              filename: 'payload.png',
+              mimeType: 'image/png',
+              filesize: 8964,
+              width: 1024,
+              height: 1024,
+              createdAt: '2024-06-17T15:36:39.651Z',
+              updatedAt: '2024-06-17T15:36:39.651Z',
+              url: '/api/media/file/payload.png',
+              thumbnailURL: null,
+            },
+          },
+          id: '66608fa631d23f0d8ca6327b',
+        },
+
+        {
+          imageLink: {
+            type: 'custom',
+            newTab: true,
+            url: 'https://nextjs.org/',
+
+            image: {
+              id: '66608ff6c6832661fdd0dea3',
+              alt: 'Next.JS',
+              filename: 'next-js.svg',
+              mimeType: 'image/svg+xml',
+              filesize: 1527,
+              width: 1365,
+              height: 1365,
+              createdAt: '2024-06-05T16:19:02.675Z',
+              updatedAt: '2024-06-05T16:19:02.675Z',
+              url: '/api/media/file/next-js.svg',
+              thumbnailURL: null,
+            },
+          },
+          id: '66608fe731d23f0d8ca6327c',
+        },
+      ],
+    },
+    globalType: 'footer',
+    createdAt: '2024-06-05T16:20:01.846Z',
+    updatedAt: '2024-06-24T19:20:09.412Z',
+    id: '66609031c6832661fdd0dec2',
+  }
 
   const linkBlock = footer?.linkBlock
   const copyrightBlock = footer?.copyrightBlock

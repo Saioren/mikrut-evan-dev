@@ -46,7 +46,7 @@ const Project: React.FC<ProjectType> = (props) => {
         />
       )}
 
-      <div className={classes.projectInfo}>
+      <div className={classes.projectInfo2}>
         <p>{project?.projectsField.projectTeaser}</p>
       </div>
     </div>

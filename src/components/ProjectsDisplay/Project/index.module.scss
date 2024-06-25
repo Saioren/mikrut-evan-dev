@@ -13,10 +13,9 @@
         margin: 0;
     }
     background-color: var(--background-primary-element);
-    padding: base(0.5);
+    padding: base();
     text-align: center;
-}
-
-.projectInfo {
-    padding: base(0.5);
+    @include small-break {
+        padding: base();
+    }
 }

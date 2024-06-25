@@ -22,9 +22,11 @@
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
+    "@types/express": "^4.17.21",
     "axios": "^1.7.2",
     "cross-env": "^7.0.3",
     "escape-html": "^1.0.3",
+    "express": "^4.19.2",
     "framer-motion": "^11.2.11",
     "graphql": "^16.8.1",
     "next": "^14.3.0-canary.7",
@@ -36,7 +38,8 @@
     "react-parallax": "^3.5.1",
     "react-transition-group": "^4.4.5",
     "sharp": "^0.33.4",
-    "slate": "^0.103.0"
+    "slate": "^0.103.0",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/escape-html": "^1.0.4",

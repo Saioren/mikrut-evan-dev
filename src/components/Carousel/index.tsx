@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import { DotNav, Slide, SliderButton, SliderProvider, SliderTrack } from '@faceless-ui/slider'
-import Media from '../Media'
-import { Media as MediaType } from '@/types/Fields/Media/types'
 import Image from 'next/image'
 import classes from './index.module.scss'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import PopOut from '../PopOut'
-import FadeIn from '../FadeIn'
 import { Slide as SlideType } from '@/types/Blocks/Carousel/types'
-import { useWindowInfo } from '@faceless-ui/window-info'
 import Link from 'next/link'
 
 export type CarouselProps = {
@@ -17,17 +13,14 @@ export type CarouselProps = {
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides } = props
-  const { width } = useWindowInfo()
   const [slideNumber, setSlideNumber] = useState(0)
 
   if (slides.length === 0) {
     return <p>Loading slides...</p>
   }
 
-  const widthCheck = width && width < 768
-
   return (
-    <FadeIn order={widthCheck ? 3 : 1}>
+    <React.Fragment>
       <SliderProvider
         pauseOnHover
         currentSlideIndex={slideNumber}
@@ -86,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           activeDotClassName={classes.dotIsActive}
         />
       </SliderProvider>
-    </FadeIn>
+    </React.Fragment>
   )
 }
 
