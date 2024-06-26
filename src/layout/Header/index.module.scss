@@ -85,3 +85,18 @@
     background-color: transparent;
 }
 
+.easterEgg {
+    display: flex;
+    height: auto;
+    border: none;
+    background-color: transparent;
+}
+
+.lightEgg {
+    filter: var(--filter-color);
+}
+
+.egg {
+    width: 18px;
+    height: 18px;
+}

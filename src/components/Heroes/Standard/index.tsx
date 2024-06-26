@@ -53,10 +53,10 @@ const StandardHero: React.FC<Hero> = (props) => {
                         <PopOut animate={true} wait={3}>
                           <Image
                             className={classes.pfp}
-                            src={'/pfp.png'}
-                            width={1728}
-                            height={1909}
-                            alt={'my pfp'}
+                            src={heroImage.url}
+                            width={heroImage.width}
+                            height={heroImage.height}
+                            alt={heroImage.alt}
                           />
                         </PopOut>
                       </Cell>
@@ -74,10 +74,10 @@ const StandardHero: React.FC<Hero> = (props) => {
                         <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
                           <Image
                             className={classes.pfp}
-                            src={'/pfp.png'}
-                            width={1728}
-                            height={1909}
-                            alt={'my pfp'}
+                            src={heroImage.url}
+                            width={heroImage.width}
+                            height={heroImage.height}
+                            alt={heroImage.alt}
                           />
                         </PopOut>
                       </Cell>
@@ -92,7 +92,7 @@ const StandardHero: React.FC<Hero> = (props) => {
               </Grid>
             </div>
           </React.Fragment>
-        ) : position !== 'right' ? (
+        ) : (
           <div className={classes.standardHero}>
             <Grid className={`${classes.position}`}>
               <Cell cols={7} colsM={5} colsS={9}>
@@ -110,10 +110,10 @@ const StandardHero: React.FC<Hero> = (props) => {
                       <PopOut animate={true} wait={3}>
                         <Image
                           className={classes.pfp}
-                          src={'/pfp.png'}
-                          width={1728}
-                          height={1909}
-                          alt={'my pfp'}
+                          src={heroImage.url}
+                          width={heroImage.width}
+                          height={heroImage.height}
+                          alt={heroImage.alt}
                         />
                       </PopOut>
                     </Cell>
@@ -123,34 +123,6 @@ const StandardHero: React.FC<Hero> = (props) => {
               <Cell cols={7} colsM={4} start={1} colsS={9}>
                 <div className={classes.contentWrap}>
                   <Content url={'#contact'} hero={true} content={content} heading={heading} />
-                </div>
-              </Cell>
-            </Grid>
-          </div>
-        ) : (
-          <div className={classes.standardHero}>
-            <Grid className={`${classes.position}`}>
-              <Cell cols={7} colsM={5} colsS={9}>
-                {/*<Media mediaFromCMS={heroImage} />*/}
-                <FadeIn order={width && width < 768 ? 4 : 1}>
-                  <Grid>
-                    <Cell cols={5} colsM={4} colsL={6} start={2} startL={1} startS={3} colsS={5}>
-                      <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
-                        <Image
-                          className={classes.pfp}
-                          src="/pfp.png"
-                          width={1728}
-                          height={1909}
-                          alt="my pfp"
-                        />
-                      </PopOut>
-                    </Cell>
-                  </Grid>
-                </FadeIn>
-              </Cell>
-              <Cell cols={6} colsM={4} colsS={9}>
-                <div className={classes.contentWrap}>
-                  <Content hero={true} content={content} heading={heading} position={position} />
                 </div>
               </Cell>
             </Grid>

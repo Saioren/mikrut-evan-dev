@@ -1,31 +1,5 @@
 @use '@/scss/common' as *;
 
-.slideImage {
-    display: flex;
-    width: 100%;
-    height: auto;
-}
-
-.slide {
-    position: relative;
-    display: flex;
-    height: auto;
-    width: 100%;
-    .projectInfoWrap {
-        opacity: 0;
-        transition: opacity 0.3s ease; 
-        transition-delay: 0.1s;
-    }
-
-    &:hover {
-        .projectInfoWrap {
-            opacity: 1; 
-            transition: opacity 0.3s ease;
-            transition-delay: 500ms; 
-        }
-    }
-}
-
 .track {
     @include hide-scrollbar;
     height: 100%;
@@ -91,59 +65,3 @@
     left: base(-0.5);
 }
 
-.projectInfoWrap {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--project-filter);
-    backdrop-filter: blur(10px);
-    padding: base();
-    @include mid-break {
-        padding: base(0.5);
-    }
-}
-
-.projectInfo {
-    display: flex;
-    gap: base();
-    flex-direction: column;
-}
-
-.viewProject {
-    text-decoration: none;
-    color: var(--font-color);
-    &:hover {
-        border-bottom: 2px solid  var(--brand-color);
-    }
-}
-
-.projectDescription {
-    padding: base();
-    @include small-break {
-        font-size: medium;
-        padding: 0 base();
-    }
-}
-
-.projectTitle {
-    font-weight: bold;
-    text-align: center;
-    @include small-break {
-        font-size: medium;
-    }
-}
-
-.projectLinks {
-    position: absolute;
-    bottom: base(1.5);
-    font-size: medium;
-    left: 0;
-    right: 0;
-    text-align: center;
-    @include small-break {
-        font-size: small;
-        bottom: base(1.25);
-    }
-}

@@ -28,6 +28,8 @@ const Project: React.FC<ProjectType> = (props) => {
     setDarkImage(formattedImage)
   }, [theme, project])
 
+  console.log(darkImage)
+
   return (
     <div id={project.projectUrl} className={classes.project}>
       <div className={classes.projectInfo}>

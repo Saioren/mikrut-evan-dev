@@ -25,21 +25,23 @@ const CarouselBlock: React.FC<CarouselBlockType> = (props) => {
               <Content start={1} heading={heading} headingLowImpact content={content} />
             </Cell>
             <Cell className={classes.carousel} cols={8} colsM={5} colsS={9}>
-              <PopOut wait={3} animate>
-                <Carousel slides={slides} />
-              </PopOut>
+              <FadeIn order={1}>
+                <PopOut wait={3} animate>
+                  <Carousel slides={slides} />
+                </PopOut>
+              </FadeIn>
             </Cell>
             <BackgroundColors positions={['bottomLeft', 'right']} />
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <FadeIn order={widthCheck ? 3 : 1}>
-              <Cell cols={7} colsM={5} className={classes.carousel}>
+            <Cell cols={7} colsM={5} className={classes.carousel}>
+              <FadeIn order={widthCheck ? 3 : 1}>
                 <PopOut wait={3} animate>
                   <Carousel slides={slides} />
                 </PopOut>
-              </Cell>
-            </FadeIn>
+              </FadeIn>
+            </Cell>
             <Cell cols={6} colsM={4}>
               <Content heading={heading} headingLowImpact content={content} />
             </Cell>

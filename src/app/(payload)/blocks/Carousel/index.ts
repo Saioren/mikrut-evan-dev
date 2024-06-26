@@ -28,7 +28,7 @@ const CarouselBlock: Block = {
                     name: 'projectImage',
                     type: 'upload',
                     relationTo: 'media',
-                    required: false,
+                    required: true,
                     admin: {
                         condition: (_, siblingData) => siblingData.imageType === false
                     }
@@ -37,7 +37,7 @@ const CarouselBlock: Block = {
                     name: 'projectImageDark',
                     type: 'upload',
                     relationTo: 'media',
-                    required: false,
+                    required: true,
                     admin: {
                         condition: (_, siblingData) => siblingData.imageType === true
                     }
@@ -46,7 +46,7 @@ const CarouselBlock: Block = {
                     name: 'projectImageLight',
                     type: 'upload',
                     relationTo: 'media',
-                    required: false,
+                    required: true,
                     admin: {
                         condition: (_, siblingData) => siblingData.imageType === true
                     }

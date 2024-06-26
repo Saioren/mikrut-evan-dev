@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PopOut from '@/components/PopOut'
 import classes from './index.module.scss'
 import { Cell, Grid } from '@faceless-ui/css-grid'
@@ -7,8 +7,13 @@ import Padding from '../Padding'
 import { PaddingOption } from '@/types/Layout/Padding/types'
 import ToTop from '@/components/ToTop'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
+import { BsLockFill, BsUnlockFill } from 'react-icons/bs'
+import { useEasterEgg } from '@/eggs/EasterEggProvider'
+import toast from 'react-hot-toast'
 
 const Footer: React.FC = () => {
+  const { unlock, setLockTrigger, easterEggGet, hideEggOne } = useEasterEgg()
+  const [isClient, setIsClient] = useState(false)
   const footer = {
     linkBlock: {
       linkBlockLabel: 'you can find me on',
@@ -136,6 +141,14 @@ const Footer: React.FC = () => {
     paddingTop: 'large',
   }
 
+  function lockNotify() {
+    toast.error(`It's locked...`)
+  }
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <Padding padding={padding}>
       <Grid className={classes.grid}>
@@ -215,6 +228,20 @@ const Footer: React.FC = () => {
                   </div>
                 </div>
               </PopOut>
+              <div className={classes.secret}>
+                {unlock && !hideEggOne && isClient ? (
+                  <BsUnlockFill onClick={() => easterEggGet(1)} className={classes.unlock} />
+                ) : (
+                  !hideEggOne &&
+                  isClient && (
+                    <BsLockFill
+                      onMouseEnter={() => setLockTrigger(true)}
+                      onClick={lockNotify}
+                      className={classes.lock}
+                    />
+                  )
+                )}
+              </div>
             </div>
           </PopOut>
         </Cell>

@@ -5,9 +5,9 @@ import { fetchPageData } from '@/requests'
 import { PageType } from '@/types/Layout/Page/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import { ProjectCollection } from '@/types/Blocks/Projects'
+import { Projects } from '@/types/Blocks/Projects'
 
-const ProjectsPage: React.FC<PageType & { globals: any; projects: ProjectCollection }> = ({
+const ProjectsPage: React.FC<PageType & { globals: any; projects: Projects }> = ({
   layout,
   hero,
   meta,

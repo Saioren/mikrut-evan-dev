@@ -4,11 +4,20 @@ const Media: CollectionConfig = {
     slug: 'media',
     admin: {
         useAsTitle: 'filename',
-        description: "Maximum upload file size: 12MB. Recommended file size for images is <500KB."
+        description: "Maximum upload file size: 12MB. Recommended file size for images is <500KB.",
     },
     upload: {
+        staticDir: 'media',
         adminThumbnail: 'thumbnail',
+        mimeTypes: ['image/*'],
     },
+    access: {
+        // Permissive access rules
+        read: () => true,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
+      },
     fields: [
         {
             name: 'alt',

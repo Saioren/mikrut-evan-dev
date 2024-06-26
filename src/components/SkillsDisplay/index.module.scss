@@ -136,3 +136,15 @@
     transition: 0.2s ease opacity;
     z-index: 10;
 }
+
+.lockButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    border: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--brand-color);
+}

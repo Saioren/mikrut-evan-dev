@@ -106,3 +106,21 @@ p {
     right: base();
     bottom: base(.5);
 }
+
+.secret {
+    position: absolute;
+    bottom: base();
+    right: base();
+    cursor: pointer;
+    &:hover {
+        .lock {
+            opacity: 1;
+            transition: 0.1s ease;
+        }
+    }
+}
+
+.lock {
+    opacity: 0;
+    transition: 0.1s ease;
+}

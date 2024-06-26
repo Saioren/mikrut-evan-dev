@@ -1,18 +1,26 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 import classes from './index.module.scss'
 import Link from 'next/link'
 import ThemeSlider from '@/components/ThemeSlider'
-import { BsGithub, BsTwitterX } from 'react-icons/bs'
-import { HiOutlineQrcode } from 'react-icons/hi'
+import { BsEggFill, BsGithub, BsTwitterX } from 'react-icons/bs'
 import PopOut from '@/components/PopOut'
-import { motion } from 'framer-motion'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
+import { useEasterEgg } from '@/eggs/EasterEggProvider'
+import { useTheme } from '@/providers/ThemeContext'
 
 const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+  const { eggCount } = useEasterEgg()
+  const { theme } = useTheme()
 
   useEffect(() => {
+    // This will set `isClient` to true only after the component mounts on the client side
+    setIsClient(true)
+
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setIsScrolled(false)
@@ -43,6 +51,11 @@ const Header: React.FC = () => {
       </div>
       <div className={classes.rightSide}>
         <div className={classes.links}>
+          {isClient && eggCount > 0 && (
+            <button className={`${classes.easterEgg} ${theme === 'dark' ? classes.lightEgg : ''}`}>
+              <BsEggFill className={classes.egg} />
+            </button>
+          )}
           <Link className={classes.contactButton} href={'#contact'}>
             <PopOut header hover>
               contact

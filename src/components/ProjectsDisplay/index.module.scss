@@ -4,7 +4,7 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    gap: base(2);
+    gap: base(3);
     @include mid-break {
         gap: base();
     }

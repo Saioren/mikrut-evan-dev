@@ -9,6 +9,7 @@ import Gutter from '@/layout/Gutter'
 import { WindowInfoProvider } from '@faceless-ui/window-info'
 import Footer from '@/layout/Footer'
 import { GlobalsProvider } from '@/providers/GlobalsProvider'
+import EasterEggProvider from '@/eggs/EasterEggProvider'
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const { ...otherProps } = pageProps
@@ -60,11 +61,13 @@ const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement =
                 xl: 14,
               }}
             >
-              <Header />
-              <Gutter>
-                <Component {...otherProps} />
-              </Gutter>
-              <Footer />
+              <EasterEggProvider>
+                <Header />
+                <Gutter>
+                  <Component {...otherProps} />
+                </Gutter>
+                <Footer />
+              </EasterEggProvider>
             </GridProvider>
           </ThemeContextProvider>
         </WindowInfoProvider>
