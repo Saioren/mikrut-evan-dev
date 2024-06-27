@@ -15,19 +15,30 @@
     height: auto;
     width: 100%;
     position: relative;
-    padding-bottom: base(4.9);
-    padding-top: base(4.9);
-
-    @include small-break {
+    padding-top: base(5);
+    padding-bottom: base(5);
+@media screen and (max-width: 1424px) {
+    padding-top: base(5.5);
+    padding-bottom: base(5.4);
+}
+    @include large-break {
         padding-bottom: 0;
         padding-top: 0;
         justify-content: center;
     }
 }
 
-.timelineElements {
+.timelineElement {
     position: relative;
     width: 100%;
+    display: flex;
+    gap: base();
+    flex-direction: row;
+
+    @include large-break {
+        flex-direction: column;
+    }
+
     &:nth-child(odd) {
         transform: translateY(calc(-85%));
         position: relative;
@@ -43,19 +54,22 @@
             border-top: 15px solid var(--background-primary-element); /* Change color */
             transform: translateX(-50%);
             z-index: 2; /* Increase z-index */;
-            @include small-break {
+            @include large-break {
                 display: none;
-             }
+            }
         }
         .timelineIcon {
-            bottom: -65px;
+            bottom: -85px;
             left: base();
             transform: translateX(-50%);
+            @include large-break {
+                top: 0;
+            }
         }
-        @include small-break {
+        @include large-break {
             transform: translateY(0);
         }
-        @include small-break {     
+        @include large-break {     
             display: flex;
             gap: base();
             flex-direction: column;
@@ -77,26 +91,40 @@
             border-bottom: 15px solid var(--background-primary-element); /* Change color */
             transform: translateX(-50%);
             z-index: 2; /* Increase z-index */;
-            @include small-break {
-               display: none;
+            @include large-break {
+                display: none;
             }
         }
         .timelineIcon {
-            top: -65px;
+            top: -85px;
             left: base();
             transform: translateX(-50%);
+            @include large-break {
+                top: 0;
+            }
         }
-        @include small-break {
+        @include large-break {
             transform: translateY(0);
         }
     }
-    @include small-break {
+    @include large-break {
             width: max-content;
     }
 }
 
+.timelineElements {
+    position: relative;
+    display: flex;
+    gap: base();
+    flex-direction: row;
+    @include large-break {
+        flex-direction: column;
+    }
+}
+
 .widthConstraint {
-    @include small-break {
+    display: flex;
+    @include large-break {
         &:before {
             content: '';
             position: absolute;
@@ -108,12 +136,15 @@
             border-top: 15px solid var(--background-primary-element); /* Change color */
             transform: translateX(-50%);
             z-index: 2; /* Increase z-index */;
-            @include small-break {
-                left: base(2.1);
+            @include large-break {
+                left: base(2.25);
                 transform: rotate(90deg);
-                top: base(0.37);
+                top: base(0.5);
             }
         }
+        width: 600px;
+    }
+    @include small-break {
         width: 300px;
     }
 }
@@ -128,7 +159,7 @@
     width: 100%;
     background-color: var(--background-primary-element);
     transform: translateY(-50%);
-    @include small-break {
+    @include large-break {
         position: absolute;
         height: 100%;
         width: 20px;
@@ -150,26 +181,21 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    @include small-break {
-        top: 0;
-        width: 48px;
-        height: 48px;
-        z-index: 3;
-    }
+    z-index: 3;
+    width: 48px;
+    height: 48px;
 }
 
 .icon {
     width: 32px;
     height: 32px;
-    @include small-break {
-        transform: translateY(20%)
-    }
+    transform: translateY(20%);
 }
 
 .relative {
     position: relative;
     display: flex;
-    @include small-break {
+    @include large-break {
         padding-left: base(3);
     }
 }

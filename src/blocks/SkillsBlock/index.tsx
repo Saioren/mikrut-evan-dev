@@ -27,11 +27,12 @@ const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
               }
               cols={7}
               colsM={4}
+              colsS={9}
             >
               <BackgroundColors positions={['bottomLeft', 'right']} />
               <SkillsDisplay skills={skills} />
             </Cell>
-            <Cell className={classes.center} cols={7} colsM={5}>
+            <Cell className={classes.center} cols={7} colsM={5} colsS={9}>
               <Content content={content} heading={heading} headingLowImpact />
             </Cell>
             <Cell
@@ -44,6 +45,7 @@ const SkillsBlock: React.FC<SkillsBlockType> = (props) => {
               }
               cols={7}
               colsM={4}
+              colsS={9}
             >
               <BackgroundColors positions={['bottomLeft', 'right']} />
               <SkillsDisplay skills={skills} />

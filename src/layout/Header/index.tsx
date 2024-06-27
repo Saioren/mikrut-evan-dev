@@ -9,11 +9,14 @@ import PopOut from '@/components/PopOut'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
 import { useEasterEgg } from '@/eggs/EasterEggProvider'
 import { useTheme } from '@/providers/ThemeContext'
+import { motion as m } from 'framer-motion'
+import EggModal from '@/eggs/EggModal'
 
 const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [eggModal, setEggModal] = useState(false)
   const { eggCount } = useEasterEgg()
   const { theme } = useTheme()
 
@@ -41,6 +44,10 @@ const Header: React.FC = () => {
     }
   }, [])
 
+  function eggModalToggle() {
+    setEggModal((prevState) => !prevState)
+  }
+
   return (
     <div
       ref={headerRef}
@@ -53,9 +60,10 @@ const Header: React.FC = () => {
         <div className={classes.links}>
           {isClient && eggCount > 0 && (
             <button className={`${classes.easterEgg} ${theme === 'dark' ? classes.lightEgg : ''}`}>
-              <BsEggFill className={classes.egg} />
+              <BsEggFill onClick={() => eggModalToggle()} className={classes.egg} />
             </button>
           )}
+          {isClient && eggCount > 0 && eggModal && <EggModal />}
           <Link className={classes.contactButton} href={'#contact'}>
             <PopOut header hover>
               contact

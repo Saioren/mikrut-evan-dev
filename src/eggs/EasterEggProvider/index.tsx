@@ -25,6 +25,7 @@ export const useEasterEgg = (): IEasterEgg => useContext(EasterEggContext)
 
 const EasterEggProvider: React.FC<EasterEggProviderProps> = ({ children }) => {
   // egg count
+  const totalEggs = 1
   const [eggCount, setEggCount] = useLocalStorage('eggCount', 0)
   // each individual egg
   const [eggOne, setEggOne] = useLocalStorage('eggOne', false)
@@ -39,7 +40,7 @@ const EasterEggProvider: React.FC<EasterEggProviderProps> = ({ children }) => {
   function easterEggGet(n: number) {
     setEggCount((prevEggCount) => {
       const newEggCount = prevEggCount + 1
-      toast.success(`Acquired Easter Egg #${n} | (${newEggCount}/8)`, {
+      toast.success(`Acquired Easter Egg #${n} | (${newEggCount}/${totalEggs})`, {
         duration: 4000,
       })
       return newEggCount

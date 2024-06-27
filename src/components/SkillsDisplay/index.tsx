@@ -71,7 +71,9 @@ const SkillsDisplay: React.FC<Props> = (props) => {
   }, [])
 
   function unlockFirstEgg() {
-    toast.success(`You hear a 'click'`)
+    toast.success(`You hear a 'click'`, {
+      duration: 3000,
+    })
     setUnlock(true)
     setHideButton(true)
   }

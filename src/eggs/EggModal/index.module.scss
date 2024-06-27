@@ -1,0 +1,10 @@
+@use '@/scss/common' as *;
+
+.eggModal {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: base(3);
+    background-color: var(--header-color);
+    padding: base();
+}

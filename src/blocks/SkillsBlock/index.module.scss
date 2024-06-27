@@ -4,13 +4,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-}
-
-.skillsRight {
-    display: block;
-    @include small-break {
-        display: none;
-    }
+    justify-content: center;
 }
 
 .skillsLeft {
@@ -26,4 +20,9 @@
 
 .hidden {
     display: none;
+}
+
+.smallCell {
+    display: flex;
+    width: 100%;
 }
