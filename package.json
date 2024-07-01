@@ -19,6 +19,7 @@
     "@faceless-ui/css-grid": "^1.2.1",
     "@faceless-ui/slider": "^1.1.17",
     "@faceless-ui/window-info": "^2.1.2",
+    "@img/sharp-win32-x64": "^0.33.4",
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",

@@ -1,9 +1,0 @@
-{
-    "build": {
-      "env": {
-        "NPM_CONFIG_BUILD_FROM_SOURCE": "true",
-        "NEXT_SHARP_PATH": "/vercel/path0/node_modules/sharp"
-      }
-    }
-  }
-  
