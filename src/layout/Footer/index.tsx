@@ -7,12 +7,13 @@ import Padding from '../Padding'
 import { PaddingOption } from '@/types/Layout/Padding/types'
 import ToTop from '@/components/ToTop'
 import MikrutEvanLogo from '@/components/MikrutEvanLogo'
-import { BsLockFill, BsUnlockFill } from 'react-icons/bs'
+import { BsEggFill, BsLockFill, BsUnlockFill } from 'react-icons/bs'
 import { useEasterEgg } from '@/eggs/EasterEggProvider'
 import toast from 'react-hot-toast'
 
 const Footer: React.FC = () => {
-  const { unlock, setLockTrigger, easterEggGet, hideEggOne } = useEasterEgg()
+  const { unlock, setLockTrigger, easterEggGet, eggOne, revealEggOne, setRevealEggOne } =
+    useEasterEgg()
   const [isClient, setIsClient] = useState(false)
   const footer = {
     linkBlock: {
@@ -229,10 +230,19 @@ const Footer: React.FC = () => {
                 </div>
               </PopOut>
               <div className={classes.secret}>
-                {unlock && !hideEggOne && isClient ? (
-                  <BsUnlockFill onClick={() => easterEggGet(1)} className={classes.unlock} />
+                {unlock && !eggOne && isClient ? (
+                  <React.Fragment>
+                    {!revealEggOne ? (
+                      <BsUnlockFill
+                        onClick={() => setRevealEggOne(true)}
+                        className={classes.unlock}
+                      />
+                    ) : (
+                      <BsEggFill onClick={() => easterEggGet(1)} />
+                    )}
+                  </React.Fragment>
                 ) : (
-                  !hideEggOne &&
+                  !eggOne &&
                   isClient && (
                     <BsLockFill
                       onMouseEnter={() => setLockTrigger(true)}

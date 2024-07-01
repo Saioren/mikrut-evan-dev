@@ -33,7 +33,7 @@ const Project: React.FC<ProjectType> = (props) => {
   return (
     <div id={project.projectUrl} className={classes.project}>
       <div className={classes.projectInfo}>
-        <h2 className={classes.projectHeader}>{project?.projectName}</h2>
+        <h4 className={classes.projectHeader}>{project?.projectName}</h4>
       </div>
 
       {darkImage && (

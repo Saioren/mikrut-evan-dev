@@ -22,7 +22,7 @@ const EmailBlock: React.FC<EmailBlockType> = (props) => {
           style: {
             backgroundColor: 'var(--background-primary-element)',
             color: 'var(--font-color)',
-            fontSize: 'medium',
+            fontSize: 'large',
             display: 'flex',
             alignItems: 'center',
           },

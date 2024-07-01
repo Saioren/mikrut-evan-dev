@@ -113,14 +113,14 @@ p {
     right: base();
     cursor: pointer;
     &:hover {
-        .lock {
+        .lock, .unlock {
             opacity: 1;
             transition: 0.1s ease;
         }
     }
 }
 
-.lock {
+.lock, .unlock {
     opacity: 0;
     transition: 0.1s ease;
 }

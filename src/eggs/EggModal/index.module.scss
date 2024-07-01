@@ -5,6 +5,155 @@
     right: 50%;
     transform: translateX(50%);
     top: base(3);
-    background-color: var(--header-color);
+    background-color: var(--background-primary-element);
+    box-shadow: 3px 3px 10px rgba($color: #000000, $alpha: 0.3);
+}
+
+.relative {
     padding: base();
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    p, h4 {
+        margin: 0;
+    }
+    padding-bottom: base();
+}
+
+.hiddenEgg {
+    position: relative;
+    padding: base(0.25);
+}
+
+.hideOverlay {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    backdrop-filter: blur(4px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.foundEgg {
+    padding: base(0.25);
+}
+
+.eggCollection {
+    display: flex;
+    gap: base(0.5);
+}
+
+.egg {
+    border-radius: 3px;
+    width: max-content;
+    cursor: pointer;
+}
+
+.eggIcon {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.question {
+   position: absolute;
+   top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    padding: base(0.1);
+   display: flex;
+   color: white;
+    z-index: 2;
+}
+
+.whatOverlay {
+    position: absolute;
+    display: flex;
+    right: base(0.5);
+    bottom: base(0.5);
+}
+
+.explaining {
+    position: absolute;
+    right: 0;
+    bottom: base(-3.75);
+    background-color: var(--background-primary-element);
+    padding: base(0.25);
+}
+
+.explaining p {
+    font-size: medium;
+    margin: 0;
+}
+
+.easterEggSpan {
+    color: var(--brand-color);
+}
+
+.eggInfo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-primary-element);
+    z-index: 3;
+    padding: base(1) base(0.5) base(0.5) base(0.5);
+    display: flex;
+    flex-direction: column;
+    gap: base(0.5);
+}
+
+.eggInfo p {
+    margin: 0;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.gridTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gridBottom {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eggTitle {
+    padding-top: base(0.5);
+}
+
+.eggImage {
+    padding-right: base(0.35);
+    padding-top: base(0.35);
+   transform: scale(3);
+}
+
+.eggDescription, .eggAquired {
+    font-size: medium;
 }

@@ -20,7 +20,7 @@ const SkillsDisplay: React.FC<Props> = (props) => {
   const [activeSkill, setActiveSkill] = useState('')
   const showcaseRef = useRef<HTMLDivElement>(null)
   const { width } = useWindowInfo()
-  const { lockTrigger, setUnlock, hideButton, setHideButton, hideEggOne } = useEasterEgg()
+  const { lockTrigger, setUnlock, hideButton, setHideButton, eggOne } = useEasterEgg()
 
   function handleSkillClick(skillId: string) {
     setSkillShowcase(true)
@@ -130,7 +130,7 @@ const SkillsDisplay: React.FC<Props> = (props) => {
                               {lockTrigger &&
                                 skill.skillId === 'html' &&
                                 !hideButton &&
-                                !hideEggOne && (
+                                !eggOne && (
                                   <button
                                     onClick={() => unlockFirstEgg()}
                                     className={classes.lockButton}
