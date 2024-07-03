@@ -23,6 +23,9 @@ const Header: React.FC = () => {
   const eggIconRef = useRef<HTMLDivElement>(null)
   const themeRef = useRef<HTMLDivElement>(null)
 
+  // State to track the last click time
+  const [lastClickTime, setLastClickTime] = useState(0)
+
   useEffect(() => {
     // This will set `isClient` to true only after the component mounts on the client side
     setIsClient(true)
@@ -67,8 +70,12 @@ const Header: React.FC = () => {
     }
   }, [])
 
-  function eggModalToggle() {
-    setEggModal((prevState) => !prevState)
+  const eggModalToggle = () => {
+    const currentTime = Date.now()
+    if (currentTime - lastClickTime >= 300) {
+      setLastClickTime(currentTime)
+      setEggModal((prevState) => !prevState)
+    }
   }
 
   return (
@@ -100,8 +107,9 @@ const Header: React.FC = () => {
             <div ref={eggIconRef}>
               <button
                 className={`${classes.easterEgg} ${theme === 'dark' ? classes.lightEgg : ''}`}
+                onClick={eggModalToggle}
               >
-                <BsEggFill onClick={() => eggModalToggle()} className={classes.egg} />
+                <BsEggFill className={classes.egg} />
               </button>
             </div>
           )}

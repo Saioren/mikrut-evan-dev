@@ -6,7 +6,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation npm rebuild sharp && next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:types": "payload generate:types",
@@ -56,6 +56,9 @@
     "eslint": "^9.4.0",
     "tsx": "^4.7.1",
     "typescript": "^5.4.2"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.30.0"
   },
   "engines": {
     "node": ">=18.19.0"
