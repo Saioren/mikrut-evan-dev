@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import { Block } from "payload";
 import Padding from "../../fields/Padding";
 import { ProjectsField } from "../../fields/Projects";
 import Content from "../../fields/Content";
@@ -7,8 +7,8 @@ import Content from "../../fields/Content";
 const ProjectsBlock: Block = {
     slug: 'projectsBlock',
     labels: {
-        singular:  'Projects Block',
-        plural:  'Projects Blocks',
+        singular: 'Projects Block',
+        plural: 'Projects Blocks',
     },
     fields: [
         Padding,
@@ -27,7 +27,7 @@ const ProjectsBlock: Block = {
                         Content,
                     ]
                 },
-                    ProjectsField
+                ProjectsField
             ]
         },
         {
@@ -45,7 +45,7 @@ const ProjectsBlock: Block = {
                         Content,
                     ]
                 },
-                    ProjectsField
+                ProjectsField
             ]
         },
         {
@@ -63,7 +63,7 @@ const ProjectsBlock: Block = {
                         Content,
                     ]
                 },
-                    ProjectsField
+                ProjectsField
             ]
         },
     ]

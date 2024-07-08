@@ -2,7 +2,7 @@ import CarouselBlock from "../../blocks/Carousel";
 import EmailBlock from "../../blocks/Email";
 import SkillsBlock from "../../blocks/Skills";
 import TimelineBlock from "../../blocks/Timeline";
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig } from "payload";
 import { slugField } from "../../fields/Slug";
 import { Hero } from "../../fields/Heroes";
 import ProjectsBlock from "../../blocks/Projects";

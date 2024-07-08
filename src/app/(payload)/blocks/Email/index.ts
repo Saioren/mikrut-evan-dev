@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import { Block } from "payload";
 import Position from "../../fields/Position";
 import Padding from "../../fields/Padding";
 import Content from "../../fields/Content";

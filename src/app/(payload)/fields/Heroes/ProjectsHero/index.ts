@@ -1,4 +1,4 @@
-import { Field } from "payload/types";
+import { Field } from "payload";
 import Content from "../../Content";
 import Padding from "../../Padding";
 

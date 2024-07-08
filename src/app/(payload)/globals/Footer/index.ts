@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload/types';
+import { GlobalConfig } from 'payload';
 import { ImageLink } from '../../fields/ImageLink';
 
 const Footer: GlobalConfig = {
@@ -57,7 +57,7 @@ const Footer: GlobalConfig = {
             ImageLink,
           ],
         },
-        
+
       ],
     },
   ],

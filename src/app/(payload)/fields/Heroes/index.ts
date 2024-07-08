@@ -1,4 +1,4 @@
-import { Field } from 'payload/types';
+import { Field } from 'payload';
 import StandardHero from './StandardHero';
 import ProjectsHero from './ProjectsHero';
 

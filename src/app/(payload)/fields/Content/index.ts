@@ -1,4 +1,4 @@
-import { Field } from "payload/types";
+import { Field } from "payload";
 import link from '../Link'
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { ImageLink } from "../ImageLink";
@@ -7,7 +7,7 @@ type Args = {
     name?: string,
     hideGutter?: boolean,
     condition?: (data: any, sibling: any) => boolean,
-  }
+}
 
 const Content: Field = {
     name: 'content',
@@ -20,7 +20,7 @@ const Content: Field = {
         hideGutter: true,
     },
     fields: [
-        {   
+        {
             name: 'richText',
             type: 'richText',
             editor: lexicalEditor({}),

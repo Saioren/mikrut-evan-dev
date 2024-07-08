@@ -1,6 +1,6 @@
-import { Field } from "payload/types";
-import { deepMerge } from "payload/utilities";
+import { Field } from "payload";
 import { LinkAppearances } from "@/types/Fields/Link/types";
+import deepMerge from "../../utilities/deepMerge";
 
 export const appearanceOptions = {
   default: {
@@ -21,8 +21,8 @@ type LinkType = (
 ) => Field;
 
 const Link: LinkType = ({
-  appearances, 
-  overrides,
+  appearances,
+  overrides = {},
 } = {}) => {
   const generatedLink: Field = {
     name: 'link',
@@ -31,30 +31,30 @@ const Link: LinkType = ({
       hideGutter: true,
     },
     fields: [
-     {
-      type: 'row',
-      fields: [
-        {
-          name: 'label',
-          label: 'Label',
-          type: 'text',
-          required: true,
-          admin: {
-            width: '50%',
+      {
+        type: 'row',
+        fields: [
+          {
+            name: 'label',
+            label: 'Label',
+            type: 'text',
+            required: true,
+            admin: {
+              width: '50%',
+            },
           },
-        },
-        {
-          name: 'reference',
-          label: 'Document to link to',
-          type: 'relationship',
-          relationTo: ['pages'],
-          admin: {
-            condition: (_, siblingData) => siblingData?.type === 'reference',
-            width: '50%',
+          {
+            name: 'reference',
+            label: 'Document to link to',
+            type: 'relationship',
+            relationTo: ['pages'],
+            admin: {
+              condition: (_, siblingData) => siblingData?.type === 'reference',
+              width: '50%',
+            },
           },
-        },
-      ],
-     },
+        ],
+      },
       {
         type: 'row',
         fields: [
@@ -98,7 +98,7 @@ const Link: LinkType = ({
         type: 'select',
         defaultValue: 'default',
         options: [
-         {
+          {
             label: 'default',
             value: 'default',
           },

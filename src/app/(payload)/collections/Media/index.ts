@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig } from "payload";
 
 const Media: CollectionConfig = {
     slug: 'media',
@@ -17,7 +17,7 @@ const Media: CollectionConfig = {
         create: () => true,
         update: () => true,
         delete: () => true,
-      },
+    },
     fields: [
         {
             name: 'alt',

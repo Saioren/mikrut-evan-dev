@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import { Block } from "payload";
 import Padding from "../../fields/Padding";
 import Content from "../../fields/Content";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
@@ -32,7 +32,7 @@ const TimelineBlock: Block = {
                                 width: "50%",
                             },
                         },
-                        {   
+                        {
                             name: 'richText',
                             type: 'richText',
                             editor: lexicalEditor({}),
@@ -49,7 +49,7 @@ const TimelineBlock: Block = {
                                 width: "50%",
                             },
                         },
-                        
+
                         {
                             name: 'icon',
                             type: 'upload',
@@ -59,9 +59,9 @@ const TimelineBlock: Block = {
                                 width: "50%",
                             },
                         },
-                    ],  
+                    ],
                 }
-                
+
             ]
         }
     ]
