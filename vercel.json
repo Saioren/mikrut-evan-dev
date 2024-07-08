@@ -5,6 +5,12 @@
             "use": "@vercel/next"
         }
     ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
+        }
+    ],
     "env": {
         "SHARP_IGNORE_GLOBAL_LIBVIPS": "1"
     }
