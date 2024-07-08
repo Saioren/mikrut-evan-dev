@@ -24,7 +24,7 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: Projects }> = 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await fetchPageData('projects')
+  const pageData = { layout: [] } //await fetchPageData('projects')
   return {
     props: {
       ...pageData,
