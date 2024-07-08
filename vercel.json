@@ -1,7 +1,11 @@
 {
-    "build": {
-        "env": {
-            "NODE_VERSION": "14.x"
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@vercel/next"
         }
+    ],
+    "env": {
+        "SHARP_IGNORE_GLOBAL_LIBVIPS": "1"
     }
 }
