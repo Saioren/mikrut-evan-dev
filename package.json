@@ -29,10 +29,10 @@
     "express": "^4.19.2",
     "framer-motion": "^11.2.11",
     "graphql": "^16.8.1",
-    "next": "14.3.0-canary.28",
+    "next": "^15.0.0-canary.53",
     "payload": "beta",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "19.0.0-beta-26f2496093-20240514",
+    "react-dom": "19.0.0-beta-26f2496093-20240514",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
     "react-parallax": "^3.5.1",
@@ -45,8 +45,7 @@
   "devDependencies": {
     "@types/escape-html": "^1.0.4",
     "@types/node": "^20.11.25",
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
+    "@types/react": "^18",
     "dotenv": "^16.4.5",
     "eslint": "^9.4.0",
     "tsx": "^4.7.1",
@@ -55,5 +54,8 @@
   "engines": {
     "node": ">=18.19.0"
   },
-  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
+  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774",
+  "optionalDependencies": {
+    "@img/sharp-win32-x64": "^0.33.4"
+  }
 }
