@@ -30,7 +30,7 @@
     "express": "^4.19.2",
     "framer-motion": "^11.2.11",
     "graphql": "^16.8.1",
-    "next": "^15.0.0-canary.53",
+    "next": "15.0.0-canary.59",
     "payload": "beta",
     "react": "19.0.0-beta-26f2496093-20240514",
     "react-dom": "19.0.0-beta-26f2496093-20240514",
