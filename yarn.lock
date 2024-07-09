@@ -6238,8 +6238,6 @@ __metadata:
   dependenciesMeta:
     "@img/sharp-win32-x64":
       optional: true
-    sharp:
-      optional: true
   languageName: unknown
   linkType: soft
 
