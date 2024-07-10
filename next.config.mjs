@@ -22,16 +22,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.plugins.push(
-        new IgnorePlugin({
-          resourceRegExp: /^sharp$/,
-        })
-      );
-    }
-    return config;
-  },
 };
 
 export default withPayload(nextConfig);

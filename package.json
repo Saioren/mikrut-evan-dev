@@ -27,6 +27,8 @@
     "@vercel/next": "^4.3.1",
     "cross-env": "^7.0.3",
     "csstype": "^3.0.10",
+    "es5-ext": "^0.10.64",
+    "esbuild": "^0.21.5",
     "escape-html": "^1.0.3",
     "express": "^4.19.2",
     "framer-motion": "^11.2.11",
