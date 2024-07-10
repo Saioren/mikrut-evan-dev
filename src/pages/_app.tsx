@@ -10,6 +10,12 @@ import { WindowInfoProvider } from '@faceless-ui/window-info'
 import Footer from '@/layout/Footer'
 import { GlobalsProvider } from '@/providers/GlobalsProvider'
 import EasterEggProvider from '@/eggs/EasterEggProvider'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "mikrutevan.dev",
+  icons: "/favicon.png",
+};
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const { ...otherProps } = pageProps
