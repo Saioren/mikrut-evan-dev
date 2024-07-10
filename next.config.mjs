@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload';
+import { IgnorePlugin } from 'webpack';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,7 +12,6 @@ const nextConfig = {
         port: '3000',
         pathname: '/api/media/file/**',
       },
-      // Add your production domain configuration here
       {
         protocol: 'https',
         hostname: 'mikrutevan.dev',
@@ -20,9 +20,17 @@ const nextConfig = {
     ],
   },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.plugins.push(
+        new IgnorePlugin({
+          resourceRegExp: /^sharp$/,
+        })
+      );
+    }
+    return config;
   },
 };
 
