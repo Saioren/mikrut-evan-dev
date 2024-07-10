@@ -1,5 +1,4 @@
 import { withPayload } from '@payloadcms/next/withPayload';
-import { IgnorePlugin } from 'webpack';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
