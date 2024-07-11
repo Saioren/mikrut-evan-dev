@@ -4,11 +4,5 @@
         "env": {
             "NODE_VERSION": "21.7.3"
         }
-    },
-    "builds": [
-        {
-            "src": "apps/nextjs/next.config.js",
-            "use": "@vercel/next"
-        }
-    ]
+    }
 }
