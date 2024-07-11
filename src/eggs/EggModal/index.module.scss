@@ -23,9 +23,12 @@
     width: 100%;
     flex-direction: column;
     text-align: center;
-    p, h4 {
+
+    p,
+    h4 {
         margin: 0;
     }
+
     padding-bottom: base();
 }
 
@@ -66,16 +69,16 @@
 }
 
 .question {
-   position: absolute;
-   top: 0;
+    position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
     height: auto;
     padding: base(0.1);
-   display: flex;
-   color: white;
+    display: flex;
+    color: white;
     z-index: 2;
 }
 
@@ -86,12 +89,19 @@
     bottom: base(0.5);
 }
 
+.whatIsThis {
+    position: relative;
+    z-index: 3;
+}
+
 .explaining {
     position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
     right: 0;
-    bottom: base(-3.75);
     background-color: var(--background-primary-element);
-    padding: base(0.25);
+    padding: base();
 }
 
 .explaining p {
@@ -151,9 +161,10 @@
 .eggImage {
     padding-right: base(0.35);
     padding-top: base(0.35);
-   transform: scale(3);
+    transform: scale(3);
 }
 
-.eggDescription, .eggAquired {
+.eggDescription,
+.eggAquired {
     font-size: medium;
 }
