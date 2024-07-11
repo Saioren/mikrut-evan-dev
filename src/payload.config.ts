@@ -13,6 +13,12 @@ import Footer from './app/(payload)/globals/Footer';
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+const databaseUri = process.env.DATABASE_URI;
+
+if (!databaseUri) {
+  throw new Error('DATABASE_URI is not defined in the environment variables');
+}
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -25,6 +31,6 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+    url: databaseUri,
   }),
 });
