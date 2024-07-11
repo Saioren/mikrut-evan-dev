@@ -1,7 +1,6 @@
 import Meta from '@/components/Meta'
 import Blocks from '@/layout/Blocks'
 import { Hero } from '@/layout/Hero'
-import { fetchPageData } from '@/requests'
 import { PageType } from '@/types/Layout/Page/types'
 import { GetStaticProps } from 'next'
 import React from 'react'
@@ -24,7 +23,11 @@ const ProjectsPage: React.FC<PageType & { globals: any; projects: Projects }> = 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await fetchPageData('projects')
+  /*const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=projects`);
+  const data = await res.json();
+  const pageData = data.docs[0];*/
+  const pageData = { layout: [ ] };
+
   return {
     props: {
       ...pageData,
