@@ -14,7 +14,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: "mikrutevan.dev",
-  icons: "/favicon.png",
+  icons: "/favicon.ico",
 };
 
 const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
