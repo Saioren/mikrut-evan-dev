@@ -174,7 +174,6 @@ const Footer: React.FC = () => {
                             target={link.imageLink.newTab ? '__blank' : ''}
                           >
                             <Image
-                            unoptimized
                               style={{
                                 borderRadius: '50%',
                               }}
@@ -207,7 +206,6 @@ const Footer: React.FC = () => {
                             target={link.imageLink.newTab ? '__blank' : ''}
                           >
                             <Image
-                            unoptimized
                               style={{
                                 borderRadius:
                                   link.imageLink.image.filename !==

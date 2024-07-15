@@ -52,7 +52,6 @@ const StandardHero: React.FC<Hero> = (props) => {
                       <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
                         <PopOut animate={true} wait={3}>
                           <Image
-                          unoptimized
                             className={classes.pfp}
                             src={heroImage.url}
                             width={heroImage.width}
@@ -74,7 +73,6 @@ const StandardHero: React.FC<Hero> = (props) => {
                       <Cell cols={5} colsM={4} colsL={6} start={2} startS={3} colsS={5}>
                         <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
                           <Image
-                          unoptimized
                             className={classes.pfp}
                             src={heroImage.url}
                             width={heroImage.width}
@@ -111,7 +109,6 @@ const StandardHero: React.FC<Hero> = (props) => {
                     >
                       <PopOut animate={true} wait={3}>
                         <Image
-                        unoptimized
                           className={classes.pfp}
                           src={heroImage.url}
                           width={heroImage.width}

@@ -100,7 +100,6 @@ const SkillsDisplay: React.FC<Props> = (props) => {
                             className={classes.skillShowcase}
                           >
                             <Image
-                            unoptimized
                               onClick={() => handleSkillClick(skill.skillId)}
                               className={`${classes.activeImage} ${
                                 classes[skill.skillId.toLowerCase()]
@@ -143,7 +142,6 @@ const SkillsDisplay: React.FC<Props> = (props) => {
                       )}
                     </AnimatePresence>
                     <Image
-                    unoptimized
                       onClick={() => handleSkillClick(skill.skillId)}
                       className={`${classes.skillImage} ${classes[skill.skillId]}`}
                       alt={skill.skillId}

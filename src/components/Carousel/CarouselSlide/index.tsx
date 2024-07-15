@@ -36,7 +36,6 @@ const CarouselSlide: React.FC<Props> = (props) => {
       <Slide className={classes.slide} index={index} key={index}>
         {darkImage && (
           <Image
-          unoptimized
             className={classes.slideImage}
             src={darkImage.url}
             alt={darkImage.alt}
