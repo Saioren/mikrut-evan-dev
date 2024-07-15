@@ -178,7 +178,7 @@ const Footer: React.FC = () => {
                                 borderRadius: '50%',
                               }}
                               className={classes.icon}
-                              src={`${process.env.NEXT_PUBLIC_APP_URL}${link.imageLink.image.url}`}
+                              src={link.imageLink.image.url}
                               width={32}
                               height={32}
                               alt={link.imageLink.image.alt}
@@ -214,7 +214,7 @@ const Footer: React.FC = () => {
                                     : '',
                               }}
                               className={classes.icon}
-                              src={`${process.env.NEXT_PUBLIC_APP_URL}${link.imageLink.image.url}`}
+                              src={link.imageLink.image.url}
                               width={32}
                               height={32}
                               alt={link.imageLink.image.alt}
