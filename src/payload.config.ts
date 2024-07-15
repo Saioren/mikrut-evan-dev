@@ -3,6 +3,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import { buildConfig } from 'payload';
 import { fileURLToPath } from 'url';
+import { cors } from './cors'
 
 import Users from './app/(payload)/collections/Users/index';
 import Media from './app/(payload)/collections/Media/index';
@@ -25,6 +26,10 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages, SkillsCollection],
   globals: [Footer],
+  csrf: [
+    process.env.NEXT_PUBLIC_APP_URL || '',
+    'https://mikrutevandev-git-main-evan-mikruts-projects.vercel.app/',
+  ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
