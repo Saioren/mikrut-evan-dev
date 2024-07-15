@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'mikrutevan.dev',
         pathname: '/api/media/file/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.mikrutevan.dev',
+        pathname: '/api/media/file/**',
+      },
     ],
   },
   eslint: {
