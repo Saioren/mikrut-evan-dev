@@ -38,7 +38,7 @@ const Project: React.FC<ProjectType> = (props) => {
 
       {darkImage && (
         <Image
-          className={classes.projectImage}
+          className={`${process.env.NEXT_PUBLIC_APP_URL}${classes.projectImage}`}
           src={darkImage.url}
           alt={darkImage.alt}
           height={darkImage.height}

@@ -37,7 +37,7 @@ const CarouselSlide: React.FC<Props> = (props) => {
         {darkImage && (
           <Image
             className={classes.slideImage}
-            src={darkImage.url}
+            src={`${process.env.NEXT_PUBLIC_APP_URL}${darkImage.url}`}
             alt={darkImage.alt}
             width={darkImage.width}
             height={darkImage.height}

@@ -105,7 +105,7 @@ const SkillsDisplay: React.FC<Props> = (props) => {
                                 classes[skill.skillId.toLowerCase()]
                               }`}
                               alt={skill.skillImage.alt}
-                              src={skill.skillImage.url}
+                              src={`${process.env.NEXT_PUBLIC_APP_URL}${skill.skillImage.url}`}
                               width={1200}
                               height={1200}
                             />
@@ -145,7 +145,7 @@ const SkillsDisplay: React.FC<Props> = (props) => {
                       onClick={() => handleSkillClick(skill.skillId)}
                       className={`${classes.skillImage} ${classes[skill.skillId]}`}
                       alt={skill.skillId}
-                      src={skill.skillImage.url}
+                      src={`${process.env.NEXT_PUBLIC_APP_URL}${skill.skillImage.url}`}
                       width={1200}
                       height={1200}
                     />
