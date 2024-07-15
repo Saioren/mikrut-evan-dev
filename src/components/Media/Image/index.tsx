@@ -30,6 +30,7 @@ export const ImageComponent: React.FC<Props> = (props) => {
 
     {
       ;<Image
+      unoptimized
         src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
         width={width}
         height={height}

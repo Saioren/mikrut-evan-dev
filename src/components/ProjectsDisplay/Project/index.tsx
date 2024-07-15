@@ -38,6 +38,7 @@ const Project: React.FC<ProjectType> = (props) => {
 
       {darkImage && (
         <Image
+        unoptimized
           className={classes.projectImage}
           src={darkImage.url}
           alt={darkImage.alt}
