@@ -7,7 +7,7 @@ const Media: CollectionConfig = {
         description: "Maximum upload file size: 12MB. Recommended file size for images is <500KB.",
     },
     upload: {
-        staticDir: '../../../../../media',
+        staticDir: 'media',
         adminThumbnail: 'thumbnail',
         mimeTypes: ['image/*'],
     },
