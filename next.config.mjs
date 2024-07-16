@@ -10,25 +10,25 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-        pathname: '/api/media/**', // Your media endpoint pattern
+        pathname: '/api/media/file/**',
       },
       {
         protocol: 'https',
         hostname: 'mikrutevan.dev',
         port: '3000',
-        pathname: '/api/media/**', // Your media endpoint pattern
+        pathname: '/api/media/file/**',
       },
       {
         protocol: 'https',
         hostname: 'www.mikrutevan.dev',
         port: '3000',
-        pathname: '/api/media/**', // Your media endpoint pattern
+        pathname: '/api/media/file/**',
       },
       {
         protocol: 'https',
         hostname: 'mikrutevandev-git-main-evan-mikruts-projects.vercel.app',
         port: '3000',
-        pathname: '/api/media/**', // Your media endpoint pattern
+        pathname: '/api/media/file/**',
       },
     ],
   },
