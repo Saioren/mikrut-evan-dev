@@ -1,3 +1,4 @@
+import path from "path";
 import { CollectionConfig } from "payload";
 
 const Media: CollectionConfig = {
@@ -7,16 +8,14 @@ const Media: CollectionConfig = {
         description: "Maximum upload file size: 12MB. Recommended file size for images is <500KB.",
     },
     upload: {
-        staticDir: 'media',
+        staticDir: path.resolve(__dirname, '../../../../../media'),
         adminThumbnail: 'thumbnail',
         mimeTypes: ['image/*'],
     },
     access: {
-        // Permissive access rules
         read: () => true,
         create: () => true,
         update: () => true,
-        delete: () => true,
     },
     fields: [
         {
