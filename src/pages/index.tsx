@@ -23,6 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       ...pageData,
     },
+    revalidate: 10,
   }
 }
 
