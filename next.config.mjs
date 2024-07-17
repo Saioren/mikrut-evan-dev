@@ -4,7 +4,6 @@ import { withPayload } from '@payloadcms/next/withPayload';
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['https://www.mikrutevan.dev', 'https://mikrutevan.dev', 'https://mikrutevandev-git-main-evan-mikruts-projects.vercel.app'],
     remotePatterns: [
       {
         protocol: 'http',
