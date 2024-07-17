@@ -1,21 +1,5 @@
 import path from 'path';
-import fs from 'fs';
 import { CollectionConfig } from "payload";
-
-const mediaDir = path.resolve(process.env.MEDIA_DIR || '/tmp/media');
-
-// Ensure the media directory exists
-try {
-    console.log(`Checking media directory: ${mediaDir}`);
-    if (!fs.existsSync(mediaDir)) {
-        fs.mkdirSync(mediaDir, { recursive: true });
-        console.log(`Directory created: ${mediaDir}`);
-    } else {
-        console.log(`Directory already exists: ${mediaDir}`);
-    }
-} catch (error) {
-    console.error(`Failed to create directory ${mediaDir}:`, error);
-}
 
 const Media: CollectionConfig = {
     slug: 'media',
@@ -24,7 +8,7 @@ const Media: CollectionConfig = {
         description: "Maximum upload file size: 12MB. Recommended file size for images is <500KB.",
     },
     upload: {
-        staticDir: mediaDir,
+        staticDir: path.resolve('media'),
         adminThumbnail: 'thumbnail',
         mimeTypes: ['image/*'],
     },
@@ -32,6 +16,7 @@ const Media: CollectionConfig = {
         read: () => true,
         create: () => true,
         update: () => true,
+        delete: () => true,
     },
     fields: [
         {
