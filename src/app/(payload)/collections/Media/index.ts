@@ -1,5 +1,21 @@
 import path from 'path';
 import { CollectionConfig } from "payload";
+import fs from 'fs';
+
+const mediaDir = path.resolve('media');
+
+// Ensure the media directory exists
+try {
+    console.log(`Checking media directory: ${mediaDir}`);
+    if (!fs.existsSync(mediaDir)) {
+        fs.mkdirSync(mediaDir, { recursive: true });
+        console.log(`Directory created: ${mediaDir}`);
+    } else {
+        console.log(`Directory already exists: ${mediaDir}`);
+    }
+} catch (error) {
+    console.error(`Failed to create directory ${mediaDir}:`, error);
+}
 
 const Media: CollectionConfig = {
     slug: 'media',

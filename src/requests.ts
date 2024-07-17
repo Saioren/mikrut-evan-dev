@@ -92,7 +92,7 @@ export const getAllGlobals = async (): Promise<{
 
 export async function fetchPageData(slug: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/pages?where[slug][equals]=${slug}&depth=2`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
