@@ -14,22 +14,29 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'mikrutevan.dev',
-        port: '3000',
+        port: '',
         pathname: '/api/media/file/**',
       },
       {
         protocol: 'https',
         hostname: 'www.mikrutevan.dev',
-        port: '3000',
+        port: '',
         pathname: '/api/media/file/**',
       },
       {
         protocol: 'https',
         hostname: 'mikrutevandev-git-main-evan-mikruts-projects.vercel.app',
-        port: '3000',
+        port: '',
+        pathname: '/api/media/file/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mikrutevan-assets.nyc3.digitaloceanspaces.com',
+        port: '',
         pathname: '/api/media/file/**',
       },
     ],
+    formats: ['image/avif', 'image/webp', 'image/png', 'image/jpeg', 'image/svg+xml'], // Ensure that all desired formats are included
   },
   eslint: {
     ignoreDuringBuilds: true,
