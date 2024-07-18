@@ -36,7 +36,7 @@ const nextConfig = {
         pathname: '/api/media/file/**',
       },
     ],
-    formats: ['image/avif', 'image/webp', 'image/png', 'image/jpg'], // Ensure that all desired formats are included
+    formats: ['image/avif', 'image/webp'], // Ensure that all desired formats are included
   },
   eslint: {
     ignoreDuringBuilds: true,
