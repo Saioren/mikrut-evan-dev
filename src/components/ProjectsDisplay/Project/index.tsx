@@ -39,7 +39,7 @@ const Project: React.FC<ProjectType> = (props) => {
       {darkImage && (
         <Image
           className={classes.projectImage}
-          src={darkImage.url}
+          src={`${process.env.NEXT_PUBLIC_API_URL}${darkImage.url}`}
           alt={darkImage.alt}
           height={darkImage.height}
           width={darkImage.width}

@@ -40,7 +40,7 @@ const TimelineBlock: React.FC<TimelineBlockType> = (props) => {
                                   <div className={classes.iconWrap}>
                                     <Image
                                       className={classes.icon}
-                                      src={element.icon.url}
+                                      src={`${process.env.NEXT_PUBLIC_API_URL}${element.icon.url}`}
                                       alt={element.icon.alt}
                                       width={element.icon.width}
                                       height={element.icon.height}

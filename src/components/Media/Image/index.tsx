@@ -41,7 +41,7 @@ export const ImageComponent: React.FC<Props> = (props) => {
 
     return (
       <Fragment>
-        {!useNextImage && <img src={url} alt={alt} />}
+        {!useNextImage && <img src={`${process.env.NEXT_PUBLIC_API_URL}${url}`} alt={alt} />}
         {useNextImage && <></>}
       </Fragment>
     )
