@@ -119,8 +119,7 @@ body {
 
 body {
   -webkit-text-size-adjust: none;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: clip;
 }
 
 h1 {

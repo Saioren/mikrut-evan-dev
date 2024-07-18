@@ -11,8 +11,9 @@
     align-items: center;
     backdrop-filter: blur(10px);
     z-index: 999;
+
     @include small-break {
-    padding: base(0.25);
+        padding: base(0.25);
     }
 }
 
@@ -20,6 +21,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -52,9 +54,11 @@
     color: var(--font-color);
     text-decoration: none;
     font-size: large;
+
     @include mid-break {
         font-size: medium;
     }
+
     @include small-break {
         font-size: small;
     }
@@ -68,12 +72,13 @@
 }
 
 .icon {
-        width: 20px;
-        height: 20px;
-        @include mid-break {
-            width: 16px;
-            height: 16px;
-        }
+    width: 20px;
+    height: 20px;
+
+    @include mid-break {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .scrolled {
