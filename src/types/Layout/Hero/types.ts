@@ -13,7 +13,6 @@ export type Hero = {
 }
 
 export type StandardHero = {
-    type?: 'standard';
     padding: PaddingOption;
     position: Position;
     heading: string;
@@ -22,10 +21,10 @@ export type StandardHero = {
         links?: Link[];
     }
     heroImage: Media;
+    enableBackgroundColors: boolean;
 }
 
 export type ProjectsHero = {
-    type?: 'projects';
     padding: PaddingOption;
     heading: string;
     content: {

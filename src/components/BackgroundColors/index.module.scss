@@ -16,10 +16,12 @@
     width: base(30);
     height: base(25);
   }
+
   @include large-break {
     width: base(25);
     height: base(20);
   }
+
   @include mid-break {
     width: base(20);
     height: base(15);

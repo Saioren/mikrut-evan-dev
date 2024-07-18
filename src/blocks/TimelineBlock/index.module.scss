@@ -4,6 +4,7 @@
     h2 {
         margin: 0;
     }
+
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -17,10 +18,12 @@
     position: relative;
     padding-top: base(5);
     padding-bottom: base(5);
-@media screen and (max-width: 1424px) {
-    padding-top: base(5.5);
-    padding-bottom: base(5.4);
-}
+
+    @media screen and (max-width: 1424px) {
+        padding-top: base(5.5);
+        padding-bottom: base(5.4);
+    }
+
     @include large-break {
         padding-bottom: 0;
         padding-top: 0;
@@ -42,34 +45,46 @@
     &:nth-child(odd) {
         transform: translateY(calc(-85%));
         position: relative;
+
         &:before {
             content: '';
             position: absolute;
-            bottom: -14px; /* Adjust size */
+            bottom: -14px;
+            /* Adjust size */
             left: base();
             width: 0;
             height: 0;
-            border-left: 15px solid transparent; /* Adjust size */
-            border-right: 15px solid transparent; /* Adjust size */
-            border-top: 15px solid var(--background-primary-element); /* Change color */
+            border-left: 15px solid transparent;
+            /* Adjust size */
+            border-right: 15px solid transparent;
+            /* Adjust size */
+            border-top: 15px solid var(--background-primary-element);
+            /* Change color */
             transform: translateX(-50%);
-            z-index: 2; /* Increase z-index */;
+            z-index: 2;
+            /* Increase z-index */
+            ;
+
             @include large-break {
                 display: none;
             }
         }
+
         .timelineIcon {
             bottom: -85px;
             left: base();
             transform: translateX(-50%);
+
             @include large-break {
                 top: 0;
             }
         }
+
         @include large-break {
             transform: translateY(0);
         }
-        @include large-break {     
+
+        @include large-break {
             display: flex;
             gap: base();
             flex-direction: column;
@@ -79,36 +94,48 @@
     &:nth-child(even) {
         transform: translateY(85%);
         position: relative;
+
         &:before {
             content: '';
             position: absolute;
-            top: -14px; /* Adjust size */
+            top: -14px;
+            /* Adjust size */
             left: base();
             width: 0;
             height: 0;
-            border-left: 15px solid transparent; /* Adjust size */
-            border-right: 15px solid transparent; /* Adjust size */
-            border-bottom: 15px solid var(--background-primary-element); /* Change color */
+            border-left: 15px solid transparent;
+            /* Adjust size */
+            border-right: 15px solid transparent;
+            /* Adjust size */
+            border-bottom: 15px solid var(--background-primary-element);
+            /* Change color */
             transform: translateX(-50%);
-            z-index: 2; /* Increase z-index */;
+            z-index: 2;
+            /* Increase z-index */
+            ;
+
             @include large-break {
                 display: none;
             }
         }
+
         .timelineIcon {
             top: -85px;
             left: base();
             transform: translateX(-50%);
+
             @include large-break {
                 top: 0;
             }
         }
+
         @include large-break {
             transform: translateY(0);
         }
     }
+
     @include large-break {
-            width: max-content;
+        width: max-content;
     }
 }
 
@@ -117,6 +144,7 @@
     display: flex;
     gap: base();
     flex-direction: row;
+
     @include large-break {
         flex-direction: column;
     }
@@ -124,28 +152,42 @@
 
 .widthConstraint {
     display: flex;
+
     @include large-break {
         &:before {
             content: '';
             position: absolute;
-            bottom: -14px; /* Adjust size */
+            bottom: -14px;
+            /* Adjust size */
             width: 0;
             height: 0;
-            border-left: 15px solid transparent; /* Adjust size */
-            border-right: 15px solid transparent; /* Adjust size */
-            border-top: 15px solid var(--background-primary-element); /* Change color */
+            border-left: 15px solid transparent;
+            /* Adjust size */
+            border-right: 15px solid transparent;
+            /* Adjust size */
+            border-top: 15px solid var(--background-primary-element);
+            /* Change color */
             transform: translateX(-50%);
-            z-index: 2; /* Increase z-index */;
+            z-index: 2;
+            /* Increase z-index */
+            ;
+
             @include large-break {
                 left: base(2.25);
                 transform: rotate(90deg);
                 top: base(0.5);
             }
         }
+
         width: 600px;
     }
+
     @include small-break {
         width: 300px;
+    }
+
+    @include extra-small-break {
+        width: 200px;
     }
 }
 
@@ -159,6 +201,7 @@
     width: 100%;
     background-color: var(--background-primary-element);
     transform: translateY(-50%);
+
     @include large-break {
         position: absolute;
         height: 100%;
@@ -195,6 +238,7 @@
 .relative {
     position: relative;
     display: flex;
+
     @include large-break {
         padding-left: base(3);
     }

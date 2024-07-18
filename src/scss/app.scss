@@ -6,235 +6,240 @@
 @import "./fonts.scss";
 
 #__next {
-    height: 100%;
+  height: 100%;
 }
 
 :root {
-    --html-font-size: #{$html-font-size-xl};
-    --html-line-height: #{$html-line-height-xl};
-  
-    --font-heading: #{$fontHeading};
-    --font-body: #{$fontBody};
+  --html-font-size: #{$html-font-size-xl};
+  --html-line-height: #{$html-line-height-xl};
 
-    --filter-color: invert(0);
+  --font-heading: #{$fontHeading};
+  --font-body: #{$fontBody};
 
-    --brand-color: #{$color-brand-orange};
+  --filter-color: invert(0);
 
-    --bg-opacity: #{$bg-opacity};
+  --brand-color: #{$color-brand-orange};
 
-    --project-filter: #{$project-filter};
+  --bg-opacity: #{$bg-opacity};
 
-    --background: #{$color-brand-white};
-    --background-light: #{$color-white};
-    --background-dark: #{$color-dark-gray};
+  --project-filter: #{$project-filter};
 
-    --background-primary-element: #{$background-primary-element};
+  --background: #{$color-brand-white};
+  --background-light: #{$color-white};
+  --background-dark: #{$color-dark-gray};
 
-    --skills-color: #{$skills-color};
+  --background-primary-element: #{$background-primary-element};
 
-    --header-color: #{$header-color};
-    --header-background: #{$background-primary-element};
+  --skills-color: #{$skills-color};
 
-    --color-brand-orange: #{$color-brand-orange};
-    --color-brand-purple: #{$color-brand-purple};
-    --color-brand-white: #{$color-brand-white};
-    --color-brand-black: #{$color-brand-black};
-    --color-white: #{$color-white};
-    --color-dark-gray: #{$color-dark-gray};
-    --color-gray: #{$color-gray};
-    --color-light-gray: #{$color-light-gray};
-    --color-default-shadow: #{$color-default-shadow};
+  --header-color: #{$header-color};
+  --header-background: #{$background-primary-element};
 
-    --breakpoint-xs-width: #{$breakpoint-xs-width};
-    --breakpoint-s-width: #{$breakpoint-s-width};
-    --breakpoint-m-width: #{$breakpoint-m-width};
-    --breakpoint-l-width: #{$breakpoint-l-width};
-    --breakpoint-xl-width: #{$breakpoint-xl-width};
+  --color-brand-orange: #{$color-brand-orange};
+  --color-brand-purple: #{$color-brand-purple};
+  --color-brand-white: #{$color-brand-white};
+  --color-brand-black: #{$color-brand-black};
+  --color-white: #{$color-white};
+  --color-dark-gray: #{$color-dark-gray};
+  --color-gray: #{$color-gray};
+  --color-light-gray: #{$color-light-gray};
+  --color-default-shadow: #{$color-default-shadow};
 
-    --font-color: #{$color-brand-black};
+  --breakpoint-xs-width: #{$breakpoint-xs-width};
+  --breakpoint-s-width: #{$breakpoint-s-width};
+  --breakpoint-m-width: #{$breakpoint-m-width};
+  --breakpoint-l-width: #{$breakpoint-l-width};
+  --breakpoint-xl-width: #{$breakpoint-xl-width};
 
-    --gradient-1: #{$orange-gradient-1};
-    --gradient-2: #{$orange-gradient-2};
-    --gradient-3: #{$orange-gradient-3};
-    --gradient-4: #{$orange-gradient-4};
+  --font-color: #{$color-brand-black};
 
-    --col-gap: 2rem;
+  --gradient-1: #{$orange-gradient-1};
+  --gradient-2: #{$orange-gradient-2};
+  --gradient-3: #{$orange-gradient-3};
+  --gradient-4: #{$orange-gradient-4};
 
-    --gutter-h: #{base(2)};
-    --gutter-v: #{base(1)};
+  --col-gap: 2rem;
 
-    --scrollbar-thumb: #{$scrollbar-thumb};
-    --scrollbar-track: #{$scrollbar-track};
-    --scrollbar-hover: #{$scrollbar-hover};
+  --gutter-h: #{base(2)};
+  --gutter-v: #{base(1)};
+
+  --scrollbar-thumb: #{$scrollbar-thumb};
+  --scrollbar-track: #{$scrollbar-track};
+  --scrollbar-hover: #{$scrollbar-hover};
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: $color-brand-black;
+  font-family: $fontBody;
+  font-size: calc(#{var(--html-font-size)} * 1px);
+  line-height: calc(#{var(--html-line-height)} * 1px);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+
+  @include custom-scrollbar;
+
+  ::selection {
+    color: white;
+    background: var(--color-brand-orange);
   }
 
-  html {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background-color: var(--background);
-    color: $color-brand-black;
-    font-family: $fontBody;
-    font-size: calc(#{var(--html-font-size)} * 1px);
-    line-height: calc(#{var(--html-line-height)} * 1px);
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-
-    @include custom-scrollbar;
-
-    ::selection {
-      color: white;
-      background: var(--color-brand-orange);
-    }
-  
-    @include large-break {
-      @at-root {
-        :root {
-          --html-font-size: #{$html-font-size-l};
-          --html-line-height: #{$html-line-height-l};
-        }
+  @include large-break {
+    @at-root {
+      :root {
+        --html-font-size: #{$html-font-size-l};
+        --html-line-height: #{$html-line-height-l};
       }
     }
-  
-    @include mid-break {
-      @at-root {
-        :root {
-          --html-font-size: #{$html-font-size-m};
-          --html-line-height: #{$html-line-height-m};
-        }
-      }
-    }
-    
-
   }
+
+  @include mid-break {
+    @at-root {
+      :root {
+        --html-font-size: #{$html-font-size-m};
+        --html-line-height: #{$html-line-height-m};
+      }
+    }
+  }
+
+
+}
+
 html,
 body {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    -webkit-text-size-adjust: none;
-    position: relative;
-    z-index: 1;
-  }
-  
-  h1 {
-    @include h1;
-  }
-  
-  h2 {
-    @include h2;
-  }
-  
-  h3 {
-    @include h3;
-  }
-  
-  h4 {
-    @include h4;
-  }
-  
-  h5 {
-    @include h5;
-  }
-  
-  h6 {
-    @include h6;
-  }
-  
-  p {
-    @include p;
-  }
-  
-  b,
-  strong {
-    font-weight: 600;
-  }
-  
-  ul {
-    @include ul;
-  }
-  
-  li {
-    @include li;
-  }
-  
-  li > ul, li > ol {
-    margin-top: base(0.5);
-  }
-  
-  small {
-    font-size: 75%;
-  }
-  
-  hr {
-    border: none;
-    border-top: 1px solid currentColor;
-    margin: 0;
-  }
-  
-  input,
-  textarea,
-  select {
-    margin: 0;
-  }
-  
-  /*svg {
+  -webkit-text-size-adjust: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
+p {
+  @include p;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+ul {
+  @include ul;
+}
+
+li {
+  @include li;
+}
+
+li>ul,
+li>ol {
+  margin-top: base(0.5);
+}
+
+small {
+  font-size: 75%;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid currentColor;
+  margin: 0;
+}
+
+input,
+textarea,
+select {
+  margin: 0;
+}
+
+/*svg {
     path,
     circle,
     line {
       vector-effect: non-scaling-stroke;
     }
   }*/
-  
-  .dark {
-    --font-color: #{$color-brand-white};
 
-    --background-primary-element: #{$dark-background-primary-element};
+.dark {
+  --font-color: #{$color-brand-white};
 
-    --header-background: #{$dark-background-primary-element};
+  --background-primary-element: #{$dark-background-primary-element};
 
-    --background: #{$color-brand-black};
+  --header-background: #{$dark-background-primary-element};
 
-    --brand-color: #{$color-brand-purple};
+  --background: #{$color-brand-black};
 
-    --header-color: #{$dark-header-color};
+  --brand-color: #{$color-brand-purple};
 
-    --skills-color: #{$dark-skills-color};
+  --header-color: #{$dark-header-color};
 
-    --color-dark-gray: #{$dark-color-dark-gray};
-    --color-gray: #{$dark-color-gray};
-    --color-light-gray: #{$dark-color-light-gray};
-    --color-default-shadow: #{$dark-color-default-shadow};
+  --skills-color: #{$dark-skills-color};
 
-    --bg-opacity: #{$dark-bg-opacity};
+  --color-dark-gray: #{$dark-color-dark-gray};
+  --color-gray: #{$dark-color-gray};
+  --color-light-gray: #{$dark-color-light-gray};
+  --color-default-shadow: #{$dark-color-default-shadow};
 
-    --project-filter: #{$dark-project-filter};
+  --bg-opacity: #{$dark-bg-opacity};
 
-    --filter-color: invert(1);
+  --project-filter: #{$dark-project-filter};
 
-    --gradient-1: #{$purple-gradient-1};
-    --gradient-2: #{$purple-gradient-2};
-    --gradient-3: #{$purple-gradient-3};
-    --gradient-4: #{$purple-gradient-4};
+  --filter-color: invert(1);
 
-    --scrollbar-thumb: #{$dark-scrollbar-thumb};
-    --scrollbar-track: #{$dark-scrollbar-track};
-    --scrollbar-hover: #{$dark-scrollbar-hover};
+  --gradient-1: #{$purple-gradient-1};
+  --gradient-2: #{$purple-gradient-2};
+  --gradient-3: #{$purple-gradient-3};
+  --gradient-4: #{$purple-gradient-4};
 
-    body {
-      background-color: var(--background);
-      color: var(--font-color);
-      font-family: var(--font-body);
-      
+  --scrollbar-thumb: #{$dark-scrollbar-thumb};
+  --scrollbar-track: #{$dark-scrollbar-track};
+  --scrollbar-hover: #{$dark-scrollbar-hover};
+
+
+  html {
+    background-color: var(--background);
+  }
+
+  body {
+    color: var(--font-color);
+    font-family: var(--font-body);
+
     ::selection {
       color: white;
       background: var(--color-brand-purple);
     }
-    }
   }
+}

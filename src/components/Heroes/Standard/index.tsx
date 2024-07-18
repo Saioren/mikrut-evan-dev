@@ -43,7 +43,7 @@ const StandardHero: React.FC<Hero> = (props) => {
               <Grid className={`${classes.position}`}>
                 <Cell cols={7} colsM={4} start={1} colsS={9}>
                   <div className={classes.contentWrap}>
-                    <Content url={'#contact'} hero={true} content={content} heading={heading} />
+                    <Content url={'#contact'} hero={true} content={content} heading={heading} position={position}/>
                   </div>
                 </Cell>
                 <Cell className={classes.pfpCell} cols={7} colsM={5} colsS={9}>
@@ -86,7 +86,7 @@ const StandardHero: React.FC<Hero> = (props) => {
                 </Cell>
                 <Cell cols={7} colsM={4} start={1} colsS={9}>
                   <div className={classes.contentWrap}>
-                    <Content url={'#contact'} hero={true} content={content} heading={heading} />
+                    <Content url={'#contact'} hero={true} content={content} heading={heading} position={position}/>
                   </div>
                 </Cell>
               </Grid>
@@ -122,7 +122,7 @@ const StandardHero: React.FC<Hero> = (props) => {
               </Cell>
               <Cell cols={7} colsM={4} start={1} colsS={9}>
                 <div className={classes.contentWrap}>
-                  <Content url={'#contact'} hero={true} content={content} heading={heading} />
+                  <Content url={'#contact'} hero={true} content={content} heading={heading} position={position}/>
                 </div>
               </Cell>
             </Grid>

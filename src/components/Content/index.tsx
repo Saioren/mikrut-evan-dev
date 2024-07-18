@@ -52,6 +52,7 @@ const Content: React.FC<ContentType> = ({
         colsS={9}
         start={centered ? 1 : start ? start : position === 'right' ? 1 : 2}
         startL={centered ? 1 : start ? start : position === 'right' ? 1 : 2}
+        startM={position === 'left' ? 1 : 2}
         startS={1}
       >
         <FadeIn order={1}>

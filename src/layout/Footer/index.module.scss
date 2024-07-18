@@ -8,9 +8,11 @@
     align-items: center;
     gap: base(2.5);
     padding: base();
+
     @include large-break {
         gap: base(1.5);
     }
+
     @include small-break {
         flex-direction: column;
     }
@@ -29,14 +31,16 @@
 }
 
 .linkSection {
-display: block;
-p {
-    margin: 0;
-    padding-bottom: base(0.5);
-}
-@include small-break {
-    font-size: small;
-}
+    display: block;
+
+    p {
+        margin: 0;
+        padding-bottom: base(0.5);
+    }
+
+    @include small-break {
+        font-size: small;
+    }
 }
 
 .linksArray {
@@ -48,9 +52,11 @@ p {
     display: flex;
     align-items: center;
     gap: base(2.5);
+
     @include large-break {
         gap: base(1.5);
     }
+
     @include small-break {
         width: 100%;
     }
@@ -58,6 +64,7 @@ p {
 
 .icon {
     filter: var(--filter-color);
+
     @include small-break {
         width: 20px;
         height: 20px;
@@ -65,10 +72,12 @@ p {
 }
 
 .copyrightSection {
-   display: block;
+    display: block;
+
     p {
         margin: 0;
     }
+
     @include small-break {
         width: 100%;
         font-size: small;
@@ -80,6 +89,7 @@ p {
     gap: base();
     align-items: center;
     padding-bottom: base(0.5);
+
     @include small-break {
         font-size: small;
     }
@@ -96,6 +106,7 @@ p {
 
 .copyrightLabel {
     font-size: small;
+
     @include small-break {
         font-size: smaller;
     }
@@ -112,15 +123,19 @@ p {
     bottom: base();
     right: base();
     cursor: pointer;
+
     &:hover {
-        .lock, .unlock {
+
+        .lock,
+        .unlock {
             opacity: 1;
             transition: 0.1s ease;
         }
     }
 }
 
-.lock, .unlock {
+.lock,
+.unlock {
     opacity: 0;
     transition: 0.1s ease;
 }
