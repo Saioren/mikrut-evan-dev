@@ -110,7 +110,7 @@ const StandardHero: React.FC<Hero> = (props) => {
                       <PopOut animate={true} wait={3}>
                         <Image
                           className={classes.pfp}
-                          src={heroImage.url}
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
                           width={heroImage.width}
                           height={heroImage.height}
                           alt={heroImage.alt}
