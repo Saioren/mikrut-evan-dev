@@ -18,7 +18,7 @@ const FadeIn: React.FC<Props> = (props) => {
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ delay: delayTime, duration: 0.5, ease: 'easeOut' }}
       viewport={{ once: true, amount: 'some' }}
-      className={props.className}
+      className={`${props.className} ${classes.fadeIn}`}
     >
       {children}
     </motion.div>
