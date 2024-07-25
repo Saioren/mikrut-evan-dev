@@ -59,8 +59,8 @@ const StandardHero: React.FC<Hero> = (props) => {
                         <PopOut animate={true} wait={3}>
                           <Image
                             className={classes.pfp}
-                            //src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
-                            src="/1mb.png"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
+                            //src="/1mb.png"
                             width={heroImage.width}
                             height={heroImage.height}
                             alt={heroImage.alt}
@@ -81,8 +81,8 @@ const StandardHero: React.FC<Hero> = (props) => {
                         <PopOut animate={true} wait={width && width < 768 ? 7 : 3}>
                           <Image
                             className={classes.pfp}
-                            //src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
-                            src="/1mb.png"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
+                            //src="/1mb.png"
                             width={heroImage.width}
                             height={heroImage.height}
                             alt={heroImage.alt}
@@ -124,8 +124,8 @@ const StandardHero: React.FC<Hero> = (props) => {
                       <PopOut animate={true} wait={3}>
                         <Image
                           className={classes.pfp}
-                          //src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
-                          src="/1mb.png"
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${heroImage.url}`}
+                          //src="/1mb.png"
                           width={heroImage.width}
                           height={heroImage.height}
                           alt={heroImage.alt}
