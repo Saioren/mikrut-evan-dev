@@ -64,6 +64,7 @@ const StandardHero: React.FC<Hero> = (props) => {
                             width={heroImage.width}
                             height={heroImage.height}
                             alt={heroImage.alt}
+                            priority
                           />
                         </PopOut>
                       </Cell>
@@ -86,6 +87,7 @@ const StandardHero: React.FC<Hero> = (props) => {
                             width={heroImage.width}
                             height={heroImage.height}
                             alt={heroImage.alt}
+                            priority
                           />
                         </PopOut>
                       </Cell>
