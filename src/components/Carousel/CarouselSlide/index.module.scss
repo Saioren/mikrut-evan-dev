@@ -57,6 +57,7 @@
 
 .projectDescription {
     padding: base();
+    font-size: xx-large;
     @include small-break {
         font-size: medium;
         padding: 0 base();
@@ -64,10 +65,13 @@
 }
 
 .projectTitle {
-    font-weight: bold;
     text-align: center;
+    font-size: 50px;
+    @include mid-break {
+        font-size: x-large;
+    }
     @include small-break {
-        font-size: medium;
+        font-size: large;
     }
 }
 
