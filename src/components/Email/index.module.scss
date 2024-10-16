@@ -45,6 +45,24 @@
                 height: 150px;
             }
         }
+        @media screen and (min-width: 2000px) {
+            textarea {
+                height: 400px;
+            }
+        }
+        
+        /* Set height to 500px at a screen width of 2550px or larger */
+        @media screen and (min-width: 2550px) {
+            textarea {
+                height: 500px;
+            }
+        }
+
+        @media screen and (min-width: 2950px) {
+            textarea {
+                height: 600px;
+            }
+        }
     }
     @include extra-large-break {
         gap: base();

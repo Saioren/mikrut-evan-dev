@@ -54,6 +54,11 @@
     h3 {
         margin: 0;
     }
+    @media screen and (min-width: 2350px) {
+        h3 {
+            font-size: 80px !important;
+        }
+    }
 }
 
 .skillInformation {
@@ -63,6 +68,10 @@
     flex-direction: column;
     p {
         margin: 0;
+    }
+
+    @media screen and (min-width: 2350px) {
+        font-size: x-large !important;
     }
 }
 

@@ -78,7 +78,7 @@ const Content: React.FC<ContentType> = ({
           <FadeIn order={2}>
             <div
               className={classes.richTextDiv}
-              style={{ paddingBottom: content && content.links?.length === 0 ? '24px' : undefined }}
+              style={{ paddingBottom: content && content.links?.length === 0 ? '48px' : undefined }}
             >
               <RichText content={content?.richText} />
             </div>

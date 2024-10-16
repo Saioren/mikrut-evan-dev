@@ -53,4 +53,7 @@
     @include small-break {
         text-align: center;
     }
+    @media screen and (min-width: 2350px) {
+        font-size: x-large !important;
+    }
 }
