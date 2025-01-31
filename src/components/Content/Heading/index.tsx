@@ -26,7 +26,7 @@ const Heading: React.FC<Props> = (props) => {
     <div className={classes.container}>
       <PopOut wait={3}>
         <div className={classes.headingWrap}>
-          <h2 className={classes.heading}>{heading}</h2>
+          <h1 className={classes.heading}>{heading}</h1>
         </div>
       </PopOut>
     </div>
