@@ -65,6 +65,16 @@
 .icon {
     filter: var(--filter-color);
 
+    @include large-break {
+        width: 32px;
+        height: 32px;
+    }
+
+    @include mid-break {
+        width: 28px;
+        height: 28px;
+    }
+
     @include small-break {
         width: 20px;
         height: 20px;
