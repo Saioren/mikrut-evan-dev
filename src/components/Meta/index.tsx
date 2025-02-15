@@ -9,7 +9,7 @@ const Meta: React.FC<MetaType> = (props) => {
     title,
     description,
     image, // may be 'null' so do not destructure
-    keywords,
+    keywords = ["evan mikrut", "mikrutevan.dev", "mikrut evan", "next js", "payload cms", "wordpress", "typescript", "javascript"],
   } = props
 
   let imageToUse
