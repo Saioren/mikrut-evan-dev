@@ -2,14 +2,13 @@ import NextHead from 'next/head'
 import React, { Fragment } from 'react'
 import { Meta as MetaType } from '@/types/Fields/Meta/types'
 
-// NOTE: there is also an 'AppHead' component
-
 const Meta: React.FC<MetaType> = (props) => {
   const {
-    title,
+    title, // Title for the page and browser tab
     description,
     image, // may be 'null' so do not destructure
     keywords = "evan mikrut mikrutevan.dev mikrut evan next js payload cms wordpress typescript javascript",
+    seoTitle, // This will be used for search result title
   } = props
 
   let imageToUse
@@ -27,24 +26,38 @@ const Meta: React.FC<MetaType> = (props) => {
 
   return (
     <NextHead>
+      {/* Title for the browser tab */}
       {title && (
         <Fragment>
           <title>{title}</title>
-          <meta property="og:title" content={title} />
         </Fragment>
       )}
+
+      {/* SEO Title for search engines (Google) */}
+      {seoTitle && (
+        <Fragment>
+          <meta property="og:title" content={seoTitle} />
+          <meta name="twitter:title" content={seoTitle} />
+        </Fragment>
+      )}
+
+      {/* OG Description */}
       {description && (
         <Fragment>
           <meta name="description" content={description} />
           <meta property="og:description" content={description} />
         </Fragment>
       )}
+
+      {/* OG Image */}
       {imageToUse && typeof imageToUse !== 'string' && (
         <meta
           property="og:image"
           content={`${process.env.NEXT_PUBLIC_API_URL}/media/${imageToUse?.filename}`}
         />
       )}
+
+      {/* Keywords */}
       {keywords && <meta name="keywords" content={keywords} />}
     </NextHead>
   )

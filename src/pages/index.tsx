@@ -6,9 +6,12 @@ import Meta from '@/components/Meta'
 import { PageType } from '@/types/Layout/Page/types'
 
 const HomePage: React.FC<PageType & { globals: any }> = ({ layout, hero, meta }) => {
+  // Dynamically set seoTitle based on hero.header
+  const seoTitle = hero.header || meta.title
+
   return (
     <main>
-      <Meta {...meta} />
+      <Meta {...meta} seoTitle={seoTitle} /> {/* Pass seoTitle here */}
       <div id="page-content">
         <Hero {...hero} />
         <Blocks blocks={layout} />
