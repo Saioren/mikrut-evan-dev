@@ -50,14 +50,14 @@ const MikrutEvanApp = ({ Component, pageProps }: AppProps): React.ReactElement =
               }}
               rowGap={{
                 s: '1rem',
-                m: '1rem',
-                l: '4rem',
+                m: '2rem',
+                l: '3rem',
                 xl: '4rem',
               }}
               colGap={{
                 s: '10px',
-                m: '10px',
-                l: '4rem',
+                m: '1rem',
+                l: '2rem',
                 xl: '4rem',
               }}
               cols={{
