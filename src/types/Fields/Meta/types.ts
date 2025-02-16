@@ -5,4 +5,5 @@ export type Meta = {
   description?: string
   keywords?: string
   image?: Media
+  seoTitle?: string;
 }
