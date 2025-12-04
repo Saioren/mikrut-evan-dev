@@ -6,35 +6,120 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * Supported timezones in IANA format.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "supportedTimezones".
+ */
+export type SupportedTimezones =
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
+
 export interface Config {
   auth: {
     users: UserAuthOperations;
   };
+  blocks: {};
   collections: {
     users: User;
     media: Media;
     pages: Page;
     skillsCollection: SkillsCollection;
+    'payload-kv': PayloadKv;
+    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
+  collectionsJoins: {};
+  collectionsSelect: {
+    users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    skillsCollection: SkillsCollectionSelect<false> | SkillsCollectionSelect<true>;
+    'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
+  db: {
+    defaultIDType: string;
+  };
+  fallbackLocale: null;
   globals: {
     footer: Footer;
+  };
+  globalsSelect: {
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
     collection: 'users';
   };
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
+  };
 }
 export interface UserAuthOperations {
   forgotPassword: {
     email: string;
+    password: string;
   };
   login: {
-    password: string;
     email: string;
+    password: string;
   };
   registerFirstUser: {
+    email: string;
+    password: string;
+  };
+  unlock: {
     email: string;
     password: string;
   };
@@ -54,15 +139,27 @@ export interface User {
   hash?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
   password?: string | null;
 }
 /**
+ * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
   id: string;
   alt: string;
+  /**
+   * Select an image to use as a video fallback when browsers refuse to play them in iOS low-power mode
+   */
   fallback?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -98,7 +195,7 @@ export interface Page {
             root: {
               type: string;
               children: {
-                type: string;
+                type: any;
                 version: number;
                 [k: string]: unknown;
               }[];
@@ -135,7 +232,7 @@ export interface Page {
                   type?: ('reference' | 'custom') | null;
                   newTab?: boolean | null;
                   url?: string | null;
-                  image?: string | Media | null;
+                  image?: (string | null) | Media;
                 };
                 id?: string | null;
               }[]
@@ -146,6 +243,9 @@ export interface Page {
         backgroundColors?: {
           backgroundColors?:
             | {
+                /**
+                 * Select the position for the background color
+                 */
                 backgroundColor:
                   | 'left'
                   | 'right'
@@ -174,7 +274,7 @@ export interface Page {
             root: {
               type: string;
               children: {
-                type: string;
+                type: any;
                 version: number;
                 [k: string]: unknown;
               }[];
@@ -211,7 +311,7 @@ export interface Page {
                   type?: ('reference' | 'custom') | null;
                   newTab?: boolean | null;
                   url?: string | null;
-                  image?: string | Media | null;
+                  image?: (string | null) | Media;
                 };
                 id?: string | null;
               }[]
@@ -234,7 +334,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -271,7 +371,7 @@ export interface Page {
                       type?: ('reference' | 'custom') | null;
                       newTab?: boolean | null;
                       url?: string | null;
-                      image?: string | Media | null;
+                      image?: (string | null) | Media;
                     };
                     id?: string | null;
                   }[]
@@ -279,9 +379,9 @@ export interface Page {
             };
             slides?:
               | {
-                  projectImage?: string | Media | null;
-                  projectImageDark?: string | Media | null;
-                  projectImageLight?: string | Media | null;
+                  projectImage?: (string | null) | Media;
+                  projectImageDark?: (string | null) | Media;
+                  projectImageLight?: (string | null) | Media;
                   imageType?: boolean | null;
                   slideTitle?: string | null;
                   slideDescription?: string | null;
@@ -305,7 +405,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -342,7 +442,7 @@ export interface Page {
                       type?: ('reference' | 'custom') | null;
                       newTab?: boolean | null;
                       url?: string | null;
-                      image?: string | Media | null;
+                      image?: (string | null) | Media;
                     };
                     id?: string | null;
                   }[]
@@ -364,7 +464,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -401,7 +501,7 @@ export interface Page {
                       type?: ('reference' | 'custom') | null;
                       newTab?: boolean | null;
                       url?: string | null;
-                      image?: string | Media | null;
+                      image?: (string | null) | Media;
                     };
                     id?: string | null;
                   }[]
@@ -432,7 +532,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -469,7 +569,7 @@ export interface Page {
                       type?: ('reference' | 'custom') | null;
                       newTab?: boolean | null;
                       url?: string | null;
-                      image?: string | Media | null;
+                      image?: (string | null) | Media;
                     };
                     id?: string | null;
                   }[]
@@ -482,7 +582,7 @@ export interface Page {
                     root: {
                       type: string;
                       children: {
-                        type: string;
+                        type: any;
                         version: number;
                         [k: string]: unknown;
                       }[];
@@ -515,7 +615,7 @@ export interface Page {
                     root: {
                       type: string;
                       children: {
-                        type: string;
+                        type: any;
                         version: number;
                         [k: string]: unknown;
                       }[];
@@ -552,7 +652,7 @@ export interface Page {
                           type?: ('reference' | 'custom') | null;
                           newTab?: boolean | null;
                           url?: string | null;
-                          image?: string | Media | null;
+                          image?: (string | null) | Media;
                         };
                         id?: string | null;
                       }[]
@@ -561,13 +661,16 @@ export interface Page {
               };
               projectsField?:
                 | {
-                    projectImage?: string | Media | null;
-                    projectImageDark?: string | Media | null;
-                    projectImageLight?: string | Media | null;
+                    projectImage?: (string | null) | Media;
+                    projectImageDark?: (string | null) | Media;
+                    projectImageLight?: (string | null) | Media;
                     imageType?: boolean | null;
                     projectName?: string | null;
                     projectTeaser?: string | null;
                     projectDescription?: string | null;
+                    /**
+                     * Keep identical to [Slide Url] in any given carousel slide.
+                     */
                     projectUrl?: string | null;
                     id?: string | null;
                   }[]
@@ -581,7 +684,7 @@ export interface Page {
                     root: {
                       type: string;
                       children: {
-                        type: string;
+                        type: any;
                         version: number;
                         [k: string]: unknown;
                       }[];
@@ -618,7 +721,7 @@ export interface Page {
                           type?: ('reference' | 'custom') | null;
                           newTab?: boolean | null;
                           url?: string | null;
-                          image?: string | Media | null;
+                          image?: (string | null) | Media;
                         };
                         id?: string | null;
                       }[]
@@ -627,13 +730,16 @@ export interface Page {
               };
               projectsField?:
                 | {
-                    projectImage?: string | Media | null;
-                    projectImageDark?: string | Media | null;
-                    projectImageLight?: string | Media | null;
+                    projectImage?: (string | null) | Media;
+                    projectImageDark?: (string | null) | Media;
+                    projectImageLight?: (string | null) | Media;
                     imageType?: boolean | null;
                     projectName?: string | null;
                     projectTeaser?: string | null;
                     projectDescription?: string | null;
+                    /**
+                     * Keep identical to [Slide Url] in any given carousel slide.
+                     */
                     projectUrl?: string | null;
                     id?: string | null;
                   }[]
@@ -647,7 +753,7 @@ export interface Page {
                     root: {
                       type: string;
                       children: {
-                        type: string;
+                        type: any;
                         version: number;
                         [k: string]: unknown;
                       }[];
@@ -684,7 +790,7 @@ export interface Page {
                           type?: ('reference' | 'custom') | null;
                           newTab?: boolean | null;
                           url?: string | null;
-                          image?: string | Media | null;
+                          image?: (string | null) | Media;
                         };
                         id?: string | null;
                       }[]
@@ -693,13 +799,16 @@ export interface Page {
               };
               projectsField?:
                 | {
-                    projectImage?: string | Media | null;
-                    projectImageDark?: string | Media | null;
-                    projectImageLight?: string | Media | null;
+                    projectImage?: (string | null) | Media;
+                    projectImageDark?: (string | null) | Media;
+                    projectImageLight?: (string | null) | Media;
                     imageType?: boolean | null;
                     projectName?: string | null;
                     projectTeaser?: string | null;
                     projectDescription?: string | null;
+                    /**
+                     * Keep identical to [Slide Url] in any given carousel slide.
+                     */
                     projectUrl?: string | null;
                     id?: string | null;
                   }[]
@@ -739,6 +848,54 @@ export interface SkillsCollection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv".
+ */
+export interface PayloadKv {
+  id: string;
+  key: string;
+  data:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: string;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: string | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'skillsCollection';
+        value: string | SkillsCollection;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
@@ -773,6 +930,640 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  fallback?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  hero?:
+    | T
+    | {
+        type?: T;
+        standard?:
+          | T
+          | {
+              standardHero?:
+                | T
+                | {
+                    padding?:
+                      | T
+                      | {
+                          paddingTop?: T;
+                          paddingBottom?: T;
+                        };
+                    position?: T;
+                    heading?: T;
+                    content?:
+                      | T
+                      | {
+                          richText?: T;
+                          links?:
+                            | T
+                            | {
+                                link?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      reference?: T;
+                                      type?: T;
+                                      newTab?: T;
+                                      url?: T;
+                                      appearance?: T;
+                                    };
+                                id?: T;
+                              };
+                          imageLinks?:
+                            | T
+                            | {
+                                imageLink?:
+                                  | T
+                                  | {
+                                      reference?: T;
+                                      type?: T;
+                                      newTab?: T;
+                                      url?: T;
+                                      image?: T;
+                                    };
+                                id?: T;
+                              };
+                        };
+                    heroImage?: T;
+                    enableBackgroundColors?: T;
+                    backgroundColors?:
+                      | T
+                      | {
+                          backgroundColors?:
+                            | T
+                            | {
+                                backgroundColor?: T;
+                                id?: T;
+                              };
+                        };
+                  };
+            };
+        projects?:
+          | T
+          | {
+              projectsHero?:
+                | T
+                | {
+                    padding?:
+                      | T
+                      | {
+                          paddingTop?: T;
+                          paddingBottom?: T;
+                        };
+                    heading?: T;
+                    content?:
+                      | T
+                      | {
+                          richText?: T;
+                          links?:
+                            | T
+                            | {
+                                link?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      reference?: T;
+                                      type?: T;
+                                      newTab?: T;
+                                      url?: T;
+                                      appearance?: T;
+                                    };
+                                id?: T;
+                              };
+                          imageLinks?:
+                            | T
+                            | {
+                                imageLink?:
+                                  | T
+                                  | {
+                                      reference?: T;
+                                      type?: T;
+                                      newTab?: T;
+                                      url?: T;
+                                      image?: T;
+                                    };
+                                id?: T;
+                              };
+                        };
+                  };
+            };
+      };
+  layout?:
+    | T
+    | {
+        carouselBlock?:
+          | T
+          | {
+              heading?: T;
+              padding?:
+                | T
+                | {
+                    paddingTop?: T;
+                    paddingBottom?: T;
+                  };
+              position?: T;
+              content?:
+                | T
+                | {
+                    richText?: T;
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                label?: T;
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                appearance?: T;
+                              };
+                          id?: T;
+                        };
+                    imageLinks?:
+                      | T
+                      | {
+                          imageLink?:
+                            | T
+                            | {
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                image?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              slides?:
+                | T
+                | {
+                    projectImage?: T;
+                    projectImageDark?: T;
+                    projectImageLight?: T;
+                    imageType?: T;
+                    slideTitle?: T;
+                    slideDescription?: T;
+                    slideUrl?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        emailBlock?:
+          | T
+          | {
+              heading?: T;
+              padding?:
+                | T
+                | {
+                    paddingTop?: T;
+                    paddingBottom?: T;
+                  };
+              position?: T;
+              content?:
+                | T
+                | {
+                    richText?: T;
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                label?: T;
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                appearance?: T;
+                              };
+                          id?: T;
+                        };
+                    imageLinks?:
+                      | T
+                      | {
+                          imageLink?:
+                            | T
+                            | {
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                image?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        skillsBlock?:
+          | T
+          | {
+              heading?: T;
+              padding?:
+                | T
+                | {
+                    paddingTop?: T;
+                    paddingBottom?: T;
+                  };
+              position?: T;
+              content?:
+                | T
+                | {
+                    richText?: T;
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                label?: T;
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                appearance?: T;
+                              };
+                          id?: T;
+                        };
+                    imageLinks?:
+                      | T
+                      | {
+                          imageLink?:
+                            | T
+                            | {
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                image?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              skills?:
+                | T
+                | {
+                    skillName?: T;
+                    skillDescription?: T;
+                    skillImage?: T;
+                    skillId?: T;
+                    skillLink?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        timelineBlock?:
+          | T
+          | {
+              heading?: T;
+              padding?:
+                | T
+                | {
+                    paddingTop?: T;
+                    paddingBottom?: T;
+                  };
+              content?:
+                | T
+                | {
+                    richText?: T;
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                label?: T;
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                appearance?: T;
+                              };
+                          id?: T;
+                        };
+                    imageLinks?:
+                      | T
+                      | {
+                          imageLink?:
+                            | T
+                            | {
+                                reference?: T;
+                                type?: T;
+                                newTab?: T;
+                                url?: T;
+                                image?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              timelineElements?:
+                | T
+                | {
+                    title?: T;
+                    richText?: T;
+                    date?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        projectsBlock?:
+          | T
+          | {
+              padding?:
+                | T
+                | {
+                    paddingTop?: T;
+                    paddingBottom?: T;
+                  };
+              firstProjects?:
+                | T
+                | {
+                    firstProjectsContent?:
+                      | T
+                      | {
+                          heading?: T;
+                          content?:
+                            | T
+                            | {
+                                richText?: T;
+                                links?:
+                                  | T
+                                  | {
+                                      link?:
+                                        | T
+                                        | {
+                                            label?: T;
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            appearance?: T;
+                                          };
+                                      id?: T;
+                                    };
+                                imageLinks?:
+                                  | T
+                                  | {
+                                      imageLink?:
+                                        | T
+                                        | {
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            image?: T;
+                                          };
+                                      id?: T;
+                                    };
+                              };
+                        };
+                    projectsField?:
+                      | T
+                      | {
+                          projectImage?: T;
+                          projectImageDark?: T;
+                          projectImageLight?: T;
+                          imageType?: T;
+                          projectName?: T;
+                          projectTeaser?: T;
+                          projectDescription?: T;
+                          projectUrl?: T;
+                          id?: T;
+                        };
+                  };
+              secondProjects?:
+                | T
+                | {
+                    secondProjectsContent?:
+                      | T
+                      | {
+                          heading?: T;
+                          content?:
+                            | T
+                            | {
+                                richText?: T;
+                                links?:
+                                  | T
+                                  | {
+                                      link?:
+                                        | T
+                                        | {
+                                            label?: T;
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            appearance?: T;
+                                          };
+                                      id?: T;
+                                    };
+                                imageLinks?:
+                                  | T
+                                  | {
+                                      imageLink?:
+                                        | T
+                                        | {
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            image?: T;
+                                          };
+                                      id?: T;
+                                    };
+                              };
+                        };
+                    projectsField?:
+                      | T
+                      | {
+                          projectImage?: T;
+                          projectImageDark?: T;
+                          projectImageLight?: T;
+                          imageType?: T;
+                          projectName?: T;
+                          projectTeaser?: T;
+                          projectDescription?: T;
+                          projectUrl?: T;
+                          id?: T;
+                        };
+                  };
+              thirdProjects?:
+                | T
+                | {
+                    thirdProjectsContent?:
+                      | T
+                      | {
+                          heading?: T;
+                          content?:
+                            | T
+                            | {
+                                richText?: T;
+                                links?:
+                                  | T
+                                  | {
+                                      link?:
+                                        | T
+                                        | {
+                                            label?: T;
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            appearance?: T;
+                                          };
+                                      id?: T;
+                                    };
+                                imageLinks?:
+                                  | T
+                                  | {
+                                      imageLink?:
+                                        | T
+                                        | {
+                                            reference?: T;
+                                            type?: T;
+                                            newTab?: T;
+                                            url?: T;
+                                            image?: T;
+                                          };
+                                      id?: T;
+                                    };
+                              };
+                        };
+                    projectsField?:
+                      | T
+                      | {
+                          projectImage?: T;
+                          projectImageDark?: T;
+                          projectImageLight?: T;
+                          imageType?: T;
+                          projectName?: T;
+                          projectTeaser?: T;
+                          projectDescription?: T;
+                          projectUrl?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  slug?: T;
+  author?: T;
+  fullTitle?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skillsCollection_select".
+ */
+export interface SkillsCollectionSelect<T extends boolean = true> {
+  skills?:
+    | T
+    | {
+        skillName?: T;
+        skillDescription?: T;
+        skillImage?: T;
+        skillId?: T;
+        skillLink?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv_select".
+ */
+export interface PayloadKvSelect<T extends boolean = true> {
+  key?: T;
+  data?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents_select".
+ */
+export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences_select".
+ */
+export interface PayloadPreferencesSelect<T extends boolean = true> {
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations_select".
+ */
+export interface PayloadMigrationsSelect<T extends boolean = true> {
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer".
  */
 export interface Footer {
@@ -789,7 +1580,7 @@ export interface Footer {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
             url?: string | null;
-            image?: string | Media | null;
+            image?: (string | null) | Media;
           };
           id?: string | null;
         }[]
@@ -809,7 +1600,7 @@ export interface Footer {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
             url?: string | null;
-            image?: string | Media | null;
+            image?: (string | null) | Media;
           };
           id?: string | null;
         }[]
@@ -817,6 +1608,55 @@ export interface Footer {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  linkBlock?:
+    | T
+    | {
+        linkBlockLabel?: T;
+        links?:
+          | T
+          | {
+              imageLink?:
+                | T
+                | {
+                    reference?: T;
+                    type?: T;
+                    newTab?: T;
+                    url?: T;
+                    image?: T;
+                  };
+              id?: T;
+            };
+      };
+  copyrightBlock?:
+    | T
+    | {
+        copyrightLabel?: T;
+        copyrightBody?: T;
+        linkText?: T;
+        copyrightLinks?:
+          | T
+          | {
+              imageLink?:
+                | T
+                | {
+                    reference?: T;
+                    type?: T;
+                    newTab?: T;
+                    url?: T;
+                    image?: T;
+                  };
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
