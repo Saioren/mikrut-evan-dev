@@ -29,14 +29,14 @@ const Footer: React.FC = () => {
             image: {
               "id": "6699253d3bbdf36642103933",
               "alt": "Github",
-              "filename": "Octicons-mark-github.svg",
+              "filename": "github.png",
               "mimeType": "image/svg+xml",
               "filesize": 968,
               "width": 1024,
               "height": 1024,
               "createdAt": "2024-07-18T14:22:53.389Z",
               "updatedAt": "2024-07-18T14:22:53.389Z",
-              "url": "/api/media/file/Octicons-mark-github.svg",
+              "url": "/api/media/file/github.svg",
               "thumbnailURL": null
               },
           },
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             image: {
               "id": "6699258980988376aba77ff1",
               "alt": "X",
-              "filename": "Twitter_new_X_logo.png",
+              "filename": "x.png",
               "mimeType": "image/png",
               "filesize": 75267,
               "width": 576,
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               "focalY": 50,
               "createdAt": "2024-07-18T14:24:09.672Z",
               "updatedAt": "2024-07-18T14:24:09.672Z",
-              "url": "/api/media/file/Twitter_new_X_logo.png",
+              "url": "/api/media/file/x.png",
               "thumbnailURL": null
               },
           },
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             image: {
               "id": "669925563bbdf3664210394b",
               "alt": "Payload CMS",
-              "filename": "payload.png",
+              "filename": "payload-logo.png",
               "mimeType": "image/png",
               "filesize": 8964,
               "width": 1024,
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
               "focalY": 50,
               "createdAt": "2024-07-18T14:23:18.101Z",
               "updatedAt": "2024-07-18T14:23:18.101Z",
-              "url": "/api/media/file/payload.png",
+              "url": "/api/media/file/payload-logo.png",
               "thumbnailURL": null
               },
           },
@@ -110,14 +110,14 @@ const Footer: React.FC = () => {
             image: {
               "id": "6699254a56e90d5af0075999",
               "alt": "Next.js",
-              "filename": "next-js.svg",
+              "filename": "nextjs.svg",
               "mimeType": "image/svg+xml",
               "filesize": 1527,
               "width": 1365,
               "height": 1365,
               "createdAt": "2024-07-18T14:23:06.413Z",
               "updatedAt": "2024-07-18T14:23:06.413Z",
-              "url": "/api/media/file/next-js.svg",
+              "url": "/api/media/file/nextjs.svg",
               "thumbnailURL": null
               },
           },
