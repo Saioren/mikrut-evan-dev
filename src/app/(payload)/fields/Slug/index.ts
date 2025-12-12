@@ -1,22 +1,56 @@
-import { Field } from 'payload';
-import formatSlug from '../../utilities/formatSlug';
-import deepMerge from '../../utilities/deepMerge';
+import type { CheckboxField, TextField } from 'payload'
 
-type Slug = (fieldToUse?: string, overrides?: Partial<Field>) => Field
+import { formatSlugHook } from './formatSlug'
 
-export const slugField: Slug = (fieldToUse = 'title', overrides) => deepMerge<Field, Partial<Field>>(
-  {
-    name: 'slug',
-    label: 'Slug',
-    type: 'text',
+type Overrides = {
+  slugOverrides?: Partial<TextField>
+  checkboxOverrides?: Partial<CheckboxField>
+}
+
+type Slug = (fieldToUse?: string, overrides?: Overrides) => [TextField, CheckboxField]
+
+export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
+  const { slugOverrides, checkboxOverrides } = overrides
+
+  const checkBoxField: CheckboxField = {
+    name: 'slugLock',
+    type: 'checkbox',
+    defaultValue: true,
     admin: {
+      hidden: true,
       position: 'sidebar',
     },
+    ...checkboxOverrides,
+  }
+
+  // Expect ts error here because of typescript mismatching Partial<TextField> with TextField
+  // @ts-expect-error to be fixed
+  const slugField: TextField = {
+    name: 'slug',
+    type: 'text',
+    index: true,
+    label: 'Slug',
+    ...(slugOverrides || {}),
     hooks: {
-      beforeValidate: [
-        formatSlug(fieldToUse),
-      ],
+      // Kept this in for hook or API based updates
+      beforeValidate: [formatSlugHook(fieldToUse)],
     },
-  },
-  overrides as Partial<Field>,
-);
+    admin: {
+      hidden: true,
+      description: 'Let Payload automatically generate this for you; do not edit.',
+      position: 'sidebar',
+      ...(slugOverrides?.admin || {}),
+      components: {
+        Field: {
+          path: '@fields/slug/SlugComponent#SlugComponent',
+          clientProps: {
+            fieldToUse,
+            checkboxFieldPath: checkBoxField.name,
+          },
+        },
+      },
+    },
+  }
+
+  return [slugField, checkBoxField]
+}

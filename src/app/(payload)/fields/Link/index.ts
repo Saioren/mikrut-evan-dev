@@ -1,6 +1,6 @@
-import { Field } from "payload";
-import { LinkAppearances } from "@/types/Fields/Link/types";
-import deepMerge from "../../utilities/deepMerge";
+import { Field } from 'payload'
+import { LinkAppearances } from '@/types/Fields/Link/types'
+import deepMerge from '@utilities/deepMerge'
 
 export const appearanceOptions = {
   default: {
@@ -11,19 +11,14 @@ export const appearanceOptions = {
     label: 'Gradient',
     value: 'gradient',
   },
-};
+}
 
-type LinkType = (
-  options?: {
-    appearances?: LinkAppearances[] | false
-    overrides?: Partial<Field>
-  }
-) => Field;
+type LinkType = (options?: {
+  appearances?: LinkAppearances[] | false
+  overrides?: Partial<Field>
+}) => Field
 
-const Link: LinkType = ({
-  appearances,
-  overrides = {},
-} = {}) => {
+const Link: LinkType = ({ appearances, overrides = {} } = {}) => {
   const generatedLink: Field = {
     name: 'link',
     type: 'group',
@@ -106,10 +101,10 @@ const Link: LinkType = ({
             label: 'Gradient',
             value: 'gradient',
           },
-        ]
-      }
+        ],
+      },
     ],
-  };
+  }
 
   if (appearances) {
     generatedLink.fields.unshift({
@@ -117,10 +112,10 @@ const Link: LinkType = ({
       type: 'select',
       defaultValue: appearances[0],
       options: appearances.map((appearance) => appearanceOptions[appearance]),
-    });
+    })
   }
 
-  return deepMerge(generatedLink, overrides);
-};
+  return deepMerge(generatedLink, overrides)
+}
 
-export default Link;
+export default Link
